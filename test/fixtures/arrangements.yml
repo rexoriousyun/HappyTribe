@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time_slot: 1
+  user_id: 
+  opportunity_id: 
+
+two:
+  time_slot: 1
+  user_id: 
+  opportunity_id: 

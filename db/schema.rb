@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214185648) do
+ActiveRecord::Schema.define(version: 20151214190555) do
+
+  create_table "arrangements", force: :cascade do |t|
+    t.integer  "time_slot"
+    t.integer  "user_id"
+    t.integer  "opportunity_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "arrangements", ["opportunity_id"], name: "index_arrangements_on_opportunity_id"
+  add_index "arrangements", ["user_id"], name: "index_arrangements_on_user_id"
 
   create_table "opportunities", force: :cascade do |t|
     t.string   "name"
