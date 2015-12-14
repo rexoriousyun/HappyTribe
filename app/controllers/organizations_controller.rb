@@ -1,8 +1,16 @@
 class OrganizationsController < ApplicationController
   def new
+    @organization = Organization.new
   end
 
   def create
+    @organization = Organization.new(org_params)
+    if @organization.save
+      console.log("sucessful")
+    else
+      console.log("unsucessful")
+    end
+
   end
 
   def edit
@@ -18,5 +26,10 @@ class OrganizationsController < ApplicationController
   end
 
   def show
+    @organization = Organization.find(params[:id])
+  end
+  private
+  def org_params
+    params.require(:organization).permit(:name, :email, :website_url, :description)
   end
 end
