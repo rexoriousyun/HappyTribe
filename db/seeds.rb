@@ -15,3 +15,12 @@ org_2 =  Organization.create(
   email: "Fake@bamboo.com", 
   website_url: "www.FBamboo.ca", 
   description: "something about fake bamboo");
+opp_1 = Opportunity.create(
+  organization_id: 1,
+  name: "Walk for the cure",
+  location: "123 random drive",
+  start_time: Time.new(2016, 1, 12, 6, 0, 0) ,
+  end_time: Time.new(2016, 1, 12, 12, 0, 0),
+  description: "Walking to cure heart disease",
+  max_capacity: 10
+  );

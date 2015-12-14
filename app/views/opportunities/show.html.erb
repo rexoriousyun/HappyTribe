@@ -1,2 +1,12 @@
-<h1>Opportunities#show</h1>
+<!-- <h1>Opportunities#show</h1>
 <p>Find me in app/views/opportunities/show.html.erb</p>
+ -->
+ <div class="opportunity">
+   <p>Name: <%=@opportunity.name%></p>
+   <p>Start time: <%=@opportunity.start_time%></p>
+   <p>End Time: <%=@opportunity.end_time%></p>
+   <p>Max capacity: <%=@opportunity.max_capacity%></p>
+   <p>Location: <%= @opportunity.location%></p>
+   <p>Organization: <%= link_to Organization.find(@opportunity.organization_id).name, organization_path(@opportunity.organization_id)%></p>
+
+ </div>
