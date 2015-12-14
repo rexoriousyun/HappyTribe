@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start_time: 2015-12-14 13:56:48
+  end_time: 2015-12-14 13:56:48
+  max_capacity: 1
+  location: MyString
+  description: MyText
+  organization_id: 
+
+two:
+  name: MyString
+  start_time: 2015-12-14 13:56:48
+  end_time: 2015-12-14 13:56:48
+  max_capacity: 1
+  location: MyString
+  description: MyText
+  organization_id: 
