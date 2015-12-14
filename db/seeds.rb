@@ -26,10 +26,10 @@ opp_1 = Opportunity.create(
   );
 opp_2 = Opportunity.create(
   organization_id: 1,
-  name: "Walk for the cure",
-  location: "123 random drive",
+  name: "Run for the cure",
+  location: "123 specific drive",
   start_time: Time.new(2016, 1, 12, 6, 0, 0) ,
   end_time: Time.new(2016, 1, 12, 12, 0, 0),
-  description: "Walking to cure heart disease",
-  max_capacity: 10
+  description: "Running to cure heart disease",
+  max_capacity: 100
   );

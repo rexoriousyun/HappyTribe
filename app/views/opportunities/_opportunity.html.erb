@@ -1,4 +1,4 @@
-<p>Name: <%=opportunity.name%></p>
+<p>Name: <%= link_to opportunity.name, opportunity_path(opportunity)%></p>
 <p>Start time: <%=opportunity.start_time%></p>
 <p>End Time: <%=opportunity.end_time%></p>
 <p>Max capacity: <%=opportunity.max_capacity%></p>
