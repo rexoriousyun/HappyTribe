@@ -1,4 +1,5 @@
 class OrganizationsController < ApplicationController
+  skip_before_action :require_login, only: [:index, :show]
   def new
     @organization = Organization.new
   end
