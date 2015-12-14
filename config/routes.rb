@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'opportunities#index'
+
   resources :organizations
   resources :opportunities do
     resources :arrangements, only: [:new, :edit, :show, :create, :update, :destroy]
