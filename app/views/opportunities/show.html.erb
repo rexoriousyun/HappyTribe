@@ -9,3 +9,6 @@
    <p>Location: <%= @opportunity.location%></p>
    <p>Organization: <%= link_to @opportunity.organization.name, organization_path(@opportunity.organization)%></p>
  </div>
+ <div id="arr-form">
+   <%= render partial: 'arrangements/form'%>
+ </div>

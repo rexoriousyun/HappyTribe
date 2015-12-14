@@ -1,0 +1,7 @@
+<%= form_for [@opportunity, @arrangement] do |f|%>
+  <%=f.label :time_slot%>
+  <%=f.number_field :time_slot%>
+
+  <%=f.submit%>
+
+<%end%>
