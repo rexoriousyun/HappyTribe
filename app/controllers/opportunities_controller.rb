@@ -6,6 +6,7 @@ class OpportunitiesController < ApplicationController
   end
 
   def show
+    @opportunity = Opportunity.find(params[:id])
   end
 
   def new
