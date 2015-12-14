@@ -3,4 +3,4 @@
 <p>End Time: <%=opportunity.end_time%></p>
 <p>Max capacity: <%=opportunity.max_capacity%></p>
 <p>Location: <%= opportunity.location%></p>
-<p>Organization: <%= link_to @opportunity.organization.name, organization_path(@opportunity.organization)%></p>
+<p>Organization: <%= link_to opportunity.organization.name, organization_path(opportunity.organization)%></p>
