@@ -11,31 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215204538) do
+ActiveRecord::Schema.define(version: 20151215210131) do
 
   create_table "arrangements", force: :cascade do |t|
-    t.integer  "time_slot"
     t.integer  "user_id"
-    t.integer  "opportunity_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "timeslot_id"
   end
 
-  add_index "arrangements", ["opportunity_id"], name: "index_arrangements_on_opportunity_id"
   add_index "arrangements", ["user_id"], name: "index_arrangements_on_user_id"
 
   create_table "opportunities", force: :cascade do |t|
     t.string   "name"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.integer  "max_capacity"
     t.string   "location"
     t.text     "description"
     t.integer  "organization_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.float    "latitude"
-    t.float    "longitude"
   end
 
   add_index "opportunities", ["organization_id"], name: "index_opportunities_on_organization_id"
