@@ -15,7 +15,7 @@ class OpportunitiesController < ApplicationController
   end
 
   def create
-    @opportunity = Opportunity.new(opportunity_params) 
+    @opportunity = Opportunity.new(opportunity_params)
   end
 
   def edit
@@ -26,8 +26,10 @@ class OpportunitiesController < ApplicationController
 
   def destroy
   end
-  private 
+
+  private
   def opportunity_params
     params.require(:opportunity).permit(:name, :start_time, :end_time, :max_capacity, :location, :description)
   end
+
 end
