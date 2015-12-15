@@ -32,6 +32,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def get_user
     @user = User.find(params[:id])
   end
@@ -47,4 +48,5 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
+
 end
