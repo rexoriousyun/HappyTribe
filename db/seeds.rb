@@ -6,14 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 org_1 =  Organization.create(
-  name: "Heart and stroke", 
-  email: "heart@stroke.com", 
-  website_url: "www.heart.ca", 
+  name: "Heart and stroke",
+  email: "heart@stroke.com",
+  website_url: "www.heart.ca",
   description: "something");
 org_2 =  Organization.create(
-  name: "Fake Bamboo", 
-  email: "Fake@bamboo.com", 
-  website_url: "www.FBamboo.ca", 
+  name: "Fake Bamboo",
+  email: "Fake@bamboo.com",
+  website_url: "www.FBamboo.ca",
   description: "something about fake bamboo");
 opp_1 = Opportunity.create(
   organization_id: 1,
@@ -32,4 +32,12 @@ opp_2 = Opportunity.create(
   end_time: Time.new(2016, 1, 12, 12, 0, 0),
   description: "Running to cure heart disease",
   max_capacity: 100
+  );
+
+user_1 = User.create(
+  first_name: "Betty",
+  last_name: "Maker",
+  email: "betty@maker.com",
+  password: "blah",
+  password_confirmation: "blah"
   );
