@@ -1,5 +1,8 @@
 class OrganizationsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
+
+  # Organization actions will become relevant if we allow a user to create organizations
+
   def new
     @organization = Organization.new
   end
