@@ -1,3 +1,8 @@
+ <div class="opportunities-search">
+ 	<%= form_tag opportunities_path, method: :get %>
+ 		<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag 'Find Nearby Opportunities' %>
+</div>
  <div class="opportunities-list">
    <%= render @opportunities %>
  </div>
