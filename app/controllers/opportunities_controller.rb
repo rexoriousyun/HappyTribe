@@ -7,6 +7,7 @@ class OpportunitiesController < ApplicationController
 
   def show
     @opportunity = Opportunity.find(params[:id])
+    @arrangement = @opportunity.arrangements.build
   end
 
   def new
