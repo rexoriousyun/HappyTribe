@@ -8,6 +8,12 @@
 </head>
 <body>
 
+	<% if flash[:notice].present? %>
+		<%= flash[:notice] %>
+	<% elsif flash[:alert].present? %>
+		<%= flash[:alert] %>
+	<% end %>
+
 	<% if logged_in? %>
 		<%= link_to 'Logout', logout_path, method: 'delete' %>
 	<% else %>

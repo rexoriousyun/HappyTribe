@@ -10,9 +10,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:notice] = "Successfully signed up for Happy Tribe!"
       auto_login(@user)
       redirect_to opportunities_path
     else
+      flash[:alert] = "Sorry, Signup failed. :("
       render :new
     end
   end
