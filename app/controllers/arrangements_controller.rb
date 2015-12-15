@@ -4,11 +4,11 @@ class ArrangementsController < ApplicationController
   end
 
   def create
-    
+
     @arrangement = @opportunity.arrangements.build(arr_params)
     @arrangement.user = current_user
     if @arrangement.save
-      puts "SUCESS!"
+      puts "SUCCESS!"
     else
       puts "failure"
     end
@@ -26,6 +26,7 @@ class ArrangementsController < ApplicationController
 
   def destroy
   end
+
   private
   def get_opportunity
     @opportunity = Opportunity.find(params[:opportunity_id])
@@ -33,4 +34,5 @@ class ArrangementsController < ApplicationController
   def arr_params
     params.require(:arrangement).permit(:time_slot, :opportunity_id)
   end
+
 end
