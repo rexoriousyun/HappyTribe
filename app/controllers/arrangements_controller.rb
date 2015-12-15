@@ -1,18 +1,19 @@
 class ArrangementsController < ApplicationController
-  before_action :get_opportunity
+  before_arrangement
+
   def new
   end
 
   def create
-
+    get_opportunity
     @arrangement = @opportunity.arrangements.build(arr_params)
     @arrangement.user = current_user
     if @arrangement.save
-      puts "SUCCESS!"
+      redirect_to opportunity_path(@opportunity), notice: "Arrangement successfully made!"
     else
-      puts "failure"
+      flash[:alert] = "Volunteering arrangement failed to save."
+      render opportunity_path(@opportunity)
     end
-
   end
 
   def show
