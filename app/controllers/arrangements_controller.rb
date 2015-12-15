@@ -6,7 +6,7 @@ class ArrangementsController < ApplicationController
   end
 
   def create
-    @arrangement = @timeslot.arrangements.build(arr_params)
+    @arrangement = @timeslot.arrangements.build
     @arrangement.user = current_user
     if @arrangement.save
       redirect_to opportunity_path(@timeslot.opportunity), notice: "Arrangement successfully made!"
@@ -29,11 +29,9 @@ class ArrangementsController < ApplicationController
   end
 
   private
+
   def get_timeslot
     @timeslot = Timeslot.find(params[:timeslot_id])
-  end
-  def arr_params
-    params.require(:arrangement)
   end
 
 end
