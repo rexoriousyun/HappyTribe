@@ -1,11 +1,11 @@
 class ArrangementsController < ApplicationController
-  before_arrangement
+
+  before_action :get_opportunity
 
   def new
   end
 
   def create
-    get_opportunity
     @arrangement = @opportunity.arrangements.build(arr_params)
     @arrangement.user = current_user
     if @arrangement.save
