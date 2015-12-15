@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214193435) do
+ActiveRecord::Schema.define(version: 20151215204538) do
 
   create_table "arrangements", force: :cascade do |t|
     t.integer  "time_slot"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20151214193435) do
     t.integer  "organization_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "opportunities", ["organization_id"], name: "index_opportunities_on_organization_id"
@@ -46,6 +48,17 @@ ActiveRecord::Schema.define(version: 20151214193435) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "timeslots", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "capacity"
+    t.integer  "opportunity_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "timeslots", ["opportunity_id"], name: "index_timeslots_on_opportunity_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
