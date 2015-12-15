@@ -4,3 +4,12 @@
 <p> <%= @user.email %> </p>
 
 <%= link_to 'Edit Profile', edit_user_path(@user) %>
+
+<h1>Your Volunteering Arrangements</h1>
+
+<% @user.opportunities.each do |opportunity| %>
+	<p>Event: <%= opportunity.name %></p>
+	<p>Organization: <%= opportunity.organization.name %></p>
+	<p>Date: <%= opportunity.start_time.strftime("%Y-%d-%m") %></p>
+<% end %>
+

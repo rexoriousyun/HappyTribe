@@ -7,12 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-	<% if flash[:notice].present? %>
-		<%= flash[:notice] %>
-	<% elsif flash[:alert].present? %>
-		<%= flash[:alert] %>
-	<% end %>
+	<p>
+		<% if flash[:notice].present? %>
+			<%= flash[:notice] %>
+		<% elsif flash[:alert].present? %>
+			<%= flash[:alert] %>
+		<% end %>
+	</p>
 
 	<% if logged_in? %>
 		<%= link_to 'Logout', logout_path, method: 'delete' %>
