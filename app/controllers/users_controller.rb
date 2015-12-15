@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   def user_authorized?
     get_user
     unless current_user == @user
-      flash[:alert] = "Sorry, this doens't seem to be your profile. Redirecting to your profile."
+      flash[:alert] = "Sorry, this doesn't seem to be your profile page. Redirecting to your profile."
       redirect_to user_path(current_user)
     end
   end

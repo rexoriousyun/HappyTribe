@@ -41,3 +41,10 @@ user_1 = User.create(
   password: "blah",
   password_confirmation: "blah"
   );
+user_2 = User.create(
+  first_name: "John",
+  last_name: "Doe",
+  email: "john@doe.com",
+  password: "blah",
+  password_confirmation: "blah"
+  );
