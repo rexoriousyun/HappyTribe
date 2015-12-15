@@ -8,5 +8,9 @@
 </div>
 
 <div id="arr-form">
-	<%= render partial: 'arrangements/form' %>
+	<% if logged_in? %>
+		<%= render partial: 'arrangements/form' %>
+	<% else %>
+		<p><a href="/login">Login</a> to volunteer at this event</p>
+	<% end %>
 </div>

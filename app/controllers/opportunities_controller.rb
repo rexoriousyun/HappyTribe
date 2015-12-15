@@ -7,7 +7,9 @@ class OpportunitiesController < ApplicationController
   end
 
   def show
-    @arrangement = @opportunity.arrangements.build
+    if logged_in?
+      @arrangement = @opportunity.arrangements.build
+    end
   end
 
   # the methods below show will only become relevant once we have a user/organization able to
@@ -36,7 +38,6 @@ class OpportunitiesController < ApplicationController
   def opportunity_params
     params.require(:opportunity).permit(:name, :start_time, :end_time, :max_capacity, :location, :description)
   end
-
 
   def get_opportunity
     @opportunity = Opportunity.find(params[:id])
