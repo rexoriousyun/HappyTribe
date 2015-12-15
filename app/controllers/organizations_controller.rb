@@ -7,9 +7,9 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(org_params)
     if @organization.save
-      puts "sucessful"
+      puts "successful"
     else
-      puts "unsucessful"
+      puts "unsuccessful"
     end
 
   end
