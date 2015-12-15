@@ -27,7 +27,7 @@ opp_1 = Opportunity.create(
 opp_2 = Opportunity.create(
   organization_id: 1,
   name: "Run for the cure",
-  location: "123 specific drive",
+  location: "220 King St W, Suite 200, Toronto, ON M5H 1K4",
   start_time: Time.new(2016, 1, 12, 6, 0, 0) ,
   end_time: Time.new(2016, 1, 12, 12, 0, 0),
   description: "Running to cure heart disease",
