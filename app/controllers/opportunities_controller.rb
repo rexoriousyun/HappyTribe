@@ -3,7 +3,17 @@ class OpportunitiesController < ApplicationController
   before_action :get_opportunity, only: [:show, :edit, :update, :destroy]
 
   def index
-    @opportunities = Opportunity.all
+    if params[:search_location]
+      @opportunities = Opportunity.near(params[:search_location])
+    elsif params[:latitude] && params[:longitude]
+      @opportunities = Opportunity.near([params[:latitude], params[:longitude]])
+    else
+      @opportunities = Opportunity.all
+    end
+
+    if request.xhr?
+      render @opportunities
+    end
   end
 
   def show

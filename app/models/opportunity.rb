@@ -3,6 +3,6 @@ class Opportunity < ActiveRecord::Base
   belongs_to :organization
 
   geocoded_by :location
-  after_validation :geocode
+  after_validation :geocode, if: :address_changed?
 
 end
