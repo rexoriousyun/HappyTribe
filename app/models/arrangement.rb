@@ -1,4 +1,5 @@
 class Arrangement < ActiveRecord::Base
   belongs_to :user
-  belongs_to :opportunity
+  belongs_to :timeslot
+  has_one :opportunity, through: :timeslot
 end
