@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root 'opportunities#index'
 
   resources :organizations
-  resources :opportunities do
+  resources :opportunities
+  resources :timeslots do
     resources :arrangements, only: [:new, :edit, :show, :create, :update, :destroy]
   end
   resources :sessions, only: [:new, :create, :destroy]

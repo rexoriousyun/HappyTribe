@@ -1,18 +1,18 @@
 class ArrangementsController < ApplicationController
 
-  before_action :get_opportunity
+  before_action :get_timeslot
 
   def new
   end
 
   def create
-    @arrangement = @opportunity.arrangements.build(arr_params)
+    @arrangement = @timeslot.arrangements.build(arr_params)
     @arrangement.user = current_user
     if @arrangement.save
-      redirect_to opportunity_path(@opportunity), notice: "Arrangement successfully made!"
+      redirect_to opportunity_path(@timeslot.opportunity), notice: "Arrangement successfully made!"
     else
       flash[:alert] = "Volunteering arrangement failed to save."
-      render opportunity_path(@opportunity)
+      render opportunity_path(@timeslot.opportunity)
     end
   end
 
@@ -29,11 +29,11 @@ class ArrangementsController < ApplicationController
   end
 
   private
-  def get_opportunity
-    @opportunity = Opportunity.find(params[:opportunity_id])
+  def get_timeslot
+    @timeslot = Timeslot.find(params[:timeslot_id])
   end
   def arr_params
-    params.require(:arrangement).permit(:time_slot, :opportunity_id)
+    params.require(:arrangement)
   end
 
 end

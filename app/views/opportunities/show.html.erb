@@ -1,15 +1,13 @@
 <div class="opportunity">
 	<p>Name: <%= @opportunity.name %></p>
-	<p>Start time: <%= @opportunity.start_time %></p>
-	<p>End Time: <%= @opportunity.end_time %></p>
-	<p>Max Capacity: <%= @opportunity.max_capacity %></p>
 	<p>Location: <%= @opportunity.location %></p>
 	<p>Organization: <%= link_to @opportunity.organization.name, organization_path(@opportunity.organization) %></p>
 </div>
 
-<div id="arr-form">
+
+<div id="timeslot-form">
 	<% if logged_in? %>
-		<%= render partial: 'arrangements/form' %>
+		<%= render partial: 'timeslots/timeslot', collection: @opportunity.timeslots.order(start_time: :asc) %>
 	<% else %>
 		<p><a href="/login">Login</a> to volunteer at this event</p>
 	<% end %>
