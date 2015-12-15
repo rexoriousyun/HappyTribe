@@ -32,8 +32,10 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find(params[:id])
   end
+
   private
   def org_params
     params.require(:organization).permit(:name, :email, :website_url, :description)
   end
+
 end
