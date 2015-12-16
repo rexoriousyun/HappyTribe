@@ -7,9 +7,9 @@
 
 <h1>Your Volunteering Arrangements</h1>
 
-<% @user.opportunities.each do |opportunity| %>
+<% @user.arranged_opportunities.uniq.each do |opportunity| %>
 	<p>Event: <%= opportunity.name %></p>
 	<p>Organization: <%= opportunity.organization.name %></p>
-	<p>Date: <%= opportunity.start_time.strftime("%Y-%d-%m") %></p>
+	<!-- opportunity.start_time method should be going here -->
 <% end %>
 
