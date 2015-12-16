@@ -23,10 +23,10 @@ event_1 = Event.create(
   description: "Walking to cure heart disease",
   );
 event_2 = Event.create(
-  organization_id: 1,
-  name: "Run for the cure",
+  organization_id: 2,
+  name: "Recycle for the Bamboo",
   location: "123 specific drive",
-  description: "Running to cure heart disease",
+  description: "Recycle to save the bamboo",
   );
 event_3 = Event.create(
   organization_id: 2,
@@ -120,15 +120,16 @@ interest_1 = Interest.create(
   name: "Healthcare"
   );
 interest_2 = Interest.create(
-  name: "Environment"
+  name: "Environmentalism"
   );
 skill_1 = Skill.create(
-  name: "Needle"
+  name: "Needling"
   );
-skill_1 = Skill.create(
-  name: "Recycle"
+skill_2 = Skill.create(
+  name: "Recycling"
   );
-event_1.interests << interest_1;
-event_1.skills << skill_1;
-event_2.interests << interest_2;
-event_2.skills << skill_2;
+
+event_1.interests << interest_1
+event_1.skills << skill_1
+event_2.interests << interest_2
+event_2.skills << skill_2
