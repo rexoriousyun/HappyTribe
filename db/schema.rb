@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151216041633) do
+ActiveRecord::Schema.define(version: 20151216204925) do
 
   create_table "arrangements", force: :cascade do |t|
     t.integer  "user_id"
@@ -33,6 +33,27 @@ ActiveRecord::Schema.define(version: 20151216041633) do
 
   add_index "events", ["organization_id"], name: "index_events_on_organization_id"
 
+  create_table "events_interests", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "interest_id"
+  end
+
+  create_table "events_skills", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "skill_id"
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "interests_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "interest_id"
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -40,6 +61,17 @@ ActiveRecord::Schema.define(version: 20151216041633) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skills_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "skill_id"
   end
 
   create_table "timeslots", force: :cascade do |t|
