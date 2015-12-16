@@ -44,56 +44,56 @@ timeslot_1 = Timeslot.create(
   start_time: Time.new(2016, 1, 12, 9, 0, 0) ,
   end_time: Time.new(2016, 1, 12, 12, 0, 0),
   capacity: 50,
-  Event_id: event_1.id
+  event_id: event_1.id
   );
 timeslot_2 = Timeslot.create(
   start_time: Time.new(2016, 1, 12, 12, 30, 0) ,
   end_time: Time.new(2016, 1, 12, 15, 0, 0),
   capacity: 70,
-  Event_id: event_1.id
+  event_id: event_1.id
   );
 timeslot_3 = Timeslot.create(
   start_time: Time.new(2016, 1, 12, 15, 0, 0) ,
   end_time: Time.new(2016, 1, 12, 18, 0, 0),
   capacity: 40,
-  Event_id: event_1.id
+  event_id: event_1.id
   );
 
 timeslot_4 = Timeslot.create(
   start_time: Time.new(2016, 1, 20, 9, 0, 0) ,
   end_time: Time.new(2016, 1, 20, 12, 0, 0),
   capacity: 20,
-  Event_id: event_2.id
+  event_id: event_2.id
   );
 timeslot_5 = Timeslot.create(
   start_time: Time.new(2016, 1, 20, 12, 30, 0) ,
   end_time: Time.new(2016, 1, 20, 15, 0, 0),
   capacity: 30,
-  Event_id: event_2.id
+  event_id: event_2.id
   );
 timeslot_6 = Timeslot.create(
   start_time: Time.new(2016, 1, 20, 15, 0, 0) ,
   end_time: Time.new(2016, 1, 20, 18, 0, 0),
   capacity: 15,
-  Event_id: event_2.id
+  event_id: event_2.id
   );
 timeslot_7 = Timeslot.create(
   start_time: Time.new(2016, 1, 20, 9, 0, 0) ,
   end_time: Time.new(2016, 1, 20, 12, 0, 0),
   capacity: 20,
-  Event_id: event_3.id
+  event_id: event_3.id
   );
 timeslot_8 = Timeslot.create(
   start_time: Time.new(2016, 1, 20, 12, 30, 0) ,
   end_time: Time.new(2016, 1, 20, 15, 0, 0),
   capacity: 30,
-  Event_id: event_4.id
+  event_id: event_4.id
   );
 timeslot_9 = Timeslot.create(
   start_time: Time.new(2016, 1, 20, 15, 0, 0) ,
   end_time: Time.new(2016, 1, 20, 18, 0, 0),
   capacity: 15,
-  Event_id: event_4.id
+  event_id: event_4.id
   );
 
 
