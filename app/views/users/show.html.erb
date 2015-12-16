@@ -8,10 +8,15 @@
 <h2>Your Volunteering Arrangements</h2>
 
 <div class="user-arrangements">
-	<% @user.arranged_events.uniq.each do |event| %>
-		<p>Event: <%= link_to "#{event.name}", event_path(event) %></p>
-		<p>Organization: <%= event.organization.name %></p>
-		<p>Date: <%= event.start_time.strftime("%A, %m/%d/%y") %></p>
+	<% @current_user.arrangements.each do |arrangement| %>
+		<div>
+			<p>You have booked: <%= arrangement.timeslot.event.organization.name %> <br/>
+													<%= arrangement.timeslot.event.name %> <br/>
+													<%= arrangement.timeslot.event.location %> <br/>
+													<%= arrangement.timeslot.start_time %> <%= arrangement.timeslot.end_time %></p>
+			<%= button_to "Cancel", timeslot_arrangement_path(arrangement.timeslot, arrangement),
+			:method => :delete %>
+		</div>
 	<% end %>
 </div>
 

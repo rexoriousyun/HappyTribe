@@ -26,6 +26,11 @@ class ArrangementsController < ApplicationController
   end
 
   def destroy
+    @arrangement = Arrangement.find(params[:id])
+    unless @arrangement.destroy
+      flash[:alert] = "Couldn't cancel it sorry "
+    end
+    redirect_to user_path(current_user)
   end
 
   private
