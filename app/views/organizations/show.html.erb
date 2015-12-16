@@ -1,6 +1,14 @@
- <div class="org-show">
-   <p>Organization: <%= @organization.name %></p>
-   <p>Email: <%= @organization.email %></p>
-   <p>Website: <%= @organization.website_url %></p>
-   <p>Description: <%= @organization.description %></p>
- </div>
+<div class="org-show">
+ <p>Organization: <%= @organization.name %></p>
+ <p>Email: <%= @organization.email %></p>
+ <p>Website: <%= @organization.website_url %></p>
+ <p>Description: <%= @organization.description %></p>
+</div>
+
+<div class="org-opportunities">
+	<% @organization.opportunities.each do |opportunity| %>
+		<p><%= opportunity.name %></p>
+		<p><%= opportunity.location %></p>
+		<!-- after writing start_time and end_time methods, put in here -->
+	<% end %>
+</div>
