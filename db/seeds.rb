@@ -9,7 +9,7 @@
 org_1 =  Organization.create(
   name: "Heart and stroke",
   email: "heart@stroke.com",
-  website_url: "http://www.heart.ca",
+  website_url: "http://www.heartandstroke.on.ca/",
   description: "something");
 org_2 =  Organization.create(
   name: "Fake Bamboo",
