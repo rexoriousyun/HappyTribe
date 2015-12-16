@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root 'opportunities#index'
+  root 'events#index'
 
   resources :organizations
-  resources :opportunities
+  resources :events
   resources :timeslots do
     resources :arrangements, only: [:new, :edit, :show, :create, :update, :destroy]
   end

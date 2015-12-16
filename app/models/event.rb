@@ -1,4 +1,4 @@
-class Opportunity < ActiveRecord::Base
+class Event < ActiveRecord::Base
 	has_many :timeslots
 	has_many :arrangements, through: :timeslots
   belongs_to :organization

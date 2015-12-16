@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215210131) do
+ActiveRecord::Schema.define(version: 20151216041633) do
 
   create_table "arrangements", force: :cascade do |t|
     t.integer  "user_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20151215210131) do
 
   add_index "arrangements", ["user_id"], name: "index_arrangements_on_user_id"
 
-  create_table "opportunities", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
     t.string   "name"
     t.string   "location"
     t.text     "description"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20151215210131) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "opportunities", ["organization_id"], name: "index_opportunities_on_organization_id"
+  add_index "events", ["organization_id"], name: "index_events_on_organization_id"
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
@@ -46,12 +46,12 @@ ActiveRecord::Schema.define(version: 20151215210131) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer  "capacity"
-    t.integer  "opportunity_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "timeslots", ["opportunity_id"], name: "index_timeslots_on_opportunity_id"
+  add_index "timeslots", ["event_id"], name: "index_timeslots_on_event_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

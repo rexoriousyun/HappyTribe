@@ -1,6 +1,6 @@
 class Timeslot < ActiveRecord::Base
   has_many :arrangements
-  belongs_to :opportunity
+  belongs_to :event
 
   def remaining_spots
   	self.capacity - self.arrangements.count

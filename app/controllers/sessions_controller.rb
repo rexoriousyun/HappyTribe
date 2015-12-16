@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
   	if @user = login(params[:email], params[:password])
-  		redirect_to :opportunities, notice: "Welcome #{@user.first_name} :D"
+  		redirect_to :events, notice: "Welcome #{@user.first_name} :D"
   	else
   		flash.now[:alert] = "Login Failed :("
   		render :new

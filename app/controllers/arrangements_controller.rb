@@ -9,10 +9,10 @@ class ArrangementsController < ApplicationController
     @arrangement = @timeslot.arrangements.build
     @arrangement.user = current_user
     if @arrangement.save
-      redirect_to opportunity_path(@timeslot.opportunity), notice: "Arrangement successfully made!"
+      redirect_to event_path(@timeslot.event), notice: "Arrangement successfully made!"
     else
       flash[:alert] = "Volunteering arrangement failed to save."
-      render opportunity_path(@timeslot.opportunity)
+      render event_path(@timeslot.event)
     end
   end
 

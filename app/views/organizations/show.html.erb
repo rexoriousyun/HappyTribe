@@ -5,12 +5,12 @@
  <p>Description: <%= @organization.description %></p>
 </div>
 
-<div class="org-opportunities">
-	<h3>Current Volunteering Opportunities</h3>
+<div class="org-events">
+	<h3>Current Volunteering Events</h3>
 	<!-- Should the below use another partial? -->
-	<% @organization.opportunities.each do |opportunity| %>
-		<h4>Name: <%= link_to "#{opportunity.name}", opportunity_path(opportunity) %></h4>
-		<p>Location:<%= opportunity.location %></p>
-		<p>Date: <%= opportunity.start_time.strftime("%A, %m/%d/%y") %>
+	<% @organization.events.each do |event| %>
+		<h4>Name: <%= link_to "#{event.name}", event_path(event) %></h4>
+		<p>Location:<%= event.location %></p>
+		<p>Date: <%= event.start_time.strftime("%A, %m/%d/%y") %>
 	<% end %>
 </div>
