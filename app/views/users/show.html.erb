@@ -5,11 +5,13 @@
 
 <%= link_to 'Edit Profile', edit_user_path(@user) %>
 
-<h1>Your Volunteering Arrangements</h1>
+<h2>Your Volunteering Arrangements</h2>
 
-<% @user.arranged_events.uniq.each do |event| %>
-	<p>Event: <%= event.name %></p>
-	<p>Organization: <%= event.organization.name %></p>
-	<!-- event.start_time method should be going here -->
-<% end %>
+<div class="user-arrangements">
+	<% @user.arranged_events.uniq.each do |event| %>
+		<p>Event: <%= link_to "#{event.name}", event_path(event) %></p>
+		<p>Organization: <%= event.organization.name %></p>
+		<p>Date: <%= event.start_time.strftime("%A, %m/%d/%y") %></p>
+	<% end %>
+</div>
 

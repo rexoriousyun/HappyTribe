@@ -1,15 +1,15 @@
 <div class="org-show">
- <h2>Organization: <%= @organization.name %></h2>
+ <h1>Organization: <%= @organization.name %></h1>
  <p>Email: <%= @organization.email %></p>
  <p>Website: <a href="<%= @organization.website_url %>"><%= @organization.website_url %></a></p>
  <p>Description: <%= @organization.description %></p>
 </div>
 
 <div class="org-events">
-	<h3>Current Volunteering Events</h3>
+	<h2>Current Volunteering Events</h2>
 	<!-- Should the below use another partial? -->
 	<% @organization.events.each do |event| %>
-		<h4>Name: <%= link_to "#{event.name}", event_path(event) %></h4>
+		<h3>Name: <%= link_to "#{event.name}", event_path(event) %></h3>
 		<p>Location:<%= event.location %></p>
 		<p>Date: <%= event.start_time.strftime("%A, %m/%d/%y") %>
 	<% end %>

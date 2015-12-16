@@ -1,3 +1,5 @@
-<p>Name: <%= link_to event.name, event_path(event) %></p>
-<p>Organization: <%= link_to event.organization.name, organization_path(event.organization) %></p>
-<p>Location: <%= event.location %></p>
+<div class="opportunity">
+	<p>Name: <%= link_to event.name, event_path(event) %></p>
+	<p>Organization: <%= link_to event.organization.name, organization_path(event.organization) %></p>
+	<p>Location: <%= event.location %></p>
+</div>

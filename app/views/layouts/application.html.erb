@@ -18,13 +18,13 @@
 		<% end %>
 	</div>
 
-	<p>
+	<div class="flashes">
 		<% if flash[:notice].present? %>
 			<%= flash[:notice] %>
 		<% elsif flash[:alert].present? %>
 			<%= flash[:alert] %>
 		<% end %>
-	</p>
+	</div>
 
 <%= yield %>
 
