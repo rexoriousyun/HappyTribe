@@ -7,10 +7,10 @@ class Timeslot < ActiveRecord::Base
   end
 
   def starts_at
-  	self.start_time.strftime("%I:%M%P")
+  	self.start_time.strftime("%l:%M%P")
   end
 
   def ends_at
-  	self.end_time.strftime("%I:%M%P")
+  	self.end_time.strftime("%l:%M%P")
   end
 end

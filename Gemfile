@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+# Use pry for rails console
+gem 'pry-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
@@ -32,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use sorcery for authentication
 gem 'sorcery'
 
 group :development, :test do

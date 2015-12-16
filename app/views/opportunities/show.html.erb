@@ -1,14 +1,16 @@
 <div class="opportunity">
-	<p>Name: <%= @opportunity.name %></p>
-	<p>Location: <%= @opportunity.location %></p>
+	<h2>Name: <%= @opportunity.name %></h2>
 	<p>Organization: <%= link_to @opportunity.organization.name, organization_path(@opportunity.organization) %></p>
+	<p>Location: <%= @opportunity.location %></p>
+	<p>Date: <%= @opportunity.start_time.strftime("%A, %m/%d/%y") %></p>
+	<p>Event Length: <%= @opportunity.start_time.strftime("%l:%M%P") %> to <%= @opportunity.end_time.strftime("%l:%M%P") %>
 </div>
 
-
 <div id="timeslot-list">
+	<h3>Choose a timeslot to volunteer at!</h3>
 	<% if logged_in? %>
 		<%= render partial: 'timeslots/timeslot', collection: @opportunity.timeslots.order(start_time: :asc) %>
 	<% else %>
-		<p><a href="/login">Login</a> to volunteer at this event</p>
+		<p><a href="/login">Login</a> or <a href="/signup">Sign-up</a> to volunteer at this event</p>
 	<% end %>
 </div>
