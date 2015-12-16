@@ -5,15 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
 org_1 =  Organization.create(
   name: "Heart and stroke",
   email: "heart@stroke.com",
-  website_url: "www.heart.ca",
+  website_url: "http://www.heart.ca",
   description: "something");
 org_2 =  Organization.create(
   name: "Fake Bamboo",
   email: "Fake@bamboo.com",
-  website_url: "www.FBamboo.ca",
+  website_url: "http://www.FBamboo.ca",
   description: "something about fake bamboo");
 opp_1 = Opportunity.create(
   organization_id: 1,
@@ -26,6 +27,18 @@ opp_2 = Opportunity.create(
   name: "Run for the cure",
   location: "123 specific drive",
   description: "Running to cure heart disease",
+  );
+opp_3 = Opportunity.create(
+  organization_id: 2,
+  name: "Do something great",
+  location: "123 blah_blah_blah",
+  description: "Great things!",
+  );
+opp_4 = Opportunity.create(
+  organization_id: 2,
+  name: "Be Amazing",
+  location: "123 hey there street",
+  description: "Be the best ever!",
   );
 timeslot_1 = Timeslot.create(
   start_time: Time.new(2016, 1, 12, 9, 0, 0) ,
@@ -44,6 +57,43 @@ timeslot_3 = Timeslot.create(
   end_time: Time.new(2016, 1, 12, 18, 0, 0),
   capacity: 40,
   opportunity_id: opp_1.id
+  );
+
+timeslot_4 = Timeslot.create(
+  start_time: Time.new(2016, 1, 20, 9, 0, 0) ,
+  end_time: Time.new(2016, 1, 20, 12, 0, 0),
+  capacity: 20,
+  opportunity_id: opp_2.id
+  );
+timeslot_5 = Timeslot.create(
+  start_time: Time.new(2016, 1, 20, 12, 30, 0) ,
+  end_time: Time.new(2016, 1, 20, 15, 0, 0),
+  capacity: 30,
+  opportunity_id: opp_2.id
+  );
+timeslot_6 = Timeslot.create(
+  start_time: Time.new(2016, 1, 20, 15, 0, 0) ,
+  end_time: Time.new(2016, 1, 20, 18, 0, 0),
+  capacity: 15,
+  opportunity_id: opp_2.id
+  );
+timeslot_7 = Timeslot.create(
+  start_time: Time.new(2016, 1, 20, 9, 0, 0) ,
+  end_time: Time.new(2016, 1, 20, 12, 0, 0),
+  capacity: 20,
+  opportunity_id: opp_3.id
+  );
+timeslot_8 = Timeslot.create(
+  start_time: Time.new(2016, 1, 20, 12, 30, 0) ,
+  end_time: Time.new(2016, 1, 20, 15, 0, 0),
+  capacity: 30,
+  opportunity_id: opp_4.id
+  );
+timeslot_9 = Timeslot.create(
+  start_time: Time.new(2016, 1, 20, 15, 0, 0) ,
+  end_time: Time.new(2016, 1, 20, 18, 0, 0),
+  capacity: 15,
+  opportunity_id: opp_4.id
   );
 
 

@@ -1,14 +1,16 @@
 <div class="org-show">
- <p>Organization: <%= @organization.name %></p>
+ <h2>Organization: <%= @organization.name %></h2>
  <p>Email: <%= @organization.email %></p>
- <p>Website: <%= @organization.website_url %></p>
+ <p>Website: <a href="<%= @organization.website_url %>"><%= @organization.website_url %></a></p>
  <p>Description: <%= @organization.description %></p>
 </div>
 
 <div class="org-opportunities">
+	<h3>Current Volunteering Opportunities</h3>
+	<!-- Should the below use another partial? -->
 	<% @organization.opportunities.each do |opportunity| %>
-		<p><%= opportunity.name %></p>
-		<p><%= opportunity.location %></p>
-		<!-- after writing start_time and end_time methods, put in here -->
+		<h4>Name: <%= link_to "#{opportunity.name}", opportunity_path(opportunity) %></h4>
+		<p>Location:<%= opportunity.location %></p>
+		<p>Date: <%= opportunity.start_time.strftime("%A, %m/%d/%y") %>
 	<% end %>
 </div>

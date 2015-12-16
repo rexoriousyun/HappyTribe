@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div class="navbar">
+		<%= link_to 'Home', root_path %>
 		<% if logged_in? %>
 			<%= link_to 'Logout', logout_path, method: 'delete' %>
 			<%= link_to 'Profile', user_path(current_user) %>
