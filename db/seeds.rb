@@ -98,9 +98,9 @@ timeslot_9 = Timeslot.create(
 
 
 user_1 = User.create(
-  first_name: "Betty",
-  last_name: "Maker",
-  email: "betty@maker.com",
+  first_name: "Margaret",
+  last_name: "K",
+  email: "mgt@kim.com",
   password: "blah",
   password_confirmation: "blah"
   );

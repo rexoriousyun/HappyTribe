@@ -8,10 +8,13 @@
 <h2>Your Volunteering Arrangements</h2>
 
 <div class="user-arrangements">
-	<% @user.arranged_events.uniq.each do |event| %>
-		<p>Event: <%= link_to "#{event.name}", event_path(event) %></p>
-		<p>Organization: <%= event.organization.name %></p>
-		<p>Date: <%= event.start_time.strftime("%A, %m/%d/%y") %></p>
+	<% @current_user.timeslots.uniq.each do |timeslot| %>
+		<div>
+			<p>You have booked: <%= timeslot.event.organization.name %> <br/>
+													<%= timeslot.event.name %> <br/>
+													<%= timeslot.event.location %> <br/>
+													<%= timeslot.start_time %> <%= timeslot.end_time %></p>
+</div>
 	<% end %>
 </div>
 
