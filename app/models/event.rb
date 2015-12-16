@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   belongs_to :organization
 
   def start_time
-  		self.timeslots.order(start_time: :asc).first.start_time
+  	self.timeslots.order(start_time: :asc).first.start_time
   end
 
   def end_time
