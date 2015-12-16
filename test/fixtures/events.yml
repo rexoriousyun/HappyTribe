@@ -7,7 +7,7 @@ one:
   max_capacity: 1
   location: MyString
   description: MyText
-  organization_id: 
+  organization_id:
 
 two:
   name: MyString
@@ -16,4 +16,4 @@ two:
   max_capacity: 1
   location: MyString
   description: MyText
-  organization_id: 
+  organization_id:

@@ -1,0 +1,16 @@
+<div class="event">
+	<h1>Name: <%= @event.name %></h1>
+	<p>Organization: <%= link_to @event.organization.name, organization_path(@event.organization) %></p>
+	<p>Location: <%= @event.location %></p>
+	<p>Date: <%= @event.start_time.strftime("%A, %m/%d/%y") %></p>
+	<p>Event Length: <%= @event.start_time.strftime("%l:%M%P") %> to <%= @event.end_time.strftime("%l:%M%P") %>
+</div>
+
+<div id="timeslot-list">
+	<h2>Choose a timeslot to volunteer at!</h2>
+	<% if logged_in? %>
+		<%= render partial: 'timeslots/timeslot', collection: @event.timeslots.order(start_time: :asc) %>
+	<% else %>
+		<p><a href="/login">Login</a> or <a href="/signup">Sign-up</a> to volunteer at this event</p>
+	<% end %>
+</div>

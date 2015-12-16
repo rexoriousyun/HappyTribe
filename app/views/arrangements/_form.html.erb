@@ -1,7 +1,5 @@
-<%= form_for [@opportunity, @arrangement] do |f| %>
-  <%= f.label :time_slot %>
-  <%= f.number_field :time_slot %>
-
-  <%= f.submit %>
-
-<% end %>
+<div class="arrangement-form">
+	<%= form_for [timeslot, Arrangement.new] do |f| %>
+	  <%= f.submit value: "#{timeslot.starts_at} to #{timeslot.ends_at}, #{timeslot.remaining_spots} spots remaining", data: { confirm: "Confirm your arrangement to volunteer at #{timeslot.starts_at}?" } %>
+	<% end %>
+</div>
