@@ -5,9 +5,8 @@
 
 <%= link_to 'Edit Profile', edit_user_path(@user) %>
 
-<h2>Your Volunteering Arrangements</h2>
-
 <div class="user-arrangements">
+	<h2>Your Volunteering Arrangements</h2>
 	<% @current_user.arrangements.each do |arrangement| %>
 		<div>
 			<p>You have booked: <%= arrangement.timeslot.event.organization.name %> <br/>
