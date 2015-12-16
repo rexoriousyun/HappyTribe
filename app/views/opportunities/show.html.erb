@@ -5,7 +5,7 @@
 </div>
 
 
-<div id="timeslot-form">
+<div id="timeslot-list">
 	<% if logged_in? %>
 		<%= render partial: 'timeslots/timeslot', collection: @opportunity.timeslots.order(start_time: :asc) %>
 	<% else %>

@@ -7,22 +7,10 @@ class OpportunitiesController < ApplicationController
   end
 
   def show
-    if logged_in?
-      @arrangement = @opportunity.arrangements.build
-    end
   end
 
   # the methods below show will only become relevant once we have a user/organization able to
   # create opportunities
-
-  def new
-    @opportunity = Opportunity.new
-  end
-
-  def create
-    @opportunity = Opportunity.new(opportunity_params)
-    @opportunity.save
-  end
 
   def edit
   end

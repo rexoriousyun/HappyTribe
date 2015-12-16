@@ -1,3 +1,5 @@
-<%= form_for [timeslot, Arrangement.new] do |f| %>
-  <%= f.submit value: "#{timeslot.start_time.strftime("%I-%M-%p")} - #{timeslot.end_time.strftime("%I-%M-%p")}, #{timeslot.remaining_spots} spots remaining", data: { confirm: "Are you sure you want to book this slot?" } %>
-<% end %>
+<div class="arrangement-form">
+	<%= form_for [timeslot, Arrangement.new] do |f| %>
+	  <%= f.submit value: "#{timeslot.starts_at} to #{timeslot.ends_at}, #{timeslot.remaining_spots} spots remaining", data: { confirm: "You'd like to volunteer at #{timeslot.starts_at}?" } %>
+	<% end %>
+</div>
