@@ -96,6 +96,10 @@ timeslot_9 = Timeslot.create(
   event_id: event_4.id
   );
 
+arrangement_1 = Arrangement.create(
+  user_id: 1,
+  timeslot_id: 1
+  );
 
 user_1 = User.create(
   first_name: "Margaret",
