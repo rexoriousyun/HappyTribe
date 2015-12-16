@@ -115,3 +115,20 @@ user_2 = User.create(
   password: "blah",
   password_confirmation: "blah"
   );
+
+interest_1 = Interest.create(
+  name: "Healthcare"
+  );
+interest_2 = Interest.create(
+  name: "Environment"
+  );
+skill_1 = Skill.create(
+  name: "Needle"
+  );
+skill_1 = Skill.create(
+  name: "Recycle"
+  );
+event_1.interests << interest_1;
+event_1.skills << skill_1;
+event_2.interests << interest_2;
+event_2.skills << skill_2;
