@@ -8,11 +8,9 @@ class Event < ActiveRecord::Base
   searchable do
     text :name, :location
     text :organization_name
+    text :interest_list
 
-  end
 
-  def organization_name
-    Organization.find(organization_id).name
   end
 
   def start_time
@@ -21,5 +19,13 @@ class Event < ActiveRecord::Base
 
   def end_time
   	self.timeslots.order(end_time: :asc).last.end_time
+  end
+
+  # solr callbacks please do not touch
+  def organization_name
+    Organization.find(organization_id).name
+  end
+  def interest_list
+    return self.interests.map{|interest| interest.name}
   end
 end
