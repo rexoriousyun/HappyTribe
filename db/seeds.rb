@@ -20,25 +20,25 @@ event_1 = Event.create(
   organization_id: 1,
   name: "Walk for the cure",
   location: "123 random drive",
-  description: "Walking to cure heart disease",
+  description: "Walking to cure heart disease"
   );
 event_2 = Event.create(
   organization_id: 2,
   name: "Recycle for the Bamboo",
   location: "123 specific drive",
-  description: "Recycle to save the bamboo",
+  description: "Recycle to save the bamboo"
   );
 event_3 = Event.create(
   organization_id: 2,
   name: "Do something great",
   location: "123 blah_blah_blah",
-  description: "Great things!",
+  description: "Great things!"
   );
 event_4 = Event.create(
   organization_id: 2,
   name: "Be Amazing",
   location: "123 hey there street",
-  description: "Be the best ever!",
+  description: "Be the best ever!"
   );
 timeslot_1 = Timeslot.create(
   start_time: Time.new(2016, 1, 12, 9, 0, 0) ,
