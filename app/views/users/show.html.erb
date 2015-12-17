@@ -5,6 +5,15 @@
 
 <%= link_to 'Edit Profile', edit_user_path(@user) %>
 
+<div class="user-interests">
+	<% @interests.each do |interest| %>
+ 		<%= button_to "Add #{interest.name} to Interests", interests_user_path(:interest => interest), method: 'patch' %>
+	<% end %>
+</div>
+
+<div class="user-skills">
+</div>
+
 <div class="user-arrangements">
 	<h2>Your Volunteering Arrangements</h2>
 	<% @current_user.arrangements.each do |arrangement| %>

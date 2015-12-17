@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @interests = Interest.all
   end
 
   def update
