@@ -19,3 +19,4 @@
 .fuse_hidden*
 .DS_Store
 application.yml
+solr/development
