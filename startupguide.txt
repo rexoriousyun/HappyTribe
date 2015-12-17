@@ -2,7 +2,12 @@ bundle install
 
 
 Sunspot guide:
-run "bundle exec sunspot:solr:start"
+run "bundle exec rake sunspot:solr:start"
 run "rake sunspot:reindex"
 
 Start our rails server with "rails s" and away you go
+
+if you get an error saying solr is already running
+run "bundle exec rake sunspot:solr:stop"
+
+then "bundle exec rake sunspot:solr:start"
