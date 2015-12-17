@@ -6,7 +6,13 @@ class Event < ActiveRecord::Base
   has_and_belongs_to_many :skills
 
   searchable do
-    text :name
+    text :name, :location
+    text :organization_name
+
+  end
+
+  def organization_name
+    Organization.find(organization_id).name
   end
 
   def start_time
