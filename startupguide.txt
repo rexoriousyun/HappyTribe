@@ -1,0 +1,8 @@
+bundle install
+
+
+Sunspot guide:
+run "bundle exec sunspot:solr:start"
+run "rake sunspot:reindex"
+
+Start our rails server with "rails s" and away you go
