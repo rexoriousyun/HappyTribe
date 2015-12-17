@@ -9,6 +9,7 @@ class Event < ActiveRecord::Base
     text :name, :location
     text :organization_name
     text :interest_list
+    text :skill_list
 
 
   end
@@ -27,5 +28,8 @@ class Event < ActiveRecord::Base
   end
   def interest_list
     return self.interests.map{|interest| interest.name}
+  end
+  def skill_list
+    return self.skills.map{|skill| skill.name }
   end
 end
