@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
   def show
     @interests = Interest.all
+    @skills = Skill.all
   end
 
   def update

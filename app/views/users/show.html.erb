@@ -6,12 +6,19 @@
 <%= link_to 'Edit Profile', edit_user_path(@user) %>
 
 <div class="user-interests">
+	<h2>Update your Interests</h2>
 	<% @interests.each do |interest| %>
- 		<%= button_to "Add #{interest.name} to Interests", interests_user_path(:interest => interest), method: 'patch' %>
+		<% button_value = @user.has_interest?(interest) ? "Remove" : "Add" %>
+ 		<%= button_to "#{button_value} #{interest.name}", interests_user_path(:interest => interest), method: 'patch' %>
 	<% end %>
 </div>
 
 <div class="user-skills">
+	<h2>Update your Skills</h2>
+	<% @skills.each do |skill| %>
+		<% button_value = @user.has_skill?(skill) ? "Remove" : "Add" %>
+ 		<%= button_to "#{button_value} #{skill.name}", skills_user_path(:skill => skill), method: 'patch' %>
+	<% end %>
 </div>
 
 <div class="user-arrangements">

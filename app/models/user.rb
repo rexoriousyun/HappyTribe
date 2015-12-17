@@ -12,4 +12,11 @@ class User < ActiveRecord::Base
 
 	validates :email, uniqueness: true
 
+	def has_interest?(interest)
+		self.interests.include?(interest)
+	end
+
+	def has_skill?(skill)
+		self.skills.include?(skill)
+	end
 end
