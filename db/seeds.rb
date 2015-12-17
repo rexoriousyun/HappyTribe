@@ -31,7 +31,7 @@ event_2 = Event.create(
 event_3 = Event.create(
   organization_id: 2,
   name: "Do something great",
-  location: "123 blah_blah_blah",
+  location: "123 blahblahblah",
   description: "Great things!"
   );
 event_4 = Event.create(
