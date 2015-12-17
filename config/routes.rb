@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'skills/index'
-
-  get 'interests/index'
 
   root 'events#index'
 
@@ -10,8 +7,7 @@ Rails.application.routes.draw do
   resources :timeslots do
     resources :arrangements, only: [:new, :edit, :show, :create, :update, :destroy]
   end
-  resources :skills
-  resources :interests
+  resources :interests_users, only: [:update]
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :edit, :show, :create, :update]
 
