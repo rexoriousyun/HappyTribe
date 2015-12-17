@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "Successfully signed up for Happy Tribe!"
       auto_login(@user)
-      redirect_to user_path(@user)
+      redirect_to events_path
     else
       flash[:alert] = "Sorry, Signup failed. :("
       render :new
