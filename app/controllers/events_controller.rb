@@ -3,10 +3,14 @@ class EventsController < ApplicationController
   before_action :get_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    @search = Event.search do
+      fulltext params[:search]
+    end
+    @events = @search.results
   end
 
   def show
+    # @event = Event.find(params[:id])
   end
 
   # the methods below show will only become relevant once we have a user/organization able to
