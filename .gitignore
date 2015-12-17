@@ -19,5 +19,7 @@
 .fuse_hidden*
 .DS_Store
 application.yml
-solr/development/
-solr/pids/
+
+/solr/development/data/index/*
+/solr/development/data/tlog/*
+/solr/pids/development/sunspot-solr-development.pid
