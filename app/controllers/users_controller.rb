@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @top_interests = Interest.sort_by_popularity(3)
+    @top_interests = Interest.sort_by_popularity(6)
     @interests = Interest.all
     @skills = Skill.all
   end
@@ -53,5 +53,4 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
-
 end

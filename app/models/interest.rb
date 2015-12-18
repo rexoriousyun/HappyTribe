@@ -10,5 +10,6 @@ class Interest < ActiveRecord::Base
 			popularity_array << {interest: interest, users: interest.users.count}
 		end
 		sorted_array = (popularity_array.sort_by { |interest| interest[:users] }).reverse
+		return sorted_array
 	end
 end
