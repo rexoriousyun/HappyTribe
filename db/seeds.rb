@@ -23,25 +23,29 @@ org_3 =  Organization.create(
   description: "Helps sick children");
 event_1 = Event.create(
   organization_id: 1,
-  name: "Walk for the cure - Setup Volunteer",
+  name: "Walk for the cure",
+  role: "Setup Volunteer",
   location: "123 random drive",
   description: "Walking to cure heart disease. Help us setup the registration desk"
   );
 event_2 = Event.create(
   organization_id: 2,
-  name: "Charity Fundraiser - DJ Needed",
+  name: "Charity Fundraiser",
+  role: "DJ",
   location: "123 specific drive",
   description: "Come be a DJ at the Disco and help raise money for sick kids"
   );
 event_3 = Event.create(
   organization_id: 1,
-  name: "Big Bike Event - Photographer",
+  name: "Big Bike Event",
+  role: "Photographer",  
   location: "123 blahblahblah",
   description: "Come to the awesome big bike event and help us capture it!"
   );
 event_4 = Event.create(
   organization_id: 3,
-  name: "Environmental Awareness Event - Sound Technician",
+  name: "Environmental Awareness Event",
+  role: "Sound Technician",
   location: "123 hey there street",
   description: "Come help us set up our audio equipment to spread awareness of environmental issues"
   );
