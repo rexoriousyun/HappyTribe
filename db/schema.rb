@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20151218213233) do
     t.integer  "organization_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "role"
   end
 
   add_index "events", ["organization_id"], name: "index_events_on_organization_id"
