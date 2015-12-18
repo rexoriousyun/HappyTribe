@@ -11,7 +11,11 @@
 	<h2>Update your Interests</h2>
 	<% @interests.each do |interest| %>
 		<% button_value = @user.has_interest?(interest) ? "Remove" : "Add" %>
- 		<%= button_to "#{button_value} #{interest.name}", interests_user_path(:interest => interest), method: 'patch' %>
+ 		<%=
+	 		button_to "#{button_value} #{interest.name}",
+	 		interests_user_path(:interest => interest),
+	 		method: 'patch'
+ 		%>
 	<% end %>
 </div>
 
@@ -19,21 +23,27 @@
 	<h2>Update your Skills</h2>
 	<% @skills.each do |skill| %>
 		<% button_value = @user.has_skill?(skill) ? "Remove" : "Add" %>
- 		<%= button_to "#{button_value} #{skill.name}", skills_user_path(:skill => skill), method: 'patch' %>
+ 		<%=
+ 			button_to	"#{button_value} #{skill.name}",
+			skills_user_path(:skill => skill),
+			method: 'patch'
+		%>
 	<% end %>
 </div>
 
 <div class="user-arrangements">
 	<h2>Your Volunteering Arrangements</h2>
-	<% current_user.arranged_events.each do |event| %>
+	<% current_user.arrangements.each do |arrangement| %>
 		<div>
+			<% event = arrangement.event %>
 			<p>
 				<%= link_to "#{event.name}", event_path(event) %> <br/>
 				<%= event.organization.name %> <br/>
 				<%= event.location %> <br/>
-				<%= event.start_time %> <%= event.end_time %>
+				<%= arrangement.timeslot.start_time %> to <%= arrangement.timeslot.end_time %>
 			</p>
-			<%= button_to "Cancel this arrangement", timeslot_arrangement_path(event.arrangements(current_user)[0].timeslot, event.arrangements(current_user)[0]),
+			<%= button_to "Cancel this arrangement",
+			timeslot_arrangement_path(arrangement.timeslot, arrangement),
 			:method => :delete %>
 		</div>
 	<% end %>

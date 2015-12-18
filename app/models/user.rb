@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
 	has_many :arrangements
 	has_many :timeslots, through: :arrangements
-	has_many :arranged_events, through: :timeslots, source: :event, class_name: "Event"
+	# has_many :arranged_events, through: :timeslots, source: :event, class_name: "Event"
 	has_many :bookmarks
 	has_many :bookmarked_events, through: :bookmarks, source: :event, class_name: "Event"
 	has_and_belongs_to_many :interests
