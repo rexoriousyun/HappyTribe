@@ -11,8 +11,6 @@ class Event < ActiveRecord::Base
     text :organization_name
     text :interest_list
     text :skill_list
-
-
   end
 
   def start_time
@@ -23,7 +21,7 @@ class Event < ActiveRecord::Base
   	self.timeslots.order(end_time: :asc).last.end_time
   end
 
-  # # solr callbacks please do not touch
+  # solr callbacks please do not touch
   def organization_name
     Organization.find(organization_id).name
   end
