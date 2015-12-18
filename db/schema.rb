@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20151218213233) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "role"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "events", ["organization_id"], name: "index_events_on_organization_id"

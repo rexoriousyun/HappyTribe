@@ -9,7 +9,18 @@
 
 <div class="user-interests">
 	<h2>Update your Interests</h2>
-	<% @interests.each do |interest| %>
+	<h3>Choose from most popular Interests</h3>
+	<% @top_interests.each do |interest| %>
+		<% button_value = @user.has_interest?(interest[:interest]) ? "Remove" : "Add" %>
+ 		<%=
+	 		button_to "#{button_value} #{interest[:interest].name}",
+	 		interests_user_path(:interest => interest[:interest]),
+	 		method: 'patch'
+ 		%>
+ 	<% end %>
+
+	<h3>Choose from all Interests</h3>
+ 	<% @interests.each do |interest| %>
 		<% button_value = @user.has_interest?(interest) ? "Remove" : "Add" %>
  		<%=
 	 		button_to "#{button_value} #{interest.name}",
