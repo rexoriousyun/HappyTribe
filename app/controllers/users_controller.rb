@@ -23,7 +23,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @interests = Interest.sort_by_popularity(6)
+    @top_interests = Interest.sort_by_popularity(3)
+    @interests = Interest.all
     @skills = Skill.all
   end
 
