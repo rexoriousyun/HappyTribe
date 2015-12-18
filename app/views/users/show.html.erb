@@ -21,7 +21,19 @@
 	<% end %>
 </div>
 
-
+<div class="user-arrangements">
+	<h2>Your Volunteering Arrangements</h2>
+	<% current_user.arranged_events.each do |event| %>
+		<div>
+			<p>You have arranged: <%= event.organization.name %> <br/>
+													<%= event.name %> <br/>
+													<%= event.location %> <br/>
+													<%= event.start_time %> <%= event.end_time %></p>
+			<%= button_to "Cancel", timeslot_arrangement_path(event.arrangements(current_user)[0].timeslot, event.arrangements(current_user)[0]),
+			:method => :delete %>
+		</div>
+	<% end %>
+</div>
 
 <div class="user-bookmarks">
 	<h2>Your Bookmarked Events</h2>
