@@ -1,9 +1,11 @@
 <h1><%= @user.first_name %>'s Profile</h1>
 
-<p><%= @user.first_name %> <%= @user.last_name %></p>
-<p><%= @user.email %></p>
-
-<%= link_to 'Edit Profile', edit_user_path(@user) %>
+<p>
+	<%= @user.first_name %>
+	<%= @user.last_name %> |
+	<%= @user.email %> |
+	<%= link_to 'Edit User Details', edit_user_path(@user) %>
+</p>
 
 <div class="user-interests">
 	<h2>Update your Interests</h2>
@@ -25,11 +27,13 @@
 	<h2>Your Volunteering Arrangements</h2>
 	<% current_user.arranged_events.each do |event| %>
 		<div>
-			<p>You have arranged: <%= event.organization.name %> <br/>
-													<%= event.name %> <br/>
-													<%= event.location %> <br/>
-													<%= event.start_time %> <%= event.end_time %></p>
-			<%= button_to "Cancel", timeslot_arrangement_path(event.arrangements(current_user)[0].timeslot, event.arrangements(current_user)[0]),
+			<p>
+				<%= link_to "#{event.name}", event_path(event) %> <br/>
+				<%= event.organization.name %> <br/>
+				<%= event.location %> <br/>
+				<%= event.start_time %> <%= event.end_time %>
+			</p>
+			<%= button_to "Cancel this arrangement", timeslot_arrangement_path(event.arrangements(current_user)[0].timeslot, event.arrangements(current_user)[0]),
 			:method => :delete %>
 		</div>
 	<% end %>
@@ -39,11 +43,12 @@
 	<h2>Your Bookmarked Events</h2>
 	 <% current_user.bookmarked_events.each do |event| %>
 	 	<div>
-	 		<p>Your bookmarks: <%= event.organization.name %> <br/>
-	 											 <%= event.name %> <br/>
-	 											 <%= event.location %> <br/>	 											 
-	 											 <%= event.start_time %> <%= event.end_time %>
-	 		</p>	 											 
+	 		<p>
+				<%= link_to "#{event.name}", event_path(event) %> <br/>
+	 			<%= event.organization.name %> <br/>
+				<%= event.location %> <br/>
+				<%= event.start_time %> <%= event.end_time %>
+	 		</p>
 	 	</div>
 	<% end %>
 </div>

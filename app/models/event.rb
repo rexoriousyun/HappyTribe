@@ -23,14 +23,14 @@ class Event < ActiveRecord::Base
   	self.timeslots.order(end_time: :asc).last.end_time
   end
 
-  # solr callbacks please do not touch
-  def organization_name
-    Organization.find(organization_id).name
-  end
-  def interest_list
-    return self.interests.map{|interest| interest.name}
-  end
-  def skill_list
-    return self.skills.map{|skill| skill.name }
-  end
+  # # solr callbacks please do not touch
+  # def organization_name
+  #   Organization.find(organization_id).name
+  # end
+  # def interest_list
+  #   return self.interests.map{|interest| interest.name}
+  # end
+  # def skill_list
+  #   return self.skills.map{|skill| skill.name }
+  # end
 end
