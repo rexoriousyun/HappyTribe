@@ -20,6 +20,10 @@
 .DS_Store
 application.yml
 
-/solr/development/data/index/*
-/solr/development/data/tlog/*
-/solr/pids/development/sunspot-solr-development.pid
+
+solr/data
+solr/test
+solr/development
+solr/default/data
+/log/*.log.lck
+solr/pids
