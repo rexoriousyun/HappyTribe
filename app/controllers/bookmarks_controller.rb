@@ -10,8 +10,8 @@ class BookmarksController < ApplicationController
     if @bookmark.save
       redirect_to event_path(@event), notice: "bookmark successfully made!"
     else
-      flash[:alert] = "Volunteering bookmark failed to save."
-      render event_path(@event)
+      flash[:alert] = "Volunteering bookmark failed to save. Note: Can only bookmark an event once."
+      redirect_to event_path(@event)
     end
   end
 
