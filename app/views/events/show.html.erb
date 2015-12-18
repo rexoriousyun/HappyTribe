@@ -6,6 +6,10 @@
 	<p>Event Length: <%= @event.start_time.strftime("%l:%M%P") %> to <%= @event.end_time.strftime("%l:%M%P") %>
 </div>
 
+<div class="bookmark">
+	<%= render 'bookmarks/form' %>
+</div>
+	
 <div id="timeslot-list">
 	<h2>Choose a timeslot to volunteer at!</h2>
 	<% if logged_in? %>

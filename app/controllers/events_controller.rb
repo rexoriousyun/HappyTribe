@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    # @event = Event.find(params[:id])
+    @bookmark = @event.bookmarks.build
   end
 
   # the methods below show will only become relevant once we have a user/organization able to

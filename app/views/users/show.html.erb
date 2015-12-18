@@ -21,17 +21,17 @@
 	<% end %>
 </div>
 
-<div class="user-arrangements">
-	<h2>Your Volunteering Arrangements</h2>
-	<% @current_user.arrangements.each do |arrangement| %>
-		<div>
-			<p>You have booked: <%= arrangement.timeslot.event.organization.name %> <br/>
-													<%= arrangement.timeslot.event.name %> <br/>
-													<%= arrangement.timeslot.event.location %> <br/>
-													<%= arrangement.timeslot.start_time %> <%= arrangement.timeslot.end_time %></p>
-			<%= button_to "Cancel", timeslot_arrangement_path(arrangement.timeslot, arrangement),
-			:method => :delete %>
-		</div>
+
+
+<div class="user-bookmarks">
+	<h2>Your Bookmarked Events</h2>
+	 <% current_user.bookmarked_events.each do |event| %>
+	 	<div>
+	 		<p>Your bookmarks: <%= event.organization.name %> <br/>
+	 											 <%= event.name %> <br/>
+	 											 <%= event.location %> <br/>	 											 
+	 											 <%= event.start_time %> <%= event.end_time %>
+	 		</p>	 											 
+	 	</div>
 	<% end %>
 </div>
-

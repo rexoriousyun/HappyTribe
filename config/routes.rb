@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'events#index'
 
   resources :organizations
-  resources :events
+  resources :events do
+    resources :bookmarks, only: [:new, :create, :destroy, :edit, :show, :update]
+  end
   resources :timeslots do
     resources :arrangements, only: [:new, :edit, :show, :create, :update, :destroy]
   end
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
   resources :skills_users, only: [:update]
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :edit, :show, :create, :update]
+  
 
   get '/login' => 'sessions#new'
   delete '/logout' => 'sessions#destroy'

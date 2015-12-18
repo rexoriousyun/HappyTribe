@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
 	has_many :timeslots
 	has_many :arrangements, through: :timeslots
+  has_many :bookmarks
   belongs_to :organization
   has_and_belongs_to_many :interests
   has_and_belongs_to_many :skills
