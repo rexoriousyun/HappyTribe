@@ -7,6 +7,7 @@ class EventsController < ApplicationController
       fulltext params[:search]
     end
     @events = @search.results
+    @events = Event.all
   end
 
   def show
