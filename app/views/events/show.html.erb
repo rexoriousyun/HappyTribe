@@ -1,5 +1,6 @@
 <div class="event">
 	<h1>Name: <%= @event.name %></h1>
+	<p>Role: <%= @event.role %></p>
 	<p>Organization: <%= link_to @event.organization.name, organization_path(@event.organization) %></p>
 	<p>Location: <%= @event.location %></p>
 	<p>Date: <%= @event.start_time.strftime("%A, %m/%d/%y") %></p>
