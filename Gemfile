@@ -36,8 +36,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use sorcery for authentication
 gem 'sorcery'
 # Use sunspot for searching
-gem 'sunspot_rails'
-gem 'sunspot_solr'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

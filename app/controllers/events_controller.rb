@@ -3,10 +3,10 @@ class EventsController < ApplicationController
   before_action :get_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @search = Event.search do
-      fulltext params[:search]
-    end
-    @events = @search.results
+    # @search = Event.search do
+    #   fulltext params[:search]
+    # end
+    # @events = @search.results>>>>>>> 182eba7b9074094d306d5aa4fa4d5bb1191f1d3e
     @events = Event.all
   end
 
