@@ -1,11 +1,5 @@
 <h1>All Volunteering Events</h1>
 
-<div class="events-search">
-	<%= button_tag "Find events near me", id: 'nearby-search' %>
- 	<%= form_tag opportunities_path, method: :get %>
- 		<%= text_field_tag :search_location, params[:search_location] %>
-	<%= submit_tag 'Find Nearby Opportunities' %>
-</div>
 <div id="events-list">
 	<%= render @events %>
 </div>
