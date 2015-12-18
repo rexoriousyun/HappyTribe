@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @q = Event.ransack(params[:q])
-    @events = @q.result(distinct: true)
+    @events = @q.result.includes(:interests, :skills).uniq
   end
 
   def show
