@@ -6,6 +6,10 @@ class Event < ActiveRecord::Base
   has_and_belongs_to_many :interests
   has_and_belongs_to_many :skills
 
+  geocoded_by :location
+  after_validation :geocode
+
+
   # searchable do
   #   text :name, :location
   #   text :organization_name
