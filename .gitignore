@@ -23,3 +23,5 @@ application.yml
 /solr/development/data/index/*
 /solr/development/data/tlog/*
 /solr/pids/development/sunspot-solr-development.pid
+# Ignore application configuration
+/config/application.yml
