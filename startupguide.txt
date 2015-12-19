@@ -1,6 +1,30 @@
 bundle install
 
 
+Figaro Guide:
+
+
+1. After bundle install, run this command on the command line:
+
+	bundle exec figaro install
+
+
+This will create an application.yml file and check it in to .gitignore. Your application.yml file will be unique to your machine.
+
+
+2. In application.yml, assign:
+
+	google_maps_api_key: ourAPIkey
+
+
+Our API key is not in this file for security, but can be accessed via the happytribeteam@gmail.com account. Or ask on the team slack channel.
+
+
+3. Once the API key is assigned, it will be pulled into the layout.html.erb file via
+
+
+**** SOLR USE HAS CURRENTLY BEEN REMOVED ****
+
 Sunspot guide:
 run "bundle exec rake sunspot:solr:start"
 run "rake sunspot:reindex"

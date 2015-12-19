@@ -4,7 +4,7 @@ $(document).on('ready page:load', function() {
 
 	var map = new google.maps.Map(canvas[0], {
 		center: eventLocation,
-		zoom: 8,
+		zoom: 14,
 	});
 
 	var marker = new google.maps.Marker({
