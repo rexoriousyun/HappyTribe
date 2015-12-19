@@ -10,7 +10,8 @@
 <div class="bookmark">
 	<%= render 'bookmarks/form' %>
 </div>
-	
+
+
 <div id="timeslot-list">
 	<h2>Choose a timeslot to volunteer at!</h2>
 	<% if logged_in? %>
@@ -18,4 +19,8 @@
 	<% else %>
 		<p><a href="/login">Login</a> or <a href="/signup">Sign-up</a> to volunteer at this event</p>
 	<% end %>
+</div>
+
+<div id="event-map" data-latitude=<%= @event.latitude %> data-longitude=<%= @event.longitude %> >
+<h1>Something</h1>
 </div>

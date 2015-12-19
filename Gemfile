@@ -39,6 +39,8 @@ gem 'sorcery'
 gem 'ransack'
 # Use geocoder for latlong information
 gem 'geocoder'
+# Use figaro for secrets
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

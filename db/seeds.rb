@@ -25,28 +25,28 @@ event_1 = Event.create(
   organization_id: 1,
   name: "Walk for the cure",
   role: "Setup Volunteer",
-  location: "123 random drive",
+  location: " 2300 Yonge Street #1300, Toronto, ON M4P 1E",
   description: "Walking to cure heart disease. Help us setup the registration desk"
   );
 event_2 = Event.create(
   organization_id: 2,
   name: "Charity Fundraiser",
   role: "DJ",
-  location: "123 specific drive",
+  location: "245 Queens Quay West, Toronto, ON M5J 2K9",
   description: "Come be a DJ at the Disco and help raise money for sick kids"
   );
 event_3 = Event.create(
   organization_id: 1,
   name: "Big Bike Event",
-  role: "Photographer",  
-  location: "123 blahblahblah",
+  role: "Photographer",
+  location: " 1090 Don Mills Road, Toronto, ON M3C 3R6",
   description: "Come to the awesome big bike event and help us capture it!"
   );
 event_4 = Event.create(
   organization_id: 3,
   name: "Environmental Awareness Event",
   role: "Sound Technician",
-  location: "123 hey there street",
+  location: "30 Centurian Dr, Markham, ON L3R 8T6",
   description: "Come help us set up our audio equipment to spread awareness of environmental issues"
   );
 timeslot_1 = Timeslot.create(
