@@ -1,7 +1,7 @@
 bundle install
 
 
-Figaro Guide:
+Figaro Guide (Being used for Google Maps)
 
 
 1. After bundle install, run this command on the command line:
@@ -17,10 +17,13 @@ This will create an application.yml file and check it in to .gitignore. Your app
 	google_maps_api_key: ourAPIkey
 
 
-Our API key is not in this file for security, but can be accessed via the happytribeteam@gmail.com account. Or ask on the team slack channel.
+Our API key is not in this file for security, but can be accessed via the happytribeteam@gmail.com account or on Trello. Or ask on the team slack channel.
+
+Once the API key is assigned, it will automatically be pulled into the layout.html.erb file via the Figaro.env.google_maps_api_key method.
 
 
-3. Once the API key is assigned, it will be pulled into the layout.html.erb file via
+3. No more steps! Google Maps should now work!
+
 
 
 **** SOLR USE HAS CURRENTLY BEEN REMOVED ****
