@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>HappyTribe</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key}" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<div class="navbar">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+
+    <%= javascript_include_tag "vendor/modernizr" %>
+  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key}" %>
+  	<%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+		<div class="navbar">
 		<%= link_to 'Home', root_path %>
 		<% if logged_in? %>
 			<%= link_to 'Logout', logout_path, method: 'delete' %>
@@ -26,8 +34,7 @@
 			<%= flash[:alert] %>
 		<% end %>
 	</div>
+    <%= yield %>
 
-<%= yield %>
-
-</body>
+  </body>
 </html>
