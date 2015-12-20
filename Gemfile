@@ -41,7 +41,8 @@ gem 'ransack'
 gem 'geocoder'
 # Use figaro for secrets
 gem 'figaro'
-
+# Use sassy way of things
+gem 'bourbon'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
