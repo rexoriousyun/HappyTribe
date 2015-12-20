@@ -43,6 +43,8 @@ gem 'geocoder'
 gem 'figaro'
 # Use sassy way of things
 gem 'bourbon'
+# Use bourbon family with grid features
+gem 'neat'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
