@@ -45,6 +45,9 @@ gem 'figaro'
 gem 'bourbon'
 # Use bourbon family with grid features
 gem 'neat'
+# Use bourbon family
+gem 'refills'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
