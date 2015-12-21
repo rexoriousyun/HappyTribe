@@ -1,6 +1,7 @@
 <div class="events-list">
 	<h1>All Volunteering Events</h1>
 
+
 		<%= search_form_for @q do |f| %>
       <%= f.label :search %>
 
@@ -9,6 +10,7 @@
       <%= f.submit %>
 
     <% end %>
+
 
 	<%= render @events %>
 </div>

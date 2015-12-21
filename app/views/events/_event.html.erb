@@ -1,10 +1,31 @@
-<div class="event">
+<div class="row">
+	<div class="large-4 medium-4 columns">
+   <ul class="pricing-table active-tb shadow mrgn-20-top">
+     <li class="title"><p>Name: <%= link_to event.name, event_path(event) %></p></li>
+     <li class="bullet-item"><p>Role: <%= event.role %></p></li>
+     <li class="bullet-item"><p>Organization: <%= link_to event.organization.name, organization_path(event.organization) %></p></li>
+     <li class="bullet-item"><p>Location: <%= event.location %></p></li>
+     <li class="bullet-item">Bookmark</li>
+     <div id="timeslot-list">
+			<p>Choose a timeslot</p>
+				<% if logged_in? %>
+					<%= render partial: 'timeslots/timeslot', collection: event.timeslots.order(start_time: :asc) %>
+				<% else %>
+					<p><a href="/login">Login</a> or <a href="/signup">Sign-up</a> to volunteer at this event</p>
+			<% end %>
+		 </div>
+     <!-- <li class="cta-button"><a class="button text-transform" href="#">Choose</a></li> -->
+   </ul>
+ 	</div>
+</div>
+
+<!-- <div class="event">
 	<p>Name: <%= link_to event.name, event_path(event) %></p>
 	<p>Role: <%= event.role %></p>
 	<p>Organization: <%= link_to event.organization.name, organization_path(event.organization) %></p>
 	<p>Location: <%= event.location %></p>
-</div>
-
+</div> -->
+<!--
 <div id="timeslot-list">
 	<h4>Choose a timeslot to volunteer at!<h4>
 	<% if logged_in? %>
@@ -12,4 +33,4 @@
 	<% else %>
 		<p><a href="/login">Login</a> or <a href="/signup">Sign-up</a> to volunteer at this event</p>
 	<% end %>
-</div>
+</div> -->
