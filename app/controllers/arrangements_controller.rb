@@ -12,6 +12,7 @@ class ArrangementsController < ApplicationController
       redirect_to event_path(@timeslot.event), notice: "Arrangement successfully made!"
     else
       flash[:alert] = "Volunteering arrangement failed to save. Note: You can only book once per timeslot"
+       # << @arrange.errors.full_messages
       redirect_to event_path(@timeslot.event)
     end
   end
