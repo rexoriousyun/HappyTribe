@@ -27,18 +27,15 @@ class Event < ActiveRecord::Base
   	self.timeslots.order(end_time: :asc).last.end_time
   end
 
-  def self.order_by_start_time
-    events_and_times = []
-    Event.all.each do |event|
-      events_and_times << { event: event, start_time: event.start_time }
-    end
-    sorted_by_time = (events_and_times.sort_by { |event| event[:start_time] })
-    cleaned_array = sorted_by_time.map { |h| h.except!(:start_time) }
-    return cleaned_array.map! { |h| h[:event] }
+  def self.future
+    joins(:timeslots).where("timeslots.start_time >= '#{Time.now}'").distinct
   end
 
-  def self.future
-    all # TODO: Return only future events
+
+  def self.order_by_start_time
+    events_and_times = future.sort_by do |event|
+      event.start_time
+    end
   end
 
   def self.filter_for_user(user, interest_weight, skill_weight)
