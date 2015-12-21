@@ -9,4 +9,5 @@ class Arrangement < ActiveRecord::Base
   		errors.add(:user_id, "has already booked for this timeslot.")
   	end
   end
+
 end

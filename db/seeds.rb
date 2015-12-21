@@ -113,14 +113,14 @@ timeslot_7 = Timeslot.create(
   event_id: event_3.id
   );
 timeslot_8 = Timeslot.create(
-  start_time: Time.new(2016, 1, 20, 12, 30, 0) ,
-  end_time: Time.new(2016, 1, 20, 15, 0, 0),
+  start_time: Time.new(2016, 3, 15, 12, 30, 0) ,
+  end_time: Time.new(2016, 3, 15, 15, 0, 0),
   capacity: 30,
   event_id: event_4.id
   );
 timeslot_9 = Timeslot.create(
-  start_time: Time.new(2016, 1, 22, 15, 0, 0) ,
-  end_time: Time.new(2016, 1, 22, 18, 0, 0),
+  start_time: Time.new(2016, 3, 15, 15, 0, 0) ,
+  end_time: Time.new(2016, 3, 15, 18, 0, 0),
   capacity: 15,
   event_id: event_4.id
   );
