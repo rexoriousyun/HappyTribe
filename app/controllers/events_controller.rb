@@ -3,12 +3,11 @@ class EventsController < ApplicationController
   before_action :get_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @q = Event.ransack(params[:q])
     if logged_in?
       interests_or_skills = current_user.interests.any? || current_user.skills.any?
     end
     if params[:q] == nil && interests_or_skills
-      @events = Event.filter_for_user(current_user.interests, current_user.skills, 0.75, 0.25)
+      @events = Event.filter_for_user(current_user, 0.75, 0.25)
     elsif params[:q]
       @events = @q.result.includes(:interests, :skills).uniq
     else

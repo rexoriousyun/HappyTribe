@@ -37,31 +37,37 @@ class Event < ActiveRecord::Base
     return cleaned_array.map! { |h| h[:event] }
   end
 
+  def self.future
+    all # TODO: Return only future events
+  end
+
+  def self.filter_for_user(user, interest_weight, skill_weight)
+    sorted_events = future.sort_by do |event|
+      event.total_rank(user, interest_weight, skill_weight)
+    end.reverse
+  end
+
   # In the 2 methods below, the single ampersand & is not a typo
   # It checks matches between 2 arrays and returns an array of matches
 
-  def match_interests(user_interests)
-    event_interests = self.interests
-    matched_interests = event_interests & user_interests
-    return matched_interests
+  def match_interests(user)
+    self.interests & user.interests
   end
 
-  def match_skills(user_skills)
-    event_skills = self.skills
-    matched_skills = event_skills & user_skills
-    return matched_skills
+  def match_skills(user)
+    self.skills & user.skills
   end
 
-  def self.filter_for_user(user_interests, user_skills, interest_weight, skill_weight)
-    ranked_events = []
-    Event.all.each do |event|
-      interest_rank = (event.match_interests(user_interests).count) * interest_weight.to_f
-      skill_rank = (event.match_skills(user_skills).count) * skill_weight.to_f
-      ranked_events << { event: event, ranking: interest_rank + skill_rank }
-    end
-    sorted_ranked_events = (ranked_events.sort_by { |event| event[:ranking] }).reverse
-    cleaned_array = sorted_ranked_events.map { |h| h.except!(:ranking) }
-    return cleaned_array.map! { |h| h[:event] }
+  def interest_rank(user, weight)
+    self.match_interests(user).count * weight.to_f
+  end
+
+  def skill_rank(user, weight)
+    self.match_skills(user).count * weight.to_f
+  end
+
+  def total_rank(user, interest_weight, skill_weight)
+    interest_rank(user, interest_weight) + skill_rank(user, skill_weight)
   end
 
 

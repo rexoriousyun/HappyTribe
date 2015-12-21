@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151219015936) do
+ActiveRecord::Schema.define(version: 20151221211256) do
 
   create_table "arrangements", force: :cascade do |t|
     t.integer  "user_id"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20151219015936) do
     t.string   "role"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "image_url"
   end
 
   add_index "events", ["organization_id"], name: "index_events_on_organization_id"

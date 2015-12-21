@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_search
-		@search=Event.ransack(params[:q])
-	end
+		@q=Event.ransack(params[:q])
+	end 
 end
