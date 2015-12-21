@@ -33,6 +33,25 @@ class Event < ActiveRecord::Base
     return matched_interests
   end
 
+  def match_skills(user_skills)
+    event_skills = self.skills
+    matched_skills = event_skills & user_skills
+    return matched_skills
+  end
+
+  def self.filter_for_user(user_interests, user_skills, interest_weight, skill_weight)
+    ranked_events = []
+    Event.all.each do |event|
+      ranked_events << {
+        event: event,
+        ranking: (event.match_interests(user_interests).count * interest_weight
+          + event.match_skills(user_skills).count) * skill_weight
+      }
+    end
+    ranked_events
+  end
+
+
   # # solr callbacks please do not touch
   # def organization_name
   #   Organization.find(organization_id).name
