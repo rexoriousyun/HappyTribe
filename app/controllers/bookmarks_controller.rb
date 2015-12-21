@@ -25,11 +25,13 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    @bookmark = bookmark.find(params[:id])
-    unless @bookmark.destroy
-      flash[:alert] = "Deleting Bookmark failed"
+    @bookmark = Bookmark.find(params[:id])
+    if @bookmark.destroy
+      redirect_to user_path(current_user), notice: "bookmark deleted"
+    else
+      redirect_to user_path(current_user)
+      flash[:alert] = "Deleting this bookmark failed"
     end
-    redirect_to user_path(current_user)
   end
 
   private
