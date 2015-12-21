@@ -3,7 +3,6 @@ class EventsController < ApplicationController
   before_action :get_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @q = Event.ransack(params[:q])
     if logged_in?
       interests_or_skills = current_user.interests.any? || current_user.skills.any?
     end
