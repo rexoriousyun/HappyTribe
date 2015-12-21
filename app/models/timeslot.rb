@@ -10,6 +10,7 @@ class Timeslot < ActiveRecord::Base
   	self.start_time.strftime("%l:%M%P")
   end
 
+  # may add in .localtime after end_time to format to local
   def ends_at
   	self.end_time.strftime("%l:%M%P")
   end
