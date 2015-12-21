@@ -27,6 +27,12 @@ class Event < ActiveRecord::Base
   	self.timeslots.order(end_time: :asc).last.end_time
   end
 
+  def match_interests(user_interests)
+    event_interests = self.interests
+    matched_interests = event_interests & user_interests
+    return matched_interests
+  end
+
   # # solr callbacks please do not touch
   # def organization_name
   #   Organization.find(organization_id).name
