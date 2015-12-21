@@ -52,14 +52,18 @@
 
 <div class="user-bookmarks">
 	<h2>Your Bookmarked Events</h2>
-	 <% current_user.bookmarked_events.each do |event| %>
+	 <% current_user.bookmarks.each do |bookmark| %>
 	 	<div>
+	 		<% event = bookmark.event %>
 	 		<p>
 				<%= link_to "#{event.name}", event_path(event) %> <br/>
 	 			<%= event.role %><br/>
 	 			<%= event.organization.name %> <br/>
 				<%= event.location %> <br/>
 				<%= event.start_time %> <%= event.end_time %>
+				<%= button_to "Delete this bookmark",
+			event_bookmark_path(bookmark.event, bookmark),
+			:method => :delete %>
 	 		</p>
 	 	</div>
 	<% end %>

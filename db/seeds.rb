@@ -21,6 +21,12 @@ org_3 =  Organization.create(
   email: "talliance@talliance.com",
   website_url: "http://www.torontoenvironment.org/",
   description: "Helps sick children");
+org_4 =  Organization.create(
+  name: "Toronto Humane Society",
+  email: "humanesociety@toronto.com",
+  website_url: "http://www.torontohumanesociety.com",
+  description: "Gives animals a home");
+
 event_1 = Event.create(
   organization_id: 1,
   name: "Walk for the cure",
@@ -49,40 +55,54 @@ event_4 = Event.create(
   location: "30 Centurian Dr, Markham, ON L3R 8T6",
   description: "Come help us set up our audio equipment to spread awareness of environmental issues"
   );
+event_5 = Event.create(
+  organization_id: 4,
+  name: "Animal Awareness Event",
+  role: "Animal Trainer",
+  location: "110 Wellesley St W, Toronto, ON M7A 1A2",
+  description: "Help us keep the animals in best behaviour as we raise animal awareness"
+  );
+event_6 = Event.create(
+  organization_id: 3,
+  name: "Cleanup the Streets!",
+  role: "Garbage Picker",
+  location: "500 Yonge St, Toronto, ON M4Y 1X9",
+  description: "Come help us clean up the streets of Toronto!"
+  );
+
 timeslot_1 = Timeslot.create(
-  start_time: Time.new(2016, 1, 12, 9, 0, 0) ,
-  end_time: Time.new(2016, 1, 12, 12, 0, 0),
+  start_time: Time.new(2016, 1, 15, 9, 0, 0) ,
+  end_time: Time.new(2016, 1, 15, 12, 0, 0),
   capacity: 50,
   event_id: event_1.id
   );
 timeslot_2 = Timeslot.create(
-  start_time: Time.new(2016, 1, 12, 12, 30, 0) ,
-  end_time: Time.new(2016, 1, 12, 15, 0, 0),
+  start_time: Time.new(2016, 1, 15, 12, 30, 0) ,
+  end_time: Time.new(2016, 1, 15, 15, 0, 0),
   capacity: 70,
   event_id: event_1.id
   );
 timeslot_3 = Timeslot.create(
-  start_time: Time.new(2016, 1, 12, 15, 0, 0) ,
-  end_time: Time.new(2016, 1, 12, 18, 0, 0),
+  start_time: Time.new(2016, 1, 15, 15, 0, 0) ,
+  end_time: Time.new(2016, 1, 15, 18, 0, 0),
   capacity: 40,
   event_id: event_1.id
   );
-
 timeslot_4 = Timeslot.create(
-  start_time: Time.new(2016, 1, 20, 9, 0, 0) ,
-  end_time: Time.new(2016, 1, 20, 12, 0, 0),
+  start_time: Time.new(2016, 1, 18, 9, 0, 0) ,
+  end_time: Time.new(2016, 1, 18, 12, 0, 0),
   capacity: 20,
   event_id: event_2.id
   );
 timeslot_5 = Timeslot.create(
-  start_time: Time.new(2016, 1, 20, 12, 30, 0) ,
-  end_time: Time.new(2016, 1, 20, 15, 0, 0),
+  start_time: Time.new(2016, 1, 18, 12, 30, 0) ,
+  end_time: Time.new(2016, 1, 18, 15, 0, 0),
   capacity: 30,
   event_id: event_2.id
   );
 timeslot_6 = Timeslot.create(
-  start_time: Time.new(2016, 1, 20, 15, 0, 0) ,
-  end_time: Time.new(2016, 1, 20, 18, 0, 0),
+  start_time: Time.new(2016, 1, 18, 15, 0, 0) ,
+  end_time: Time.new(2016, 1, 18, 18, 0, 0),
   capacity: 15,
   event_id: event_2.id
   );
@@ -99,10 +119,40 @@ timeslot_8 = Timeslot.create(
   event_id: event_4.id
   );
 timeslot_9 = Timeslot.create(
-  start_time: Time.new(2016, 1, 20, 15, 0, 0) ,
-  end_time: Time.new(2016, 1, 20, 18, 0, 0),
+  start_time: Time.new(2016, 1, 22, 15, 0, 0) ,
+  end_time: Time.new(2016, 1, 22, 18, 0, 0),
   capacity: 15,
   event_id: event_4.id
+  );
+timeslot_10 = Timeslot.create(
+  start_time: Time.new(2016, 1, 25, 15, 0, 0) ,
+  end_time: Time.new(2016, 1, 25, 18, 0, 0),
+  capacity: 15,
+  event_id: event_5.id
+  );
+timeslot_11 = Timeslot.create(
+  start_time: Time.new(2016, 1, 25, 17, 0, 0) ,
+  end_time: Time.new(2016, 1, 25, 20, 0, 0),
+  capacity: 15,
+  event_id: event_5.id
+  );
+timeslot_12 = Timeslot.create(
+  start_time: Time.new(2016, 1, 22, 8, 0, 0) ,
+  end_time: Time.new(2016, 1, 22, 11, 0, 0),
+  capacity: 15,
+  event_id: event_5.id
+  );
+timeslot_13 = Timeslot.create(
+  start_time: Time.new(2016, 2, 1, 11, 0, 0) ,
+  end_time: Time.new(2016, 2, 1, 14, 0, 0),
+  capacity: 15,
+  event_id: event_6.id
+  );
+timeslot_14 = Timeslot.create(
+  start_time: Time.new(2016, 2, 1, 15, 0, 0) ,
+  end_time: Time.new(2016, 2, 1, 18, 0, 0),
+  capacity: 15,
+  event_id: event_6.id
   );
 
 
@@ -180,6 +230,9 @@ skill_6 = Skill.create(
 skill_7 = Skill.create(
   name: "Photography"
   );
+skill_8 = Skill.create(
+  name: "Animal Training"
+  );
 
 event_1.interests << interest_1
 event_1.skills << skill_1
@@ -193,7 +246,15 @@ event_3.interests << interest_1
 event_3.skills << skill_7
 
 event_4.interests << interest_2
-event_2.skills << skill_5
+event_4.skills << skill_5
+
+event_5.interests << interest_10
+event_5.skills << skill_8
+
+event_6.interests << interest_2
+event_6.interests << interest_9
+event_6.skills << skill_2
+
 
 user_1.interests << interest_1
 user_2.interests << interest_1

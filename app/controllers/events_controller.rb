@@ -4,7 +4,14 @@ class EventsController < ApplicationController
 
   def index
     @q = Event.ransack(params[:q])
-    @events = @q.result.includes(:interests, :skills).uniq
+    interests_or_skills = current_user.interests.any? || current_user.skills.any?
+    if params[:q] == nil && interests_or_skills
+      @events = Event.filter_for_user(current_user.interests, current_user.skills, 0.75, 0.25)
+    elsif params[:q]
+      @events = @q.result.includes(:interests, :skills).uniq
+    else
+      @events = Event.order_by_start_time
+    end
   end
 
   def show
