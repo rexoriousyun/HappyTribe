@@ -27,6 +27,19 @@ class Event < ActiveRecord::Base
   	self.timeslots.order(end_time: :asc).last.end_time
   end
 
+  def self.order_by_start_time
+    events_and_times = []
+    Event.all.each do |event|
+      events_and_times << { event: event, start_time: event.start_time }
+    end
+    sorted_by_time = (events_and_times.sort_by { |event| event[:start_time] })
+    cleaned_array = sorted_by_time.map { |h| h.except!(:start_time) }
+    return cleaned_array.map! { |h| h[:event] }
+  end
+
+  # In the 2 methods below, the single ampersand & is not a typo
+  # It checks matches between 2 arrays and returns an array of matches
+
   def match_interests(user_interests)
     event_interests = self.interests
     matched_interests = event_interests & user_interests
@@ -42,13 +55,13 @@ class Event < ActiveRecord::Base
   def self.filter_for_user(user_interests, user_skills, interest_weight, skill_weight)
     ranked_events = []
     Event.all.each do |event|
-      ranked_events << {
-        event: event,
-        ranking: (event.match_interests(user_interests).count * interest_weight
-          + event.match_skills(user_skills).count) * skill_weight
-      }
+      interest_rank = (event.match_interests(user_interests).count) * interest_weight.to_f
+      skill_rank = (event.match_skills(user_skills).count) * skill_weight.to_f
+      ranked_events << { event: event, ranking: interest_rank + skill_rank }
     end
-    ranked_events
+    sorted_ranked_events = (ranked_events.sort_by { |event| event[:ranking] }).reverse
+    cleaned_array = sorted_ranked_events.map { |h| h.except!(:ranking) }
+    return cleaned_array.map! { |h| h[:event] }
   end
 
 
