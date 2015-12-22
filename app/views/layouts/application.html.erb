@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Happy Tribe" %></title>
     <%= javascript_include_tag "vendor/modernizr" %>
   	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -22,7 +22,11 @@
             </li>
             <li class="toggle-topbar menu-icon">
               <% if logged_in? %>
-                <%= link_to "Profile", user_path(current_user), class: "menu" %></li>
+                <%= link_to "Menu", user_path(current_user) %></li>
+              <% else %>
+                <%= link_to 'Login or Sign-up' %>
+                <%= link_to 'Login', login_path %>
+                <%= link_to 'Sign-up', signup_path %>
               <% end %>
             </li>
           </ul>
@@ -31,11 +35,11 @@
         <section class="top-bar-section">
           <ul class="right">
             <% if logged_in? %>
-              <li><%= link_to "Profile", user_path(current_user), class: "menu" %></li>
-              <li><%= link_to "Logout", logout_path, method: "delete", class: "menu" %>
+              <li><%= link_to "Profile", user_path(current_user) %></li>
+              <li><%= link_to "Logout", logout_path, method: "delete" %></li>
             <% else %>
-              <li><%= link_to 'Login', login_path, class: "menu" %></li>
-              <li><%= link_to 'Sign-up', signup_path, class: "menu" %></li>
+              <li><%= link_to 'Login', login_path %></li>
+              <li><%= link_to 'Sign-up', signup_path %></li>
             <% end %>
 
             <li class="has-form">
@@ -47,6 +51,7 @@
                   </div>
                 </div>
             </li>
+
           </ul>
         </section>
       </nav>
