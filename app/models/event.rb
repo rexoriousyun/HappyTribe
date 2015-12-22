@@ -20,11 +20,11 @@ class Event < ActiveRecord::Base
   # end
 
   def start_time
-  	self.timeslots.order(start_time: :asc).first.start_time
+  	self.timeslots.order(start_time: :asc).first.start_time.localtime
   end
 
   def end_time
-  	self.timeslots.order(end_time: :asc).last.end_time
+  	self.timeslots.order(end_time: :asc).last.end_time.localtime
   end
 
   def self.future

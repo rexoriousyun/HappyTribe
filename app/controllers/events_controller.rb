@@ -11,7 +11,7 @@ class EventsController < ApplicationController
     elsif params[:q]
       @events = @q.result.includes(:interests, :skills).uniq
     else
-      @events = Event.order_by_start_time
+      @events = Event.order_by_start_time.localtime
     end
   end
 
