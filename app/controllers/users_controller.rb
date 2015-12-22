@@ -23,8 +23,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @interests = Interest.all
-    @skills = Skill.all
+    if flash[:notice] == "Successfully signed up for Happy Tribe!"
+      @top_interests = Interest.sort_by_popularity(6)
+      # refactor into a separate controller
+    else
+      @interests = Interest.all
+      @skills = Skill.all
+    end
   end
 
   def update
