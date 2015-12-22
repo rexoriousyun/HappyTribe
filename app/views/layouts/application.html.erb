@@ -20,7 +20,10 @@
               <h1><%= link_to "Happy Tribe", root_path, class: "menu" %></h1>
               <!-- later put image tag here -->
             </li>
-            <li class="toggle-topbar menu-icon"><%= link_to "Profile", user_path(current_user), class: "menu" %></li>
+            <li class="toggle-topbar menu-icon">
+              <% if logged_in? %>
+                <%= link_to "Profile", user_path(current_user), class: "menu" %></li>
+              <% end %>
             </li>
           </ul>
 
