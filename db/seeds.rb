@@ -57,7 +57,7 @@ event_2 = Event.create(
   role: "DJ",
   location: " 555 University Ave, Toronto, ON M5G 1X8",
   description: "Time to get back into the Grove of the 70's and the wild and crazy times of the 80's. Help us in Supporting and raising Awareness and Money for Neurofibromatosis.",
-  image_url: "http://www.thestar.com/content/dam/thestar/news/investigations/2007/07/15/charities_admit_fundraising_mess/sickkids.jpeg"
+  image_url: "http://i.imgur.com/TvRWQQL.jpg?1"
   );
 event_3 = Event.create(
   organization_id: 6,
@@ -65,7 +65,7 @@ event_3 = Event.create(
   role: "Photographer",
   location: " 1090 Don Mills Road, Toronto, ON M3C 3R6",
   description: "Come to the awesome big bike event and help us capture it!",
-  image_url: "http://www.ontariobybike.ca/images/Cover_Image1.png"
+  image_url: "http://i.imgur.com/uyy5K2e.png?1"
   );
 event_4 = Event.create(
   organization_id: 3,
@@ -73,7 +73,7 @@ event_4 = Event.create(
   role: "Sound Technician",
   location: "30 Centurian Dr, Markham, ON L3R 8T6",
   description: "Come help us set up our audio equipment to spread awareness of environmental issues",
-  image_url: "http://blog.uprinting.com/wp-content/uploads/2010/03/environmental-awareness-posters-15.jpg"
+  image_url: "http://i.imgur.com/Wv1IRuD.jpg?1"
   );
 event_5 = Event.create(
   organization_id: 4,
@@ -81,7 +81,7 @@ event_5 = Event.create(
   role: "Animal Trainer",
   location: "110 Wellesley St W, Toronto, ON M7A 1A2",
   description: "Help us keep the animals in best behaviour as we raise animal awareness",
-  image_url: "http://ottawadogblog.ca/odb-files/2008/12/torontohumans1.jpg"
+  image_url: "http://i.imgur.com/M1zvAI3.jpg?1"
   );
 event_6 = Event.create(
   organization_id: 2,
@@ -89,7 +89,7 @@ event_6 = Event.create(
   role: "Administrator",
   location: "160 College St #230, Toronto, ON M5S 3E1",
   description: "The annual blood donation run by Mount Sinai Hospital. Currently recruiting alternative to organize for various timeslot.",
-  image_url: "https://www.blood.ca/sites/default/files/are-you-between-17-23.jpg"
+  image_url: "http://i.imgur.com/iU4YsEb.jpg?1"
   );
 event_7 = Event.create(
   organization_id: 3,
@@ -97,7 +97,7 @@ event_7 = Event.create(
   role: "Server",
   location: "222 Bremner Blvd, Toronto, ON M5V 3L9",
   description: "The annual Gourmet Food & Wine Expo is held in November at the Metro Toronto Convention Centre, North Building. Each year the Expo offers 45,000 guests an unparalleled opportunity to sample over 1,500 fine wines, spirits and beers from around the globe. Town Media, a part of the Postmedia Network is a fully integrated publishing and communications company, producing several magazine titles and major events.",
-  image_url: "http://www.citylifemagazine.ca/wp-content/gallery/foodwine/gourmet-food-wine-expo-toronto-bottles.jpg"
+  image_url: "http://i.imgur.com/ePRGURb.jpg?1"
   );
 event_8 = Event.create(
   organization_id: 1,
@@ -105,7 +105,7 @@ event_8 = Event.create(
   role: "Food Bank Helper",
   location: "502 Spadina Ave, Toronto, ON M5S 2H1",
   description: "Volunteers are an essential part of the work that happens at The Scott Mission. In 2014, 2,574 volunteers logged a total of 26,164 hours and performed a variety of tasks: helping in the food bank, serving hot meals in our dining room and many other ways. We are doing it again!",
-  image_url: "https://www.scottmission.com/wp-content/uploads/2015/03/tsm-logo.png"
+  image_url: "http://i.imgur.com/wuf9bZd.png?1"
   );
 
 
