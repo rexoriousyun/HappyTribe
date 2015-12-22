@@ -88,7 +88,7 @@ event_6 = Event.create(
   name: "Blood Donation",
   role: "Administrator",
   location: "160 College St #230, Toronto, ON M5S 3E1",
-  description: "The annual blood donation run by Mount Sinai Hospital. Currently recruiting alternative to organize for various timeslot."
+  description: "The annual blood donation run by Mount Sinai Hospital. Currently recruiting alternative to organize for various timeslot.",
   image_url: "https://www.blood.ca/sites/default/files/are-you-between-17-23.jpg"
   );
 event_7 = Event.create(
@@ -104,7 +104,7 @@ event_8 = Event.create(
   name: "Scott Mission Christmas Volunteer",
   role: "Food Bank Helper",
   location: "502 Spadina Ave, Toronto, ON M5S 2H1",
-  description: "Volunteers are an essential part of the work that happens at The Scott Mission. In 2014, 2,574 volunteers logged a total of 26,164 hours and performed a variety of tasks: helping in the food bank, serving hot meals in our dining room and many other ways. We are doing it again!"
+  description: "Volunteers are an essential part of the work that happens at The Scott Mission. In 2014, 2,574 volunteers logged a total of 26,164 hours and performed a variety of tasks: helping in the food bank, serving hot meals in our dining room and many other ways. We are doing it again!",
   image_url: "https://www.scottmission.com/wp-content/uploads/2015/03/tsm-logo.png"
   );
 
