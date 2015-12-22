@@ -37,7 +37,7 @@ canada_running =  Organization.create(
   website_url: "www.canadarunningseries.com",
   description: "The Canada Running Series, an annual road racing series showcasing the world's premiere distance runners and amateur athletics in Canada.");
 breast_cancer =  Organization.create(
-  name: "Canadian Breat Cancer Foundation",
+  name: "Canadian Breast Cancer Foundation",
   email:  "breastcancer@cbcf.org",
   website_url: "http://www.cbcf.org/",
   description: "Learn more about breast cancer, get involved in upcoming events, volunteer or read more about our work towards creating a future without breast cancer.");
@@ -48,7 +48,7 @@ heart_and_stroke =  Organization.create(
   description: "The Heart and Stroke Foundation is one of Canada’s largest and most effective health charities. Over the last 60 years we have invested more than $1.39 billion in heart and stroke research.");
 toronto_environment = Organization.create(
   name: "Toronto Environmental Alliance",
-  email: "Torontoenv@talliance.ca".
+  email: "Torontoenv@talliance.ca",
   website_url: "http://www.torontoenvironment.org/",
   description: "TEA focuses on actions to help Toronto prepare for the impacts of climate change by reducing energy use and investing in the right infrastructure.");
 
@@ -243,14 +243,14 @@ timeslot_19 = Timeslot.create(
   event_id: scott_food_bank.id
   );
 timeslot_20 = Timeslot.create(
-  start_time: Time.new(2016, 08, 19, 19, 0 ,0),
-  end_time: Time.new(2016, 08, 19, 22, 0, 0),
+  start_time: Time.new(2016, 8, 19, 19, 0 ,0),
+  end_time: Time.new(2016, 8, 19, 22, 0, 0),
   capacity: 40,
   event_id: environment_garbage_picker.id
   );
 timeslot_21 = Timeslot.create(
-  start_time: Time.new(2016, 08, 19, 22, 0 ,0),
-  end_time: Time.new(2016, 08, 20, 1, 0, 0),
+  start_time: Time.new(2016, 8, 19, 22, 0 ,0),
+  end_time: Time.new(2016, 8, 20, 1, 0, 0),
   capacity: 40,
   event_id: environment_garbage_picker.id
   );
@@ -274,6 +274,41 @@ user_3 = User.create(
   first_name: "Greg",
   last_name: "Gregson",
   email: "gg@gg.com",
+  password: "blah",
+  password_confirmation: "blah"
+  );
+user_4 = User.create(
+  first_name: "Grant",
+  last_name: "Grantson",
+  email: "ggg@gg.com",
+  password: "blah",
+  password_confirmation: "blah"
+  );
+user_5 = User.create(
+  first_name: "Eric",
+  last_name: "Ericson",
+  email: "ee@gg.com",
+  password: "blah",
+  password_confirmation: "blah"
+  );
+user_6 = User.create(
+  first_name: "Bryan",
+  last_name: "Ericson",
+  email: "be@gg.com",
+  password: "blah",
+  password_confirmation: "blah"
+  );
+user_7 = User.create(
+  first_name: "Donald",
+  last_name: "Ericson",
+  email: "de@gg.com",
+  password: "blah",
+  password_confirmation: "blah"
+  );
+user_8 = User.create(
+  first_name: "Stacey",
+  last_name: "Ericson",
+  email: "se@gg.com",
   password: "blah",
   password_confirmation: "blah"
   );
@@ -380,23 +415,72 @@ scott_food_bank.skills << cooking
 environment_garbage_picker.skills << cleaning
 environment_garbage_picker.interests << environmentalism
 
-user_1.interests << interest_1
-user_1.interests << interest_5
-user_1.interests << interest_11
+user_1.interests << womens_rights
+user_1.interests << health_care
+user_1.interests << senior_care
+user_1.skills << animal_training
+user_1.skills << event_planning
 
-user_1.skills << skill_5
-user_1.skills << skill_6
+user_2.interests << environmentalism
+user_2.interests << community_support
+user_2.interests << senior_care
+user_2.skills << administration
+user_2.skills << cooking
 
-user_2.interests << interest_1
-user_2.interests << interest_2
-user_1.interests << interest_10
+user_3.interests << womens_rights
+user_3.interests << festivals
+user_3.skills << musical_talent
+user_3.skills << event_planning
+user_3.skills << audio_engineering
 
-user_2.skills << skill_2
-user_2.skills << skill_9
+user_3.interests << lgbt
+user_3.interests << child_care
+user_3.skills << first_aid
+user_3.skills << cleaning
+user_3.skills << audio_engineering
 
-user_3.interests << interest_3
-user_3.interests << interest_7
-user_1.interests << interest_9
+user_4.interests << education
+user_4.interests << shelter_support
+user_4.skills << fundraising
+user_4.skills << photography
+user_4.skills << administration
 
-user_3.skills << skill_10
-user_3.skills << skill_11
+user_4.interests << health_care
+user_4.interests << environmentalism
+user_4.skills << fundraising
+user_4.skills << cleaning
+user_4.skills << administration
+
+user_5.interests << animal_rights
+user_5.interests << child_care
+user_5.skills << animal_training
+user_5.skills << cleaning
+user_5.skills << administration
+
+user_5.interests << senior_care
+user_5.interests << shelter_support
+user_5.interests << community_support
+user_5.skills << cooking
+user_5.skills << event_planning
+user_5.skills << administration
+
+user_6.interests << womens_rights
+user_6.interests << environmentalism
+user_6.interests << health_care
+user_6.skills << first_aid
+user_6.skills << event_planning
+user_6.skills << audio_engineering
+
+user_7.interests << womens_rights
+user_7.interests << environmentalism
+user_7.interests << health_care
+user_7.skills << programming
+user_7.skills << event_planning
+user_7.skills << fundraising
+
+user_8.interests << child_care
+user_8.interests << health_care
+user_8.interests << community_support
+user_8.skills << programming
+user_8.skills << first_aid
+user_8.skills << musical_talent
