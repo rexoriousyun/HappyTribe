@@ -4,6 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :require_login
   before_filter :set_search
+  # after_filter :searching
+
+  # def searching
+  #   if params[:q]
+  #     redirect_to events_path, q: '1'
+  #   end
+  # end
 
   def not_authenticated
   	redirect_to login_path, alert: "Please Login :)"

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :organizations
   resources :events do
+    match :q, to: 'events#index', via: :post, on: :collection
     resources :bookmarks, only: [:new, :create, :destroy, :edit, :show, :update]
   end
   resources :timeslots do
