@@ -2,6 +2,7 @@
 	<div class="large-4 medium-4 columns">
    <ul class="pricing-table active-tb shadow mrgn-20-top">
      <li class="title"><p>Name: <%= link_to event.name, event_path(event) %></p></li>
+     <li class="image"><%= image_tag(event.image_url) %>></li>
      <li class="bullet-item"><p>Role: <%= event.role %></p></li>
      <li class="bullet-item"><p>Organization: <%= link_to event.organization.name, organization_path(event.organization) %></p></li>
      <li class="bullet-item"><p>Location: <%= event.location %></p></li>
