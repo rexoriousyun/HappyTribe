@@ -1,28 +1,26 @@
-<div class="event-show">
+<div class="event-show large-6 medium-6 small-12 columns">
 	<h1>Name: <%= @event.name %></h1>
 	<div class="image"><%= image_tag(@event.image_url) %></div>
+	<div class="bookmark">
+		<%= form_for [@event, @bookmark] do |f| %>
+		    <%= f.submit value: "add to bookmarks" %>
+		<% end %>
+	</div>
 	<p>Role: <%= @event.role %></p>
 	<p>Organization: <%= link_to @event.organization.name, organization_path(@event.organization) %></p>
 	<p>Location: <%= @event.location %></p>
 	<p>Date: <%= @event.start_time.strftime("%A, %m/%d/%y") %></p>
 	<p>Event Length: <%= @event.start_time.strftime("%l:%M%P") %> to <%= @event.end_time.strftime("%l:%M%P") %>
-</div>
-
-<div class="bookmark">
-	<%= form_for [@event, @bookmark] do |f| %>
-	    <%= f.submit value: "add to bookmarks" %>
-	<% end %>
-</div>
-
-
-<div id="timeslot-list">
-	<h2>Choose a timeslot to volunteer at!</h2>
-	<% if logged_in? %>
-		<%= render partial: 'timeslots/timeslot', collection: @event.timeslots.order(start_time: :asc) %>
-	<% else %>
-		<p><a href="/login">Login</a> or <a href="/signup">Sign-up</a> to volunteer at this event</p>
-	<% end %>
+	<div id="timeslot-list">
+		<h3>Choose a timeslot to volunteer at!</h3>
+		<% if logged_in? %>
+			<%= render partial: 'timeslots/timeslot', collection: @event.timeslots.order(start_time: :asc) %>
+		<% else %>
+			<p><a href="/login">Login</a> or <a href="/signup">Sign-up</a> to volunteer at this event</p>
+		<% end %>
+	</div>
 </div>
 
 <div id="event-map" data-latitude=<%= @event.latitude %> data-longitude=<%= @event.longitude %> >
 </div>
+
