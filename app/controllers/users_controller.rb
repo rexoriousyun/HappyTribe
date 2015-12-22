@@ -10,11 +10,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "Successfully signed up for Happy Tribe!"
+      flash[:notice] = "Successfully signed up for Happy Tribe! Welcome!"
       auto_login(@user)
-      redirect_to user_welcomes_path(@user)
+      redirect_to welcome_path
     else
-      flash[:alert] = "Sorry, Signup failed. :("
+      arr_errors = @user.errors.full_messages if @user.errors.any?
+      flat_errors = arr_errors.join(". ")
+      flash[:alert] = "Sorry, Signup failed. :( " << flat_errors
       render :new
     end
   end

@@ -1,15 +1,41 @@
 <h1>Please choose your Interests and Skills</h1>
 
 <div class="choose-initial-interests">
+	<h2>Add Interests</h2>
 	<% @top_interests.each do |interest| %>
 		<% button_value = current_user.has_interest?(interest[:interest]) ? "Remove" : "Add" %>
  		<%=
 	 		button_to "#{button_value} #{interest[:interest].name}",
-	 		interests_user_path(:interest => interest[:interest]),
+	 		interests_user_path(interest[:interest]),
 	 		method: 'patch',
 	 		class: 'interest-button'
  		%>
  	<% end %>
+
+<div class="choose-initial-skills">
+	<h2>Add Skills</h2>
+	<% @top_skills.each do |skill| %>
+		<% button_value = current_user.has_skill?(skill[:skill]) ? "Remove" : "Add" %>
+ 		<%=
+	 		button_to "#{button_value} #{skill[:skill].name}",
+	 		interests_user_path(skill[:skill]),
+	 		method: 'patch',
+	 		class: 'skill-button'
+ 		%>
+ 	<% end %>
+</div>
+
+
+
+<div class="choose-initial-interests-checkbox">
+	<h2>Add Interests</h2>
+	<%= form_tag interests_user_path(current_user), method: "patch" do %>
+		<% @top_interests.each do |interest| %>
+			<%= check_box_tag(interest[:interest].name.to_sym) %>
+			<%= label_tag(interest[:interest].name.to_sym) %>
+		<% end %>
+		<%= submit_tag %>
+	<% end %>
 </div>
 
 

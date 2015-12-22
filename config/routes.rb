@@ -12,11 +12,10 @@ Rails.application.routes.draw do
   resources :interests_users, only: [:update]
   resources :skills_users, only: [:update]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :edit, :show, :create, :update] do
-    resources :welcomes, only: [:index]
-  end
+  resources :users, only: [:new, :edit, :show, :create, :update]
+  resources :welcomes, only: [:index]
 
-
+  get '/welcome' => 'welcomes#index'
   get '/login' => 'sessions#new'
   delete '/logout' => 'sessions#destroy'
   get '/signup' => 'users#new'
