@@ -1,8 +1,8 @@
 class InterestsUsersController < ApplicationController
 
 	def update
-		@interest = Interest.find(params[:interest])
-		if current_user.interests.include?(Interest.find(@interest))
+		@interest = Interest.find(params[:id])
+		if current_user.interests.include?(@interest)
 			current_user.interests.delete(@interest)
 		else
 			current_user.interests << @interest

@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   resources :skills_users, only: [:update]
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :edit, :show, :create, :update]
-  
+  resources :welcomes, only: [:index]
 
+  get '/welcome' => 'welcomes#index'
   get '/login' => 'sessions#new'
   delete '/logout' => 'sessions#destroy'
   get '/signup' => 'users#new'

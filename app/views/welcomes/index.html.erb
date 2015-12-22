@@ -1,0 +1,19 @@
+<h1>Please choose your Interests and Skills</h1>
+
+<div class="choose-initial-interests-checkbox">
+	<%= form_for current_user do |f| %>
+		<h2>Choose Your Interests</h2>
+		<% @top_interests.each do |interest| %>
+			<%= check_box_tag "user[interest_ids][]", interest[:interest].id %>
+			<%= label_tag "user[interest_ids][]", interest[:interest].name %>
+		<% end %>
+		<h2>Choose Your Skills</h2>
+		<% @top_skills.each do |skill| %>
+			<%= check_box_tag "user[skill_ids][]", skill[:skill].id %>
+			<%= label_tag "user[skill_ids][]", skill[:skill].name %>
+		<% end %>
+		<%= f.submit %>
+	<% end %>
+</div>
+
+

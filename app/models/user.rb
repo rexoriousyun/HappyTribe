@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
 	has_and_belongs_to_many :skills
 
 
-	validates :password, length: { minimum: 3 }
-	validates :password, confirmation: true
-	validates :password_confirmation, presence: true
+	validates :password, length: { minimum: 3 }, if: :password_exists?
+	validates :password, confirmation: true, if: :password_exists?
+	validates :password_confirmation, presence: true, if: :password_exists?
 
 	validates :email, uniqueness: true
 
@@ -21,5 +21,9 @@ class User < ActiveRecord::Base
 
 	def has_skill?(skill)
 		self.skills.include?(skill)
+	end
+
+	def password_exists?
+		password.present? || password_confirmation.present?
 	end
 end
