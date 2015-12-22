@@ -6,7 +6,9 @@
          <li class="bullet-item"><p>Role: <%= event.role %></p></li>
          <li class="bullet-item"><p>Organization: <%= link_to event.organization.name, organization_path(event.organization) %></p></li>
          <li class="bullet-item"><p>Location: <%= event.location %></p></li>
-         <li class="bullet-item">Bookmark</li>
+         <li class="bullet-item bookmark">
+            <%= render partial: 'bookmarks/form', locals: { event: event } %>
+         </li>
          <div id="timeslot-list">
     			<p>Choose a timeslot</p>
     				<% if logged_in? %>

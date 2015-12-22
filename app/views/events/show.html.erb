@@ -9,7 +9,9 @@
 </div>
 
 <div class="bookmark">
-	<%= render 'bookmarks/form' %>
+	<%= form_for [@event, @bookmark] do |f| %>
+	    <%= f.submit value: "add to bookmarks" %>
+	<% end %>
 </div>
 
 
