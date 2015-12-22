@@ -7,30 +7,17 @@
 	<%= link_to 'Edit User Details', edit_user_path(@user) %>
 </p>
 
-<% if @top_interests %>
-	<div class="choose-initial-interests">
-		<% @top_interests.each do |interest| %>
-			<% button_value = @user.has_interest?(interest[:interest]) ? "Remove" : "Add" %>
-	 		<%=
-		 		button_to "#{button_value} #{interest[:interest].name}",
-		 		interests_user_path(:interest => interest[:interest]),
-		 		method: 'patch',
-		 		class: 'interest-button'
-	 		%>
-	 	<% end %>
-	</div>
-<% else %>
-	<div class="user-interests">
-		<h2>Update your Interests</h2>
-		<% @interests.order(name: :asc).each do |interest| %>
-			<% button_value = @user.has_interest?(interest) ? "Remove" : "Add" %>
-	 		<%=
-		 		button_to "#{button_value} #{interest.name}",
-		 		interests_user_path(:interest => interest),
-		 		method: 'patch'
-	 		%>
-		<% end %>
-	</div>
+<div class="user-interests">
+	<h2>Update your Interests</h2>
+	<% @interests.order(name: :asc).each do |interest| %>
+		<% button_value = @user.has_interest?(interest) ? "Remove" : "Add" %>
+ 		<%=
+	 		button_to "#{button_value} #{interest.name}",
+	 		interests_user_path(:interest => interest),
+	 		method: 'patch'
+ 		%>
+	<% end %>
+</div>
 
 <div class="user-skills">
 	<h2>Update your Skills</h2>
@@ -81,4 +68,3 @@
 	 	</div>
 	<% end %>
 </div>
-<% end %>

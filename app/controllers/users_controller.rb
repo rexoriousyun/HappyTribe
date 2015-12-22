@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "Successfully signed up for Happy Tribe!"
       auto_login(@user)
-      redirect_to user_path(@user)
+      redirect_to user_welcomes_path(@user)
     else
       flash[:alert] = "Sorry, Signup failed. :("
       render :new
@@ -23,13 +23,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    if flash[:notice] == "Successfully signed up for Happy Tribe!"
-      @top_interests = Interest.sort_by_popularity(6)
-      # refactor into a separate controller
-    else
-      @interests = Interest.all
-      @skills = Skill.all
-    end
+    @interests = Interest.all
+    @skills = Skill.all
   end
 
   def update

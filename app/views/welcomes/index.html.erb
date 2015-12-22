@@ -1,0 +1,15 @@
+<h1>Please choose your Interests and Skills</h1>
+
+<div class="choose-initial-interests">
+	<% @top_interests.each do |interest| %>
+		<% button_value = current_user.has_interest?(interest[:interest]) ? "Remove" : "Add" %>
+ 		<%=
+	 		button_to "#{button_value} #{interest[:interest].name}",
+	 		interests_user_path(:interest => interest[:interest]),
+	 		method: 'patch',
+	 		class: 'interest-button'
+ 		%>
+ 	<% end %>
+</div>
+
+
