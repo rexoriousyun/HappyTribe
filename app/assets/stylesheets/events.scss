@@ -1,9 +1,7 @@
 // Place all the styles related to the opportunities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  margin: 2rem; //for demo only
-}
+
 
 .active-tb {
   position: relative;
@@ -12,6 +10,13 @@ body {
   border:0;
   transition: 0.4s ease;
   z-index:13;
+}
+
+#all-volunteering {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: 3%;
+
 }
 
 
