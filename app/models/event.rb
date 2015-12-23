@@ -43,7 +43,6 @@ class Event < ActiveRecord::Base
       event.total_rank(user, interest_weight, skill_weight)
     end.reverse
   end
-
   # In the 2 methods below, the single ampersand & is not a typo
   # It checks matches between 2 arrays and returns an array of matches
 
