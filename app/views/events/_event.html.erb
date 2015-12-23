@@ -10,13 +10,10 @@
             <%= render partial: 'bookmarks/form', locals: { event: event } %>
          </li>
          <div id="timeslot-list">
-    			<p>Choose a timeslot</p>
-    				<% if logged_in? %>
-    					<%= render partial: 'timeslots/timeslot', collection: event.timeslots.order(start_time: :asc) %>
-    				<% else %>
-    					<p><a href="/login">Login</a> or <a href="/signup">Sign-up</a> to volunteer at this event</p>
-    			<% end %>
-    		 </div>
+			<p>Choose a timeslot</p>
+			<%= render partial: 'timeslots/timeslot', collection: event.timeslots.order(start_time: :asc) %>
+
+		 </div>
          <!-- <li class="cta-button"><a class="button text-transform" href="#">Choose</a></li> -->
        </ul>
  	</div>
