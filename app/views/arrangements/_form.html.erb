@@ -3,7 +3,13 @@
   	<%=
   	f.submit value:
   	"#{timeslot.starts_at} -#{timeslot.ends_at}",
-  	 data: { confirm: "There are #{timeslot.remaining_spots} spots remaining. Confirm your arrangement to volunteer at #{timeslot.starts_at}?" },
+  	 data: { confirm:
+  	 	if logged_in?
+  	 		"#There are #{timeslot.remaining_spots} spots remaining. Confirm your arrangement to volunteer at #{timeslot.starts_at}?"
+  	 	else
+  	 		"Must be logged in to volunteer. Click ok to redirect to login page."
+  	 	end
+  	  },
   	 class: "$button-pip-tny"
   	 %>
 	<% end %>
