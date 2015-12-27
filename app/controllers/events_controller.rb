@@ -3,15 +3,23 @@ class EventsController < ApplicationController
   before_action :get_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    if logged_in?
-      interests_or_skills = current_user.interests.any? || current_user.skills.any?
-    end
-    if params[:q] == nil && interests_or_skills
-      @events = Event.filter_for_user(current_user, 0.75, 0.25)
-    elsif params[:q]
-      @events = @q.result.includes(:interests, :skills).uniq
+    if params[:q] == nil
+      if params[:filter]
+        case params[:filter]
+        when "Start Time (Soonest first)"
+          @events = Event.order_by_start_time
+        when "Match my Interests"
+          @events = Event.filter_for_user(current_user, 1, 0)
+        when "Match my Skills"
+          @events = Event.filter_for_user(current_user, 0, 1)
+        when "Match my Interests AND Skills"
+          @events = Event.filter_for_user(current_user, 0.6, 0.4)
+        end
+      else
+        @events = Event.order_by_start_time
+      end
     else
-      @events = Event.order_by_start_time
+      @events = @q.result.includes(:interests, :skills).uniq
     end
   end
 
