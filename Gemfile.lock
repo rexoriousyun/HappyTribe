@@ -187,7 +187,6 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  coffee-rails (~> 4.1.0)
   figaro
   foundation-rails
   geocoder

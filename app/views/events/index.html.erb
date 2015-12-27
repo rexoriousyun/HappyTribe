@@ -1,4 +1,11 @@
+<h1 class="all-volunteering">Volunteering Events</h1>
+
+<% if logged_in? %>
+	<div class="filter-box">
+			<%= render 'filter_form' %>
+	</div>
+<% end %>
+
 <div class="events-list">
-	<h1 class="all-volunteering">All Volunteering Events</h1>
 	<%= render @events %>
 </div>

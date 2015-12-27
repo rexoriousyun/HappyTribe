@@ -1,0 +1,27 @@
+<%= form_tag '/events', method: :get %>
+
+	<% if params[:filter] %>
+		<% selection_shown = params[:filter] %>
+	<% else %>
+		<% selection_shown = "Start Time (Soonest first)" %>
+	<% end %>
+
+	<% disabled_options = [] %>
+	<% if current_user.interests.empty? && current_user.skills.empty? %>
+		<% disabled_options << "Match my Interests" << "Match my Skills" << "Match my Interests AND Skills" %>
+	<% elsif current_user.skills.empty? %>
+		<% disabled_options << "Match my Skills" %>
+	<% elsif current_user.interests.empty? %>
+		<% disabled_options << "Match my Interests" %>
+	<% end %>
+
+	<%= select_tag "filter", options_for_select(
+		[
+			"Start Time (Soonest first)",
+			"Match my Interests",
+			"Match my Skills",
+			"Match my Interests AND Skills"
+		], selected: selection_shown, disabled: disabled_options )
+		%>
+
+<%= submit_tag 'Filter Events' %>
