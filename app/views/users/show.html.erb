@@ -1,63 +1,80 @@
-<h1><%= @user.first_name %>'s Profile</h1>
+<div class="user-profile">
+	<h1><%= @user.first_name %>'s Profile</h1>
 
-<p>
-	<%= @user.first_name %>
-	<%= @user.last_name %> |
-	<%= @user.email %> |
-	<%= link_to 'Edit User Details', edit_user_path(@user) %>
-</p>
+	<p>
+		<%= @user.first_name %>
+		<%= @user.last_name %> |
+		<%= @user.email %> |
+		<%= link_to 'Edit User Details', edit_user_path(@user) %>
+	</p>
 
-<div class="user-interests">
-	<h2>Update your Interests</h2>
-	<%= form_for @user do |f| %>
-		<%= f.collection_select( :interest_ids, @interests, :id, :name, {}, { multiple: true, class: 'select' })  %>
-		<%= f.submit %>
-	<% end %>
+	<ul class="tabs" data-tab>
+	  <li class="tab-title active"><a href="#arrangements">Arrangements</a></li>
+	  <li class="tab-title"><a href="#bookmarks">Bookmarks</a></li>
+	  <li class="tab-title"><a href="#interests">Interests</a></li>
+	  <li class="tab-title"><a href="#skills">Skills</a></li>
+	</ul>
+	<div class="tabs-content">
+	  <div class="content active" id="arrangements">
+			<div class="user-arrangements">
+				<h2>Your Volunteering Arrangements</h2>
+				<% current_user.arrangements.each do |arrangement| %>
+					<div>
+						<% event = arrangement.event %>
+						<p>
+							<%= link_to "#{event.name}", event_path(event) %> <br/>
+							<%= event.role %> <br/>
+							<%= event.organization.name %> <br/>
+							<%= event.location %> <br/>
+							<%= arrangement.timeslot.start_time %> to <%= arrangement.timeslot.end_time %>
+						</p>
+						<%= button_to "Cancel this arrangement",
+						timeslot_arrangement_path(arrangement.timeslot, arrangement),
+						:method => :delete %>
+					</div>
+				<% end %>
+			</div>
+	  </div>
+	  <div class="content" id="bookmarks">
+			<div class="user-bookmarks">
+				<h2>Your Bookmarked Events</h2>
+				 <% current_user.bookmarks.each do |bookmark| %>
+				 	<div>
+				 		<% event = bookmark.event %>
+				 		<p>
+							<%= link_to "#{event.name}", event_path(event) %> <br/>
+				 			<%= event.role %><br/>
+				 			<%= event.organization.name %> <br/>
+							<%= event.location %> <br/>
+							<%= event.start_time %> <%= event.end_time %>
+							<%= button_to "Delete this bookmark",
+						event_bookmark_path(bookmark.event, bookmark),
+						:method => :delete %>
+				 		</p>
+				 	</div>
+				<% end %>
+			</div>
+	  </div>
+	  <div class="content" id="interests">
+			<div class="user-interests">
+				<h2>Update your Interests</h2>
+				<%= form_for @user do |f| %>
+					<%= f.collection_select( :interest_ids, @interests, :id, :name, {}, { multiple: true, class: 'select' })  %>
+					<%= f.submit %><br/>
+				<% end %>
+			</div>
+	  </div>
+	  <div class="content" id="skills">
+			<div class="user-skills">
+				<h2>Update your Skills</h2>
+				<%= form_for @user do |f| %>
+					<%= f.collection_select( :skill_ids, @skills, :id, :name, {}, { multiple: true, class: 'select' })  %><br/>
+					<%= f.submit %>
+				<% end %>
+			</div>
+	  </div>
+	</div>
 </div>
 
-<div class="user-skills">
-	<h2>Update your Skills</h2>
-	<%= form_for @user do |f| %>
-		<%= f.collection_select( :skill_ids, @skills, :id, :name, {}, { multiple: true, class: 'select' })  %>
-		<%= f.submit %>
-	<% end %>
-</div>
 
-<div class="user-arrangements">
-	<h2>Your Volunteering Arrangements</h2>
-	<% current_user.arrangements.each do |arrangement| %>
-		<div>
-			<% event = arrangement.event %>
-			<p>
-				<%= link_to "#{event.name}", event_path(event) %> <br/>
-				<%= event.role %> <br/>
-				<%= event.organization.name %> <br/>
-				<%= event.location %> <br/>
-				<%= arrangement.timeslot.start_time %> to <%= arrangement.timeslot.end_time %>
-			</p>
-			<%= button_to "Cancel this arrangement",
-			timeslot_arrangement_path(arrangement.timeslot, arrangement),
-			:method => :delete %>
-		</div>
-	<% end %>
-</div>
-
-<div class="user-bookmarks">
-	<h2>Your Bookmarked Events</h2>
-	 <% current_user.bookmarks.each do |bookmark| %>
-	 	<div>
-	 		<% event = bookmark.event %>
-	 		<p>
-				<%= link_to "#{event.name}", event_path(event) %> <br/>
-	 			<%= event.role %><br/>
-	 			<%= event.organization.name %> <br/>
-				<%= event.location %> <br/>
-				<%= event.start_time %> <%= event.end_time %>
-				<%= button_to "Delete this bookmark",
-			event_bookmark_path(bookmark.event, bookmark),
-			:method => :delete %>
-	 		</p>
-	 	</div>
-	<% end %>
-</div>
 
