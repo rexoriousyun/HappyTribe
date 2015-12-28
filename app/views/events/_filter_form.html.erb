@@ -3,7 +3,7 @@
 	<% if params[:filter] %>
 		<% selection_shown = params[:filter] %>
 	<% else %>
-		<% selection_shown = "Start Time (Soonest first)" %>
+		<% selection_shown = "Event Start Time (Soonest first)" %>
 	<% end %>
 
 	<% disabled_options = [] %>
@@ -17,7 +17,7 @@
 
 	<%= select_tag "filter", options_for_select(
 		[
-			"Start Time (Soonest first)",
+			"Event Start Time (Soonest first)",
 			"Match my Interests",
 			"Match my Skills",
 			"Match my Interests AND Skills"
