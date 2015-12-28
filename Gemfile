@@ -47,6 +47,7 @@ gem 'figaro'
 # Use foundation for styling
 gem 'foundation-rails'
 gem 'pg'
+gem "select2-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
