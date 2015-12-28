@@ -1,3 +1,7 @@
+/*
+*= require select2
+*/
+
 @import "foundation_and_overrides";
 @import "maps";
 @import "arrangements";
@@ -9,5 +13,6 @@
 @import "interests";
 @import "skills";
 @import "bookmarks";
+@import "users";
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300);

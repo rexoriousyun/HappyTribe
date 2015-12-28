@@ -8,26 +8,18 @@
 </p>
 
 <div class="user-interests">
-	<h2>Your Interests</h2>
-	<p>Click to remove unwanted interests</p>
-	<% current_user.interests.order(name: :asc).each do |interest| %>
-			<%=
-		 		button_to "#{interest.name}",
-		 		interests_user_path(interest),
-		 		method: 'patch'
-	 		%>
+	<h2>Update your Interests</h2>
+	<%= form_for @user do |f| %>
+		<%= f.collection_select( :interest_ids, @interests, :id, :name, {}, { multiple: true, class: 'select' })  %>
+		<%= f.submit %>
 	<% end %>
 </div>
 
 <div class="user-skills">
-	<h2>Your Skills</h2>
-	<p>Click to remove unwanted skills</p>
-	<% current_user.skills.order(name: :asc).each do |skill| %>
-			<%=
-		 		button_to "#{skill.name}",
-		 		skills_user_path(skill),
-		 		method: 'patch'
-	 		%>
+	<h2>Update your Skills</h2>
+	<%= form_for @user do |f| %>
+		<%= f.collection_select( :skill_ids, @skills, :id, :name, {}, { multiple: true, class: 'select' })  %>
+		<%= f.submit %>
 	<% end %>
 </div>
 
@@ -68,3 +60,4 @@
 	 	</div>
 	<% end %>
 </div>
+
