@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      redirect_to events_path
+      redirect_to events_path, notice: "Successfully saved your changes!"
     else
       render :new
     end

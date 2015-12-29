@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title><%= content_for?(:title) ? yield(:title) : "Happy Tribe" %></title>
-  	<%= stylesheet_link_tag 'application', media: 'all' %>
-  	<%= javascript_include_tag 'application' %>
+  	<%= stylesheet_link_tag "application", media: 'all' %>
+  	<%= javascript_include_tag "application" %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key}" %>
     <%= javascript_include_tag "vendor/modernizr" %>
   	<%= csrf_meta_tags %>
@@ -22,7 +21,7 @@
             </li>
             <li class="toggle-topbar menu-icon">
               <% if logged_in? %>
-                <%= link_to "Menu", user_path(current_user) %></li>
+                <%= link_to "Menu", user_path(current_user) %>
               <% else %>
                 <%= link_to 'Login or Sign-up' %>
                 <%= link_to 'Login', login_path %>
