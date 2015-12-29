@@ -22,7 +22,7 @@
             </li>
             <li class="toggle-topbar menu-icon">
               <% if logged_in? %>
-                <%= link_to "Menu", user_path(current_user) %></li>
+                <%= link_to "Menu", user_path(current_user) %>
               <% else %>
                 <%= link_to 'Login or Sign-up' %>
                 <%= link_to 'Login', login_path %>
