@@ -29,10 +29,12 @@ class ArrangementsController < ApplicationController
 
   def destroy
     @arrangement = Arrangement.find(params[:id])
-    unless @arrangement.destroy
-      flash[:alert] = "Couldn't cancel it sorry "
+    if @arrangement.destroy
+      redirect_to user_path(current_user), notice: "Cancelled arrangement for '#{@arrangement.event.name}'"
+    else
+      flash[:alert] = "Something went wrong and we couldn't cancel. Please try again or contact support."
+      redirect_to user_path(current_user)
     end
-    redirect_to user_path(current_user)
   end
 
   private
