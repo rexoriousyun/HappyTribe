@@ -1,17 +1,18 @@
 <div class="event">
     <div class="large-4 medium-6 small-12 columns">
        <ul class="pricing-table active-tb shadow mrgn-20-top">
-         <li class="title"><p>Name: <%= link_to event.name, event_path(event) %></p></li>
+         <li class="title"><%= link_to event.name, event_path(event) %></li>
          <li class="image"><%= link_to image_tag(event.image_url), event_path(event) %></li>
-         <li class="bullet-item"><p>Role: <%= event.role %></p></li>
-         <li class="bullet-item"><p>Organization: <%= link_to event.organization.name, organization_path(event.organization) %></p></li>
-         <li class="bullet-item"><p>Location: <%= event.location %></p></li>
+         <li class="bullet-item">Role: <%= event.role %></li>
+         <li class="bullet-item">Organization: <%= link_to event.organization.name, organization_path(event.organization) %></li>
+         <li class="bullet-item">Location: <%= event.location %></li>
          <li class="bullet-item bookmark">
             <%= render partial: 'bookmarks/form', locals: { event: event } %>
          </li>
          <div id="timeslot-list">
-			<p>Choose a timeslot</p>
+			<li class="bullet-item"><p>Choose a time to volunteer</p>
 			<%= render partial: 'timeslots/timeslot', collection: event.timeslots.order(start_time: :asc) %>
+            </li>
 
 		 </div>
          <!-- <li class="cta-button"><a class="button text-transform" href="#">Choose</a></li> -->

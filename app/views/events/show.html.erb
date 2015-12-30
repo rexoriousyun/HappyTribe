@@ -3,7 +3,7 @@
 	<div class="image"><%= image_tag(@event.image_url) %></div>
 	<div class="bookmark">
 		<%= form_for [@event, @bookmark] do |f| %>
-		    <%= f.submit value: "add to bookmarks" %>
+		    <%= f.submit value: "add to bookmarks", class: 'button round' %>
 		<% end %>
 	</div>
 	<p>Role: <%= @event.role %></p>
@@ -11,7 +11,7 @@
 	<p>Location: <%= @event.location %></p>
 	<p>Date: <%= @event.start_time.strftime("%A, %m/%d/%y") %></p>
 	<p>Event Length: <%= @event.start_time.strftime("%l:%M%P") %> to <%= @event.end_time.strftime("%l:%M%P") %>
-	<div id="timeslot-list">
+	<div id="timeslot-list-show">
 		<h3>Choose a timeslot to volunteer at!</h3>
 		<%= render partial: 'timeslots/timeslot', collection: @event.timeslots.order(start_time: :asc) %>
 	</div>
