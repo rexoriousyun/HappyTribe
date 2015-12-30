@@ -1,14 +1,16 @@
 class EventsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
   before_action :get_event, only: [:show, :edit, :update, :destroy]
+  before_action :get_organization, only: [:new, :edit, :create, :update, :destroy]
+  before_action :is_event_coordinator?, only: [:new, :edit, :create, :update, :destroy]
 
   def new
-    @organization = Organization.find(params[:organization_id])
     @event = @organization.events.build
+    @interests = Interest.all
+    @skills = Skill.all
   end
 
   def create
-    @organization = Organization.find(params[:organization_id])
     @event = @organization.events.build(event_params)
     if @event.save
       redirect_to event_path(@event), notice: "Successfully created a new event!"
@@ -43,8 +45,6 @@ class EventsController < ApplicationController
     @bookmark = @event.bookmarks.build
   end
 
-  # the methods below show will only become relevant once we have a user/organization able to
-  # create events
 
   def edit
   end
@@ -58,11 +58,22 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :location, :description, :image_url, :role, timeslots_attributes: [:id, :start_time, :end_time, :capacity, :_destroy])
+    params.require(:event).permit(:name, :location, :description, :image_url, :role, timeslots_attributes: [:id, :start_time, :end_time, :capacity, :_destroy], :interest_ids => [], :skill_ids => [])
   end
 
   def get_event
     @event = Event.find(params[:id])
+  end
+
+  def get_organization
+    @organization = Organization.find(params[:organization_id])
+  end
+
+  def is_event_coordinator?
+    get_organization
+    unless current_user == @organization.event_coordinator
+      redirect_to events_path, alert: "Invalid user permissions to access that page"
+    end
   end
 
 end

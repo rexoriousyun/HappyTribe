@@ -1,24 +1,33 @@
 <%= form_for [@organization, @event] do |f| %>
 	<div>
+		<h2>Event Details</h2>
 		<%= f.label :name %><br/>
-		<%= f.text_field :name %>
+		<%= f.text_field :name, placeholder: "Enter the event's name." %>
 		<%= f.label :description %><br/>
-		<%= f.text_area :description %>
+		<%= f.text_area :description, placeholder: "Enter a brief description of the event." %>
 		<%= f.label :location %><br/>
-		<%= f.text_field :location %>
+		<%= f.text_field :location, placeholder: "Enter the address where the event takes place." %>
 		<%= f.label :role %><br/>
-		<%= f.text_field :role %>
+		<%= f.text_field :role, placeholder: "Enter the role the volunteer is required for." %>
 		<!-- to be changed to image upload -->
 		<%= f.label :image_url %><br/>
 		<%= f.text_field :image_url %>
 	</div>
+	<h2>Add Timeslots</h2>
+	<p>What times do you require volunteers for this role and how many people do you need for each time?</p>
 	<div class="fields-for">
 		<%= link_to_add_association "Add new timeslot", f, :timeslots %>
 		<%= f.fields_for :timeslots do |timeslot| %>
 			<%= render 'timeslot_fields', :f => timeslot %>
 		<% end %>
 	</div>
+	<h2>Event Interests</h2>
+	<p>What interests are associated with your event?</p>
+	<%= f.collection_select( :interest_ids, @interests, :id, :name, {}, { multiple: true, class: 'select' })  %>
+	<h2>Role Skills</h2>
+	<p>What skills will a volunteer exercise in this role?</p>
+	<%= f.collection_select( :skill_ids, @skills, :id, :name, {}, { multiple: true, class: 'select' }) %>
 	<div class="submit">
-		<%= f.submit %>
+		<%= f.submit class: 'button round' %>
 	</div>
 <% end %>
