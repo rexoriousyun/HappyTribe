@@ -54,3 +54,24 @@ user_8 = User.create(
   password: "blah",
   password_confirmation: "blah"
   );
+user_9_mount_sinai_coordinator = User.create(
+  first_name: "Sally",
+  last_name: "Sinai",
+  email: "sally@mountsinai.com",
+  password: "blah",
+  password_confirmation: "blah",
+  );
+user_10_scott_mission_coordinator = User.create(
+  first_name: "Scott",
+  last_name: "Mason",
+  email: "scott@scottmission.com",
+  password: "blah",
+  password_confirmation: "blah",
+  );
+user_11_postmedia_coordinator = User.create(
+  first_name: "Peter",
+  last_name: "Post",
+  email: "peter@postmedia.com",
+  password: "blah",
+  password_confirmation: "blah",
+  );

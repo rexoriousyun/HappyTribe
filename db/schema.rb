@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221211256) do
+ActiveRecord::Schema.define(version: 20151230035559) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "arrangements", force: :cascade do |t|
     t.integer  "user_id"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20151221211256) do
     t.integer  "timeslot_id"
   end
 
-  add_index "arrangements", ["user_id"], name: "index_arrangements_on_user_id"
+  add_index "arrangements", ["user_id"], name: "index_arrangements_on_user_id", using: :btree
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id"
@@ -30,8 +33,8 @@ ActiveRecord::Schema.define(version: 20151221211256) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "bookmarks", ["event_id"], name: "index_bookmarks_on_event_id"
-  add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id"
+  add_index "bookmarks", ["event_id"], name: "index_bookmarks_on_event_id", using: :btree
+  add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -46,7 +49,7 @@ ActiveRecord::Schema.define(version: 20151221211256) do
     t.string   "image_url"
   end
 
-  add_index "events", ["organization_id"], name: "index_events_on_organization_id"
+  add_index "events", ["organization_id"], name: "index_events_on_organization_id", using: :btree
 
   create_table "events_interests", force: :cascade do |t|
     t.integer "event_id"
@@ -76,6 +79,7 @@ ActiveRecord::Schema.define(version: 20151221211256) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -98,7 +102,7 @@ ActiveRecord::Schema.define(version: 20151221211256) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "timeslots", ["event_id"], name: "index_timeslots_on_event_id"
+  add_index "timeslots", ["event_id"], name: "index_timeslots_on_event_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -110,6 +114,6 @@ ActiveRecord::Schema.define(version: 20151221211256) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
