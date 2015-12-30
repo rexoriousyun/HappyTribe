@@ -6,11 +6,14 @@
 </div>
 
 <div class="org-events">
-	<h2>Current Volunteering Events</h2>
-	<!-- Should the below use another partial? -->
-	<% @organization.events.each do |event| %>
-		<h3>Name: <%= link_to "#{event.name}", event_path(event) %></h3>
-		<p>Location:<%= event.location %></p>
-		<p>Date: <%= event.start_time.strftime("%A, %m/%d/%y") %>
-	<% end %>
+  <h2>Current Volunteering Events</h2>
+  <!-- Should the below use another partial? -->
+  <% @organization.events.each do |event| %>
+    <h3>Name: <%= link_to "#{event.name}", event_path(event) %></h3>
+    <p>Location:<%= event.location %></p>
+    <p>Date: <%= event.start_time.strftime("%A, %m/%d/%y") %>
+    <% if current_user.is_authorized?(event) %>
+      <%= button_to "Edit Event", edit_organization_event_path(event.organization, event), class: "button round", method: "get" %>
+    <% end %>
+  <% end %>
 </div>

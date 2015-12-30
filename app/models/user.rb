@@ -31,4 +31,8 @@ class User < ActiveRecord::Base
 	def manages_organizations?
 		self.managed_organizations.any?
 	end
+
+	def is_authorized?(event)
+		self.managed_organizations.include?(event.organization)
+	end
 end

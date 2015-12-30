@@ -18,3 +18,32 @@ $placeholder-color:  #cdcdeb;
 :-ms-input-placeholder {
    color: $placeholder-color;
 }
+
+// Below is the styling for the select2 boxes
+
+span.select2.select2-container.select2-container--default {
+    width: 80% !important;
+}
+
+input.select2-search__field {
+	width: 90% !important;
+	background-color:  #e5ffff !important;
+}
+
+li.select2-selection__choice {
+	background-color: $volunteerbutton-and-cardheader !important;
+	color: white !important;
+}
+
+span.select2-selection__choice__remove {
+	color: #ffcc99 !important;
+}
+span.select2-selection__choice__remove:hover {
+	color: black !important;
+}
+
+@media screen and (min-width: 1000px) {
+	span.select2.select2-container.select2-container--default {
+	    width: 40% !important;
+	}
+}

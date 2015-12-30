@@ -2,12 +2,12 @@ class EventsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
   before_action :get_event, only: [:show, :edit, :update, :destroy]
   before_action :get_organization, only: [:new, :edit, :create, :update, :destroy]
+  before_action :get_interests, only: [:new, :edit]
+  before_action :get_skills, only: [:new, :edit]
   before_action :is_event_coordinator?, only: [:new, :edit, :create, :update, :destroy]
 
   def new
     @event = @organization.events.build
-    @interests = Interest.all
-    @skills = Skill.all
   end
 
   def create
@@ -50,7 +50,14 @@ class EventsController < ApplicationController
   end
 
   def update
+    if @event.update_attributes(event_params)
+      redirect_to event_path(@event), notice: "Successfully updated #{@event.name}."
+    else
+      flash[:alert] = "There was a problem saving your changes."
+      render :edit
+    end
   end
+
 
   def destroy
   end
@@ -67,6 +74,14 @@ class EventsController < ApplicationController
 
   def get_organization
     @organization = Organization.find(params[:organization_id])
+  end
+
+  def get_skills
+    @interests = Interest.all
+  end
+
+  def get_interests
+    @skills = Skill.all
   end
 
   def is_event_coordinator?
