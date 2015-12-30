@@ -4,6 +4,18 @@ class EventsController < ApplicationController
 
   def new
     @organization = Organization.find(params[:organization_id])
+    @event = @organization.events.build
+  end
+
+  def create
+    @organization = Organization.find(params[:organization_id])
+    @event = @organization.events.build(event_params)
+    if @event.save
+      redirect_to event_path(@event), notice: "Successfully created a new event!"
+    else
+      flash[:alert] = "Sorry, your event could not be created"
+      render :new
+    end
   end
 
   def index
@@ -46,7 +58,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :start_time, :end_time, :max_capacity, :location, :description)
+    params.require(:event).permit(:name, :location, :description, :image_url, :role, timeslots_attributes: [:id, :start_time, :end_time, :capacity, :_destroy])
   end
 
   def get_event

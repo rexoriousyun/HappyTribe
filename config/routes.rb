@@ -2,15 +2,16 @@ Rails.application.routes.draw do
 
   root 'events#index'
 
-  resources :organizations
-  resources :events do
-    resources :bookmarks, only: [:new, :create, :destroy, :edit, :show, :update]
+  resources :organizations do
+    resources :events, only: [:new, :create, :edit, :update, :destroy]
+  end
+  resources :events, only: [:index]
+  resources :events, only: [:show] do
+    resources :bookmarks, only: [:create, :destroy]
   end
   resources :timeslots do
     resources :arrangements, only: [:new, :edit, :show, :create, :update, :destroy]
   end
-  resources :interests_users, only: [:update]
-  resources :skills_users, only: [:update]
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :edit, :show, :create, :update] do
     resources :managed_organizations, only: [:index]

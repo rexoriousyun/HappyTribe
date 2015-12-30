@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
 	has_many :timeslots
+  accepts_nested_attributes_for :timeslots, reject_if: :all_blank, allow_destroy: true
 	has_many :arrangements, through: :timeslots
   has_many :bookmarks
   belongs_to :organization

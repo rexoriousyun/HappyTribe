@@ -46,8 +46,12 @@ gem 'geocoder'
 gem 'figaro'
 # Use foundation for styling
 gem 'foundation-rails'
+# Use postgres for db
 gem 'pg'
+# Use select2 for select boxes
 gem "select2-rails"
+# use coccoon gem
+gem 'cocoon'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

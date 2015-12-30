@@ -1,0 +1,24 @@
+<%= form_for [@organization, @event] do |f| %>
+	<div>
+		<%= f.label :name %><br/>
+		<%= f.text_field :name %>
+		<%= f.label :description %><br/>
+		<%= f.text_area :description %>
+		<%= f.label :location %><br/>
+		<%= f.text_field :location %>
+		<%= f.label :role %><br/>
+		<%= f.text_field :role %>
+		<!-- to be changed to image upload -->
+		<%= f.label :image_url %><br/>
+		<%= f.text_field :image_url %>
+	</div>
+	<div class="fields-for">
+		<%= link_to_add_association "Add new timeslot", f, :timeslots %>
+		<%= f.fields_for :timeslots do |timeslot| %>
+			<%= render 'timeslot_fields', :f => timeslot %>
+		<% end %>
+	</div>
+	<div class="submit">
+		<%= f.submit %>
+	</div>
+<% end %>
