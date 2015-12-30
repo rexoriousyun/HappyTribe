@@ -1,10 +1,10 @@
 <div class="event-show large-6 medium-6 small-12 columns">
 	<h1>Name: <%= @event.name %></h1>
 	<% if current_user.is_authorized?(@event) %>
+
 		<%= button_to "Edit Event", edit_organization_event_path(@event.organization, @event), class: "button round", method: "get" %>
 
-		<!-- Removed cancell button while addressing questions about ramifications of cancellation -->
-<!-- 		<%= button_to "Cancel Event", organization_event_path(@event.organization, @event), class: "button round", method: "delete", data: { confirm: "Are you sure you wish to cancel this event?"} %> -->
+ 		<%= button_to "Cancel Event", organization_event_path(@event.organization, @event), class: "button round", method: "delete", data: { confirm: "Are you sure you wish to cancel this event?"} %>
 
 	<% end %>
 	<div class="image"><%= image_tag(@event.image_url) %></div>

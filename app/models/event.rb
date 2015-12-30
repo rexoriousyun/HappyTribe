@@ -1,14 +1,15 @@
 class Event < ActiveRecord::Base
-	has_many :timeslots
+	has_many :timeslots, dependent: :destroy
   accepts_nested_attributes_for :timeslots, reject_if: :all_blank, allow_destroy: true
 	has_many :arrangements, through: :timeslots
-  has_many :bookmarks
+  has_many :bookmarks, dependent: :destroy
   belongs_to :organization
   has_and_belongs_to_many :interests
   has_and_belongs_to_many :skills
 
   geocoded_by :location
   after_validation :geocode
+
 
 
   # searchable do

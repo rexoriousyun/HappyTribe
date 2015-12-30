@@ -1,5 +1,5 @@
 class Timeslot < ActiveRecord::Base
-  has_many :arrangements
+  has_many :arrangements, dependent: :destroy
   belongs_to :event
 
   def remaining_spots

@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   root 'events#index'
 
   resources :organizations do
-    # May add destroy back in.
-    resources :events, only: [:new, :create, :edit, :update]
+    resources :events, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :events, only: [:index]
   resources :events, only: [:show] do
