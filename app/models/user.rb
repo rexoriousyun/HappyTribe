@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
 	def password_exists?
 		password.present? || password_confirmation.present?
 	end
+
+	def manages_organizations?
+		self.managed_organizations.any?
+	end
 end

@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resources :interests_users, only: [:update]
   resources :skills_users, only: [:update]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :edit, :show, :create, :update]
+  resources :users, only: [:new, :edit, :show, :create, :update] do
+    resources :managed_organizations, only: [:index]
+  end
   resources :welcomes, only: [:index]
 
   get '/welcome' => 'welcomes#index'

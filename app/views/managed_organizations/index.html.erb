@@ -1,0 +1,11 @@
+<h1>Your Managed Organizations</h1>
+
+<p>Below is a list of the organizations you have permission to create events for</p>
+
+<ul>
+	<% @organizations.each do |organization| %>
+		<li><%= link_to "#{organization.name}", organization_path(organization) %></li>
+	<% end %>
+</ul>
+
+
