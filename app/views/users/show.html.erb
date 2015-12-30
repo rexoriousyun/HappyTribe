@@ -1,4 +1,4 @@
-<div class="user-profile">
+<div class="user-profile row">
   <h1><%= @user.first_name %>'s Profile</h1>
 
   <p>
@@ -31,7 +31,7 @@
               </p>
               <%= button_to "Cancel this arrangement",
               timeslot_arrangement_path(arrangement.timeslot, arrangement),
-              :method => :delete %>
+              :method => :delete, class: 'button round' %>
             </div>
           <% end %>
         <% else %>
@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="content" id="bookmarks">
-      <div class="user-bookmarks">
+      <div class="user-bookmarks bookmark">
         <h2>Your Bookmarked Events</h2>
         <% if current_user.bookmarks.any? %>
           <% current_user.bookmarks.each do |bookmark| %>
@@ -56,8 +56,8 @@
               </p>
               <%= button_to "Delete this bookmark",
               event_bookmark_path(bookmark.event, bookmark),
-              :method => :delete %>
-          </div>
+              :method => :delete, class: 'button round' %>
+            </div>
           <% end %>
         <% else %>
           <p>You currently have no saved events in your bookmarks</p>
@@ -71,7 +71,7 @@
         <p>Add and remove your interests below. These can be used to filter volunteer opportunities. You can add as many as you like!</p>
         <%= form_for @user do |f| %>
           <%= f.collection_select( :interest_ids, @interests, :id, :name, {}, { multiple: true, class: 'select' })  %><br/>
-          <%= f.submit 'Update Interests' %>
+          <%= f.submit 'Update Interests', class: 'button round' %>
         <% end %>
       </div>
     </div>
@@ -81,7 +81,7 @@
         <p>Add and remove your skills below. These can be used to filter volunteer opportunities. You can add as many as you like!</p>
         <%= form_for @user do |f| %>
           <%= f.collection_select( :skill_ids, @skills, :id, :name, {}, { multiple: true, class: 'select' })  %><br/>
-          <%= f.submit 'Update Skills' %>
+          <%= f.submit 'Update Skills', class: 'button round' %>
         <% end %>
       </div>
     </div>

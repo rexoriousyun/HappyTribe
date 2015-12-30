@@ -2,11 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$navbarcolor: rgba(0, 230, 118, 0.7);
-$navbarhovercolor: rgba(0, 138, 71,0.7);
-
 span.select2.select2-container.select2-container--default {
     width: 80% !important;
+}
+
+input.select2-search__field {
+	width: 80% !important;
+	background-color: #eff2f6 !important;
+}
+
+li.select2-selection__choice {
+	background-color: $volunteerbutton-and-cardheader !important;
+	color: white !important;
+}
+
+span.select2-selection__choice__remove {
+	color: #ffcc99 !important;
+}
+span.select2-selection__choice__remove:hover {
+	color: black !important;
 }
 
 @media screen and (min-width: 1000px) {
@@ -30,3 +44,4 @@ span.select2.select2-container.select2-container--default {
     font-weight: bold;
     box-shadow:inset 0px 0px 0px 2px;
 }
+
