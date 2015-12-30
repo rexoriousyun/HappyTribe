@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root 'events#index'
 
   resources :organizations do
-    resources :events, only: [:new, :create, :edit, :update, :destroy]
+    # May add destroy back in.
+    resources :events, only: [:new, :create, :edit, :update]
   end
   resources :events, only: [:index]
   resources :events, only: [:show] do
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
   end
   resources :welcomes, only: [:index]
 
-  get '/organizations/:organization_id/events/new' => 'events#new'
   get '/welcome' => 'welcomes#index'
   get '/login' => 'sessions#new'
   delete '/logout' => 'sessions#destroy'

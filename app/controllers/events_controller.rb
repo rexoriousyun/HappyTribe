@@ -59,14 +59,16 @@ class EventsController < ApplicationController
   end
 
 
-  def destroy
-    if @event.destroy
-      redirect_to user_managed_organizations_path(current_user), notice: "Event cancelled"
-    else
-      flash[:alert] = "Something went wrong, please try again."
-      render :show
-    end
-  end
+# Removed Destroy for now while addressing questions about how it effects bookmarks and arrangements
+
+  # def destroy
+  #   if @event.destroy
+  #     redirect_to user_managed_organizations_path(current_user), notice: "Event cancelled"
+  #   else
+  #     flash[:alert] = "Something went wrong, please try again."
+  #     render :show
+  #   end
+  # end
 
   private
 

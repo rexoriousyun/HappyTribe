@@ -6,7 +6,7 @@
 	<% @organizations.each do |organization| %>
 		<li><%= link_to "#{organization.name}", organization_path(organization) %>
 		| Number of Events Upcoming: <%= organization.events.count %>
-		| <%= link_to "Create a new event", "/organizations/#{organization.id}/events/new" %></li>
+		| <%= link_to "Create a new event", new_organization_event_path(organization) %></li>
 	<% end %>
 </ul>
 
