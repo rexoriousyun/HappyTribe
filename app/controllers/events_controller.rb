@@ -2,6 +2,10 @@ class EventsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
   before_action :get_event, only: [:show, :edit, :update, :destroy]
 
+  def new
+    @organization = Organization.find(params[:organization_id])
+  end
+
   def index
     if params[:q] == nil
       if params[:filter]

@@ -4,7 +4,9 @@
 
 <ul>
 	<% @organizations.each do |organization| %>
-		<li><%= link_to "#{organization.name}", organization_path(organization) %></li>
+		<li><%= link_to "#{organization.name}", organization_path(organization) %>
+		| Number of Events Upcoming: <%= organization.events.count %>
+		| <%= link_to "Create a new event", "/organizations/#{organization.id}/events/new", method: 'get' %></li>
 	<% end %>
 </ul>
 

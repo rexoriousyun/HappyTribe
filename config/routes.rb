@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
   resources :welcomes, only: [:index]
 
+  get '/organizations/:organization_id/events/new' => 'events#new'
   get '/welcome' => 'welcomes#index'
   get '/login' => 'sessions#new'
   delete '/logout' => 'sessions#destroy'
