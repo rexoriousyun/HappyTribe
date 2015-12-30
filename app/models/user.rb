@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  authenticates_with_sorcery!
+  authenticates_with_sorcery! do |config|
+  	config.authentications_class = Aithentication
+  end
 	has_many :arrangements
 	has_many :timeslots, through: :arrangements
 	has_many :bookmarks
@@ -15,6 +17,9 @@ class User < ActiveRecord::Base
 	validates :password_confirmation, presence: true, if: :password_exists?
 
 	validates :email, uniqueness: true
+
+	has_many :authentications, :dependent => :destroy
+  accepts_nested_attributes_for :authentications
 
 	def has_interest?(interest)
 		self.interests.include?(interest)

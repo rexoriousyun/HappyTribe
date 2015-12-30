@@ -48,6 +48,7 @@ gem 'figaro'
 gem 'foundation-rails'
 gem 'pg'
 gem "select2-rails"
+gem 'protected_attributes'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
