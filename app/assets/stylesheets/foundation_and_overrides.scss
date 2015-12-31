@@ -1405,7 +1405,7 @@ $tabs-vertical-navigation-margin-bottom: 1.25rem;
 // Background color for the top bar
 $topbar-bg-color:  #1CBE6F;
 $topbar-bg: $topbar-bg-color;
-$topbar-link-hovor-color:  #169859;
+$topbar-link-hover-color:  #169859;
 
 // Height and margin
 $topbar-height: rem-calc(50);
@@ -1424,7 +1424,7 @@ $topbar-link-weight: $font-weight-normal;
 $topbar-link-font-size: rem-calc(13);
 $topbar-link-hover-lightness: -10%; // Darken by 10%
 $topbar-link-bg: $topbar-bg;
-$topbar-link-bg-hover: $topbar-link-hovor-color;
+$topbar-link-bg-hover: $topbar-link-hover-color;
 $topbar-link-bg-color-hover: $topbar-bg;
 $topbar-link-bg-active: $primary-color;
 $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
