@@ -70,7 +70,11 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :location, :description, :image_url, :role, timeslots_attributes: [:id, :start_time, :end_time, :capacity, :_destroy], :interest_ids => [], :skill_ids => [])
+    params.require(:event).permit(
+      :name, :location, :description, :role, :event_image, :event_image_cache,
+      timeslots_attributes: [:id, :start_time, :end_time, :capacity, :_destroy],
+      :interest_ids => [], :skill_ids => []
+    )
   end
 
   def get_event
@@ -91,7 +95,7 @@ class EventsController < ApplicationController
 
   def is_event_coordinator?
     get_organization
-    unless current_user == @organization.event_coordinator
+    unless current_user == @organization.event_coordinator || current_user.admin
       redirect_to events_path, alert: "Invalid user permissions to access that page"
     end
   end

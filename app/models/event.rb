@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  mount_uploader :event_image, ImageUploader
 	has_many :timeslots, dependent: :destroy
   accepts_nested_attributes_for :timeslots, reject_if: :all_blank, allow_destroy: true
 	has_many :arrangements, through: :timeslots
@@ -9,7 +10,6 @@ class Event < ActiveRecord::Base
 
   geocoded_by :location
   after_validation :geocode
-
 
 
   # searchable do

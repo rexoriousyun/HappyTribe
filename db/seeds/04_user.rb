@@ -3,7 +3,8 @@ user_1 = User.create(
   last_name: "K",
   email: "mgt@kim.com",
   password: "blah",
-  password_confirmation: "blah"
+  password_confirmation: "blah",
+  admin: true
   );
 user_2 = User.create(
   first_name: "John",
