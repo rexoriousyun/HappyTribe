@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230035559) do
+ActiveRecord::Schema.define(version: 20151231034034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20151230035559) do
     t.string   "role"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "image_url"
+    t.string   "event_image"
   end
 
   add_index "events", ["organization_id"], name: "index_events_on_organization_id", using: :btree
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20151230035559) do
     t.string   "salt"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

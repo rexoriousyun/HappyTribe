@@ -1,3 +1,5 @@
+# This file sets the initial interests and skills associated with each user
+
 User.find(1).interests << Interest.find(5)
 User.find(1).interests << Interest.find(1)
 User.find(1).interests << Interest.find(4)
