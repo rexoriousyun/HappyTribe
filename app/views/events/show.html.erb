@@ -1,4 +1,4 @@
-<div class="event-show large-6 medium-6 small-12 columns">
+<div class="event-show small-12 columns">
 	<h1>Name: <%= @event.name %></h1>
 	<% if current_user.is_authorized?(@event.organization) || current_user.admin %>
 
@@ -28,6 +28,30 @@
 	</div>
 </div>
 
-<div id="event-map" data-latitude=<%= @event.latitude %> data-longitude=<%= @event.longitude %> >
+<div data-latitude=<%= @event.latitude %> data-longitude=<%= @event.longitude %> id="event-map" ></div>
+
+<div class="all-arrangements">
+	<% if current_user.is_authorized?(@event.organization) || current_user.admin %>
+		<h2>View all Volunteering Arrangements for this Event</h2>
+		<% @event.timeslots.each do |timeslot| %>
+			<ul>
+				<li><h3>Volunteers for <%= timeslot.starts_at %>-<%= timeslot.ends_at %></h3></li>
+				<ul>
+					<% if timeslot.arrangements.any? %>
+						<% timeslot.arrangements.each do |arrangement| %>
+							<li><%= "#{arrangement.user.first_name} #{arrangement.user.last_name} - Contact at:" %>
+							<%= mail_to(arrangement.user.email) %></li>
+						<% end %>
+					<% else %>
+						<li>No volunteers for this timeslot</li>
+					<% end %>
+				</ul>
+			</ul>
+		<% end %>
+	<% end %>
 </div>
+
+
+
+
 
