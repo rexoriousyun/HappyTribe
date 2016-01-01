@@ -46,36 +46,6 @@
       </nav>
     </div>
 
-<!--
-<div class="tertiary-nav">
-    <div class="row top-bar">
-      <div class="small-12  columns">
-        <ul class="inline-list right">
-          <li><%= link_to "Home", root_path, class: "menu" %></li>
-          <% if logged_in? %>
-            <li><%= link_to "Logout", logout_path, method: "delete", class: "menu" %></li>
-            <li><%= link_to "Profile", user_path(current_user), class: "menu" %></li>
-          <% else %>
-            <li><%= link_to 'Login', login_path, class: "menu" %></li>
-            <li><%= link_to 'Sign-up', signup_path, class: "menu" %></li>
-          <% end %>
-          <li><a href="#" class="menu"> <i class="fi-list icon"></i> <span> Menu</span></a> </li>
-          <li><a href="#" class="search-icon "><i class="fi-magnifying-glass large icon"></i></a> </li>
-
-          <li class="search-field">
-            <form>
-              <div class="search-icon">
-                  <%= search_form_for @q do |f| %>
-                    <%= f.search_field :name_or_location_or_organization_id_or_description_or_role_or_interests_name_or_skills_name_cont %>
-                  <% end %>
-              </div>
-            </form>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
- -->
   <div class="flashes">
     <% if flash[:notice].present? %>
       <%= flash[:notice] %>
