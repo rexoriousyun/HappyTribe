@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
+
   authenticates_with_sorcery!
+  acts_as_messageable
+
   has_many :arrangements
   has_many :timeslots, through: :arrangements
   has_many :bookmarks
@@ -8,13 +11,14 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :interests
   has_and_belongs_to_many :skills
 
-
-
   validates :password, length: { minimum: 3 }, if: :password_exists?
   validates :password, confirmation: true, if: :password_exists?
   validates :password_confirmation, presence: true, if: :password_exists?
-
   validates :email, uniqueness: true
+
+  def name
+    return self.first_name self.last_name
+  end
 
   def has_interest?(interest)
     self.interests.include?(interest)
