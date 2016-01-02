@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
+
   authenticates_with_sorcery! do |config|
-  	config.authentications_class = Aithentication
+  	config.authentications_class = Authentication
   end
 	has_many :arrangements
 	has_many :timeslots, through: :arrangements
@@ -12,11 +13,11 @@ class User < ActiveRecord::Base
 
 
 
-	validates :password, length: { minimum: 3 }, if: :password_exists?
-	validates :password, confirmation: true, if: :password_exists?
-	validates :password_confirmation, presence: true, if: :password_exists?
+  validates :password, length: { minimum: 3 }, if: :password_exists?
+  validates :password, confirmation: true, if: :password_exists?
+  validates :password_confirmation, presence: true, if: :password_exists?
 
-	validates :email, uniqueness: true
+  validates :email, uniqueness: true
 
 	has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications
@@ -25,11 +26,20 @@ class User < ActiveRecord::Base
 		self.interests.include?(interest)
 	end
 
-	def has_skill?(skill)
-		self.skills.include?(skill)
-	end
+  def has_skill?(skill)
+    self.skills.include?(skill)
+  end
 
-	def password_exists?
-		password.present? || password_confirmation.present?
-	end
+  def password_exists?
+    password.present? || password_confirmation.present?
+  end
+
+  def manages_organizations?
+    self.managed_organizations.any?
+  end
+
+  def is_authorized?(organization)
+    self.managed_organizations.include?(organization)
+  end
+
 end

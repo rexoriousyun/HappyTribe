@@ -42,6 +42,12 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (8.2.1)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+    cocoon (1.2.6)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -80,6 +86,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.99)
+    mini_magick (4.3.6)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
@@ -189,12 +196,15 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  carrierwave
+  cocoon
   coffee-rails (~> 4.1.0)
   figaro
   foundation-rails
   geocoder
   jbuilder (~> 2.0)
   jquery-rails
+  mini_magick
   pg
   protected_attributes
   pry-rails

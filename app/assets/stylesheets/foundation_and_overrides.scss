@@ -116,7 +116,7 @@ $jet         : #222222;
 $black       : #000000;
 
 // We use these as default colors throughout
-$primary-color: #008CBA;
+$primary-color: #1CBE6F;
 $secondary-color: #e7e7e7;
 $alert-color: #f04124;
 $success-color: #43AC6A;
@@ -466,7 +466,7 @@ $button-font-align: center;
 // We use these to control button border styles.
 // $button-border-width: 0;
 // $button-border-style: solid;
-// $button-bg-color: $primary-color;
+ $button-bg-color: $primary-color;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
@@ -1403,9 +1403,9 @@ $tabs-vertical-navigation-margin-bottom: 1.25rem;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color:  #29eb8c;
+$topbar-bg-color:  #1CBE6F;
 $topbar-bg: $topbar-bg-color;
-$topbar-link-hovor-color:  #1cbe6f;
+$topbar-link-hover-color:  #169859;
 
 // Height and margin
 $topbar-height: rem-calc(50);
@@ -1424,7 +1424,7 @@ $topbar-link-weight: $font-weight-normal;
 $topbar-link-font-size: rem-calc(13);
 $topbar-link-hover-lightness: -10%; // Darken by 10%
 $topbar-link-bg: $topbar-bg;
-$topbar-link-bg-hover: $topbar-link-hovor-color;
+$topbar-link-bg-hover: $topbar-link-hover-color;
 $topbar-link-bg-color-hover: $topbar-bg;
 $topbar-link-bg-active: $primary-color;
 $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);

@@ -3,6 +3,7 @@ scott_mission_1 =  Organization.create(
   email: "info@scottmission.com",
   website_url: "https://www.scottmission.com/",
   description: "The Scott Mission is a Christian non-denominational charity organization in Ontario, Canada, providing services to poor, homeless and vulnerable people.",
+  # The user_id below assigns which user is the event_coordinator for this organization
   user_id: 10
   );
 mount_sinai_2 =  Organization.create(

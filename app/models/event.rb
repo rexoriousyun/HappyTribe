@@ -1,7 +1,9 @@
 class Event < ActiveRecord::Base
-	has_many :timeslots
+  mount_uploader :event_image, ImageUploader
+	has_many :timeslots, dependent: :destroy
+  accepts_nested_attributes_for :timeslots, reject_if: :all_blank, allow_destroy: true
 	has_many :arrangements, through: :timeslots
-  has_many :bookmarks
+  has_many :bookmarks, dependent: :destroy
   belongs_to :organization
   has_and_belongs_to_many :interests
   has_and_belongs_to_many :skills
@@ -43,6 +45,7 @@ class Event < ActiveRecord::Base
       event.total_rank(user, interest_weight, skill_weight)
     end.reverse
   end
+
   # In the 2 methods below, the single ampersand & is not a typo
   # It checks matches between 2 arrays and returns an array of matches
 
