@@ -11,6 +11,7 @@
          </li>
          <div id="timeslot-list">
             <li class="bullet-item"><p>Choose a time to volunteer</p>
+            <p><%= event.start_time.strftime("%F") %><p>
             <%= render partial: 'timeslots/timeslot', collection: event.timeslots.order(start_time: :asc) %>
             </li>
 
