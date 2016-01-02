@@ -3,7 +3,8 @@ user_1 = User.create(
   last_name: "K",
   email: "mgt@kim.com",
   password: "blah",
-  password_confirmation: "blah"
+  password_confirmation: "blah",
+  admin: true
   );
 user_2 = User.create(
   first_name: "John",
@@ -54,6 +55,8 @@ user_8 = User.create(
   password: "blah",
   password_confirmation: "blah"
   );
+# Putting the org name in the variable name wasn't necessary, but was to quickly show
+# in the seed file that these users are event coordinators
 user_9_mount_sinai_coordinator = User.create(
   first_name: "Sally",
   last_name: "Sinai",

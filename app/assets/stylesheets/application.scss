@@ -3,9 +3,9 @@
 */
 
 // colour variables
-$navbarcolor: #29eb8c;
-$navbarhovercolor: #1cbe6f;
-$volunteerbutton-and-cardheader: #62a5e7;
+$navbarcolor: #1cbe6f;
+$navbarhovercolor: #169859;
+$volunteerbutton-and-cardheader: #1cbe6f;
 
 @import "foundation_and_overrides";
 @import "maps";
@@ -14,11 +14,11 @@ $volunteerbutton-and-cardheader: #62a5e7;
 @import "events";
 @import "organizations";
 @import "sessions";
-@import "skillsusers";
 @import "interests";
 @import "skills";
 @import "bookmarks";
 @import "users";
 @import "buttons";
+@import "forms";
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300);
 

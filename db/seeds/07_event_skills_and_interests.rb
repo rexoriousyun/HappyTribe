@@ -1,3 +1,5 @@
+# This file sets the initial interests and skills associated with each event
+
 Event.find(1).interests << Interest.find(1)
 Event.find(1).interests << Interest.find(5)
 Event.find(1).skills << Skill.find(1)
