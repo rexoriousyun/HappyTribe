@@ -1,8 +1,6 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 arrangement1:
   user_id: 1
-  timeslot_id: 1
+  timeslot_id: 540961884
 
 arrangement2:
   user_id: 1

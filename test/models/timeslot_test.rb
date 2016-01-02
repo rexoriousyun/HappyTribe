@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class TimeslotTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+	test "capacity remaining" do
+		assert_equal 2, Timeslot.second.remaining_spots
+	end
 end
