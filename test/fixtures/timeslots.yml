@@ -1,13 +1,17 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+timeslot1:
+  start_time: 2016-02-11 11:00:00
+  end_time: 2016-02-11 12:00:00
+  capacity: 3
+  event_id: 1
 
-one:
-  start_time: 2015-12-15 15:45:38
-  end_time: 2015-12-15 15:45:38
-  capacity: 1
-  opportunity_id: 
+timeslot2:
+  start_time: 2016-02-12 13:00:00
+  end_time: 2016-02-12 15:00:00
+  capacity: 2
+  event_id: 1
 
-two:
-  start_time: 2015-12-15 15:45:38
-  end_time: 2015-12-15 15:45:38
+timeslot3:
+  start_time: 2016-02-13 20:00:00
+  end_time: 2016-02-13 22:00:00
   capacity: 1
-  opportunity_id: 
+  event_id: 1

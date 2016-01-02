@@ -1,19 +1,8 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+event1:
+  name: event1
 
-one:
-  name: MyString
-  start_time: 2015-12-14 13:56:48
-  end_time: 2015-12-14 13:56:48
-  max_capacity: 1
-  location: MyString
-  description: MyText
-  organization_id:
+event2:
+  name: event2
 
-two:
-  name: MyString
-  start_time: 2015-12-14 13:56:48
-  end_time: 2015-12-14 13:56:48
-  max_capacity: 1
-  location: MyString
-  description: MyText
-  organization_id:
+event3:
+  name: event3

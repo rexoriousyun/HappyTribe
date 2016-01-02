@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  authenticates_with_sorcery!
+  # authenticates_with_sorcery!
   has_many :arrangements
   has_many :timeslots, through: :arrangements
   has_many :bookmarks
@@ -10,9 +10,9 @@ class User < ActiveRecord::Base
 
 
 
-  validates :password, length: { minimum: 3 }, if: :password_exists?
-  validates :password, confirmation: true, if: :password_exists?
-  validates :password_confirmation, presence: true, if: :password_exists?
+  # validates :password, length: { minimum: 3 }, if: :password_exists?
+  # validates :password, confirmation: true, if: :password_exists?
+  # validates :password_confirmation, presence: true, if: :password_exists?
 
   validates :email, uniqueness: true
 
