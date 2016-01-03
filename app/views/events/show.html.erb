@@ -1,4 +1,4 @@
-<div class="event-show small-12 columns">
+<div class="event-show small-12 large-8 columns">
   <h1>Name: <%= @event.name %></h1>
   <% if logged_in? %>
     <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
@@ -28,11 +28,25 @@
     <h3>Choose a timeslot to volunteer at!</h3>
     <%= render partial: 'timeslots/timeslot', collection: @event.timeslots.order(start_time: :asc) %>
   </div>
+
+  <div data-latitude=<%= @event.latitude %> data-longitude=<%= @event.longitude %> id="event-map" ></div>
 </div>
 
-<div data-latitude=<%= @event.latitude %> data-longitude=<%= @event.longitude %> id="event-map" ></div>
+<div class="org-info small-12 large-4 columns">
+  <h1><%= @event.organization.name %></h1>
+  <h3><%= @event.organization.description %></h3>
+  <p><%= @event.organization.website_url %></p>
+  <p><%= mail_to(@event.organization.email) %></p>
+  <ul>
+    <% @event.organization.events.each do |event| %>
+      <li><%= event.role %> - <%= event.name %></li>
+      <li><%= event.start_time.strftime("%F") %></li></br>
+    <% end %>
+  </ul>
+</div>
 
-<div class="all-arrangements">
+
+<div class="all-arrangements small-12 columns ">
   <% if logged_in? %>
     <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
       <h2>View all Volunteering Arrangements for this Event</h2>
@@ -54,6 +68,8 @@
     <% end %>
   <% end %>
 </div>
+
+
 
 
 

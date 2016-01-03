@@ -1,4 +1,4 @@
-<%= form_tag '/events', method: :get %>
+<%= form_tag '/events', method: :get, class: "filter-form" %>
 
 	<% if params[:filter] %>
 		<% selection_shown = params[:filter] %>
