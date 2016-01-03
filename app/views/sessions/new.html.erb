@@ -13,4 +13,6 @@
 		<p> <%= submit_tag "Login" %> </p>
 	<% end %>
 	<%= link_to 'Login with Github', auth_at_provider_path(:provider => :github) %>
+	<%= link_to 'Login with google', auth_at_provider_path(:provider => :google) %>
+	<%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
 </div>
