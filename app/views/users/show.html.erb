@@ -44,10 +44,10 @@
       <div class="user-bookmarks bookmark">
         <h2>Your Bookmarked Events</h2>
         <% if current_user.bookmarks.any? %>
-          <ul id="bookmarks-sorting">
+          <ul id="sorted-bookmarks">
             <% current_user.bookmarks.each do |bookmark| %>
               <% event = bookmark.event %>
-              <li id="bookmark-sorting">
+              <li id="sorted_<%= bookmark.id %>">
                 <%= link_to "#{event.name}", event_path(event) %> <br/>
                 <%= event.role %><br/>
                 <%= event.organization.name %> <br/>

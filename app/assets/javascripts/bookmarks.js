@@ -1,5 +1,5 @@
 $(function() {
-	$('#bookmarks-sorting').sortable({ 
+	$('#sorted-bookmarks').sortable({ 
 		containment: 'document', 
 		tolerance: 'pointer', 
 		cursor: 'pointer',
