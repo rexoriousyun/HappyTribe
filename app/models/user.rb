@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 
-  authenticates_with_sorcery! 
+  authenticates_with_sorcery! do |config|
+    config.authentications_class = Authentication
+  end
 	has_many :arrangements
 	has_many :timeslots, through: :arrangements
 	has_many :bookmarks

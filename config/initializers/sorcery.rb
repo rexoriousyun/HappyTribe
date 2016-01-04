@@ -117,7 +117,7 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.facebook.key = "#{Figaro.env.sorcery_facebook_key}"
   config.facebook.secret = "#{Figaro.env.sorcery_facebook_secret}"
-  config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
+  config.facebook.callback_url = "#{Figaro.env.sorcery_facebook_url}"
   config.facebook.user_info_mapping = {:email => "name"}
   config.facebook.access_permissions = ["email", "publish_actions"]
   config.facebook.display = "page"
@@ -125,12 +125,12 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.github.key = "#{Figaro.env.sorcery_github_key}"
   config.github.secret = "#{Figaro.env.sorcery_github_secret}"
-  config.github.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=github"
+  config.github.callback_url = "#{Figaro.env.sorcery_github_url}"
   config.github.user_info_mapping = {:email => "name"}
   #
   config.google.key = "#{Figaro.env.sorcery_google_key}"
   config.google.secret = "#{Figaro.env.sorcery_google_secret}"
-  config.google.callback_url = "http://localhost:3000/oauth/callback?provider=google"
+  config.google.callback_url = "#{Figaro.env.sorcery_google_url}"
   config.google.user_info_mapping = {:email => "email", :first_name => "name"}
   #
   # config.vk.key = ""
