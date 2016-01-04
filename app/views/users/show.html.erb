@@ -44,21 +44,21 @@
       <div class="user-bookmarks bookmark">
         <h2>Your Bookmarked Events</h2>
         <% if current_user.bookmarks.any? %>
-          <% current_user.bookmarks.each do |bookmark| %>
-            <div>
+          <ul id="sorted-bookmarks">
+            <% current_user.bookmarks.each do |bookmark| %>
               <% event = bookmark.event %>
-              <p>
+              <li id="sorted_<%= bookmark.id %>">
                 <%= link_to "#{event.name}", event_path(event) %> <br/>
                 <%= event.role %><br/>
                 <%= event.organization.name %> <br/>
                 <%= event.location %> <br/>
                 <%= event.start_time %> <%= event.end_time %>
-              </p>
-              <%= button_to "Delete this bookmark",
+                <%= button_to "Delete this bookmark",
               event_bookmark_path(bookmark.event, bookmark),
               :method => :delete, class: 'button round' %>
-            </div>
-          <% end %>
+              </li>
+            <% end %>
+          </ul>
         <% else %>
           <p>You currently have no saved events in your bookmarks</p>
           <%= link_to 'Visit our events page to browse upcoming events', events_path %>
@@ -89,4 +89,4 @@
 </div>
 
 
-
+<script src="/assets/javascripts/bookmarks.js"></script>
