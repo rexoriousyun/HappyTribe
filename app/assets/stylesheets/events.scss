@@ -1,5 +1,9 @@
 
 // This styles the top of the cards //
+body {
+  letter-spacing: .5px;
+}
+
 .pricing-table .title {
   background-color: $volunteerbutton-and-cardheader;
   padding: 5%;
