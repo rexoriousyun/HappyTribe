@@ -1,4 +1,4 @@
-<div class="event-show small-12 large-8 columns">
+<div class="event-show small-12 large-8 columns top_title_space">
   <h1>Name: <%= @event.name %></h1>
   <% if logged_in? %>
     <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
@@ -32,9 +32,10 @@
   <div data-latitude=<%= @event.latitude %> data-longitude=<%= @event.longitude %> id="event-map" ></div>
 </div>
 
-<div class="small-12 large-4 columns panel callout radius">
+<div class="small-12 large-4 columns topspace">
+<div class="panel callout radius">
   <h1><%= @event.organization.name %></h1>
-  <h3><%= @event.organization.description %></h3>
+  <h5><%= @event.organization.description %></h5>
   <p><%= @event.organization.website_url %></p>
   <p><%= mail_to(@event.organization.email) %></p>
   <ul>
@@ -43,6 +44,7 @@
       <li><%= event.start_time.strftime("%F") %></li></br>
     <% end %>
   </ul>
+</div>
 </div>
 
 
