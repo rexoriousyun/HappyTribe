@@ -1,7 +1,7 @@
 <div>
-  <h3><%= conversation.originator.name %></h3><br>
+  <h3>User: <%= conversation.originator.name %></h3><br>
   <p>Subject: <%= conversation.subject %></p><br>
   <p>Date: <%= conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %><br>
-  <%= truncate conversation.messages.last.body, length: 150 %>
-  <%= link_to "View", conversation_path(conversation) %>
+  <%= truncate conversation.messages.last.body, length: 150 %><br>
+  <%= link_to "View this conversation", conversation_path(conversation), class: "button" %>
 </p>
