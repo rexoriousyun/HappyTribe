@@ -1,18 +1,24 @@
-<h1>Login to Happy Tribe</h1>
-
-<div class="login-form">
-	<%= form_tag sessions_path do %>
-		<p>
-			<%= label_tag :email %>
-			<%= text_field_tag :email, params[:email] %>
-		</p>
-		<p>
-			<%= label_tag :password %>
-			<%= password_field_tag :password %>
-		</p>
-		<p> <%= submit_tag "Login" %> </p>
-	<% end %>
-	<%= link_to 'Login with Github', auth_at_provider_path(:provider => :github) %>
-	<%= link_to 'Login with google', auth_at_provider_path(:provider => :google) %>
-	<%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
+<div class="login-form-wrapper">
+	<div class="login-form">
+		<div class="login-top">
+			<h1>Login</h1>
+			<%= link_to 'Github', auth_at_provider_path(:provider => :github), class: "button round social-button", id: "github-login" %>
+			<%= link_to 'Google', auth_at_provider_path(:provider => :google), class: "button round social-button", id: "google-login" %>
+			<%= link_to 'Facebook', auth_at_provider_path(:provider => :facebook), class: "button round social-button", id: "facebook-login" %>
+			<div>
+				<p>or</p>
+			</div>
+			<%= form_tag sessions_path do %>
+				<p>
+					<%= label_tag :email %>
+					<%= text_field_tag :email, params[:email] %>
+				</p>
+				<p>
+					<%= label_tag :password %>
+					<%= password_field_tag :password %>
+				</p>
+				<p> <%= submit_tag "Login" %> </p>
+			<% end %>
+		</div>
+	</div>
 </div>

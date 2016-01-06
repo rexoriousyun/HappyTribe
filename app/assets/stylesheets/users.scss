@@ -20,4 +20,22 @@
     font-weight: bold;
     box-shadow:inset 0px 0px 0px 2px;
 }
+// signup-login
+#facebook-login{
+  background-color: #3b5998;
+}
+#google-login{
+  background-color: #FF5722;
+}
+#github-login{
+  margin-left: 5px;
+  background-color: black;
+} 
+.login-top{
+  width: 100%;
+  max-width: 340px;
+  margin: auto;
+  padding: 20px;
+  border: 2px solid #686868;
 
+}
