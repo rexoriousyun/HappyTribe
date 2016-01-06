@@ -1,33 +1,27 @@
-<ul class="example-orbit-content" data-orbit>
-  <li data-orbit-solide="headline-1">
-    <div>
-      <h2 class="headline">Volunteering made easy</h2>
-      <h3 class="subheadline">Subheadline1</h3>
-    </div>
+<ul class="example-orbit" data-orbit>
+  <li class="orbit_image">
+    <%= image_tag("coffee.jpg")%>
   </li>
-  <li data-orbit-slide="headline-2">
-    <div>
-      <h2 class="headline">Headline 2</h2>
-      <h3 class="subheadline">Subheadline2</h3>
-    </div>
+  <li class="orbit_image">
+    <%= image_tag("coffee.jpg")%>
   </li>
-  <li data-orbit-slide="headline-3">
-    <div>
-      <h2 class="headline">Headline 3</h2>
-      <h3 class="subheadline">Subheadline3</h3>
-    </div>
+  <li class="orbit_image">
+    <%= image_tag("phone.jpg")%>
   </li>
 </ul>
-<h1 class="all-volunteering">Upcoming Volunteering Events in <span id="location">Toronto</span></h1>
 
-<% if logged_in? %>
-	<div class="filter-box">
-			<%= render 'filter_form' %>
-	</div>
-<% end %>
+<div class="body_margin">
+  <h1 class="all-volunteering">Upcoming Volunteering Events in <span id="location">Toronto</span></h1>
 
-<div class="events-list">
-	<%= render @events %>
+  <% if logged_in? %>
+  	<div class="filter-box">
+  			<%= render 'filter_form' %>
+  	</div>
+  <% end %>
+
+  <div class="events-list">
+  	<%= render @events %>
+  </div>
+
+  <h3 id="browse-interest">Browse by Interests</h3>
 </div>
-
-<h3 id="browse-interest">Browse by Interests</h3>
