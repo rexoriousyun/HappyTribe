@@ -220,12 +220,12 @@ $header-bottom-margin: .5rem;
 $header-text-rendering: optimizeLegibility;
 
 // // We use these to control header font sizes
-$h1-font-size: rem-calc(44);
-$h2-font-size: rem-calc(37);
-$h3-font-size: rem-calc(27);
-$h4-font-size: rem-calc(23);
-$h5-font-size: rem-calc(18);
-$h6-font-size: 1rem;
+$h1-font-size: rem-calc(32);
+$h2-font-size: rem-calc(28);
+$h3-font-size: rem-calc(24);
+$h4-font-size: rem-calc(20);
+$h5-font-size: rem-calc(16);
+$h6-font-size: 0.8rem;
 
 // // We use these to control header size reduction on small screens
 $h1-font-reduction: rem-calc(10);
@@ -998,8 +998,8 @@ $button-font-align: center;
 // $panel-border-color: scale-color($panel-bg, $lightness: -11%);
 
 // We use these to set default inner padding and bottom margin
-// $panel-margin-bottom: rem-calc(20);
-// $panel-padding: rem-calc(20);
+// $panel-margin-bottom: rem-calc(40);
+ $panel-padding: rem-calc(40);
 
 // We use these to set default font colors
 // $panel-font-color: $oil;
@@ -1405,23 +1405,23 @@ $tabs-vertical-navigation-margin-bottom: 1.25rem;
 // Background color for the top bar
 $topbar-bg-color:  #1CBE6F;
 $topbar-bg: $topbar-bg-color;
-$topbar-link-hover-color:  #169859;
+$topbar-link-hover-color:  darken($topbar-bg, 13%);
 
 // Height and margin
-$topbar-height: rem-calc(50);
-$topbar-margin-bottom: 0;
+$topbar-height: rem-calc(70);
+$topbar-margin-bottom: 5;
 
 // Controlling the styles for the title in the top bar
-$topbar-title-weight: $font-weight-normal;
-$topbar-title-font-size: rem-calc(17);
+$topbar-title-weight: $font-weight-bold;
+$topbar-title-font-size: rem-calc(20);
 
 // Set the link colors and styles for top-level nav
 $topbar-link-color: $white;
 $topbar-link-color-hover: $white;
 $topbar-link-color-active: $white;
 $topbar-link-color-active-hover: $white;
-$topbar-link-weight: $font-weight-normal;
-$topbar-link-font-size: rem-calc(13);
+$topbar-link-weight: $font-weight-bold;
+$topbar-link-font-size: rem-calc(16);
 $topbar-link-hover-lightness: -10%; // Darken by 10%
 $topbar-link-bg: $topbar-bg;
 $topbar-link-bg-hover: $topbar-link-hover-color;
@@ -1432,7 +1432,7 @@ $topbar-link-font-family: $body-font-family;
 $topbar-link-text-transform: none;
 $topbar-link-padding: ($topbar-height / 3);
 $topbar-back-link-size: rem-calc(18);
-$topbar-link-dropdown-padding: rem-calc(20);
+$topbar-link-dropdown-padding: rem-calc(0);
 $topbar-button-font-size: .75rem;
 $topbar-button-top: 7px;
 
@@ -1449,7 +1449,7 @@ $topbar-dropdown-toggle-alpha: .4;
 
 $topbar-dropdown-label-color: $monsoon;
 $topbar-dropdown-label-text-transform: uppercase;
-$topbar-dropdown-label-font-weight: $font-weight-bold;
+$topbar-dropdown-label-font-weight: $font-weight-normal;
 $topbar-dropdown-label-font-size: rem-calc(10);
 $topbar-dropdown-label-bg: $oil;
 
@@ -1459,8 +1459,8 @@ $topbar-menu-link-font-size: rem-calc(13);
 $topbar-menu-link-weight: $font-weight-bold;
 $topbar-menu-link-color: $white;
 $topbar-menu-icon-color: $white;
-$topbar-menu-link-color-toggled: $jumbo;
-$topbar-menu-icon-color-toggled: $jumbo;
+$topbar-menu-link-color-toggled: $white;
+$topbar-menu-icon-color-toggled: $white;
 $topbar-menu-icon-position: $opposite-direction; // Change to $default-float for a left menu icon
 
 // Transitions and breakpoint styles
