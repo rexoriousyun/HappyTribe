@@ -1,11 +1,14 @@
 /*
 *= require select2
+*= require jquery-ui
 */
 
 // colour variables
 $navbarcolor: #1cbe6f;
 $navbarhovercolor: #169859;
 $volunteerbutton-and-cardheader: #1cbe6f;
+//font-weight
+$font-weight-normal: 300;
 
 @import "foundation_and_overrides";
 @import "maps";
@@ -20,5 +23,5 @@ $volunteerbutton-and-cardheader: #1cbe6f;
 @import "users";
 @import "buttons";
 @import "forms";
+@import "topbar";
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300);
-

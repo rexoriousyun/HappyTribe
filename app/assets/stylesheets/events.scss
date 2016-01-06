@@ -10,6 +10,7 @@
 li.title a {
   color: white;
   font-size: 1.2rem;
+  font-weight: $font-weight-bold;
 }
 
 .active-tb {
@@ -19,13 +20,6 @@ li.title a {
   border:0;
   transition: 0.4s ease;
   z-index:13;
-  // &:hover {
-//     position: relative;
-//     box-shadow: 0px 2px 10px 0px rgba(50, 50, 50, 0.5);
-//     transform: scale(1.25);
-//     border:0;
-//     z-index:15;
-//   }
 }
 
 .all-volunteering {
@@ -40,6 +34,9 @@ li.image {
   background-color: white;
 }
 
+.org-info {
+  border: 2px $charcoal solid;
+}
 
 
 

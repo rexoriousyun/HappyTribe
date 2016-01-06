@@ -27,6 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_12factor', group: :production
 
+gem 'jquery-ui-rails', '~> 5.0.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -50,6 +52,9 @@ gem 'foundation-rails'
 gem 'pg'
 # Use select2 for select boxes
 gem "select2-rails"
+
+gem 'protected_attributes'
+
 # use coccoon gem
 gem 'cocoon'
 # use carrierwave for file uploads
@@ -60,6 +65,7 @@ gem "mini_magick"
 gem 'mailboxer'
 # Use kaminari for pagination
 gem 'kaminari'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

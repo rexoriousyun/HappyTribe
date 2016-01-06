@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20151231231215) do
 
   add_index "arrangements", ["user_id"], name: "index_arrangements_on_user_id", using: :btree
 
+  create_table "authentications", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.string   "provider",   null: false
+    t.string   "uid",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid", using: :btree
+
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "event_id"
