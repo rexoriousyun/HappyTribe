@@ -1,0 +1,9 @@
+<% @receipts.each do |receipt| %>
+  <% message = receipt.message %>
+  <div>
+    <h3><%= message.sender.name %></h3>
+    <p>Subject: <%= message.subject %></p><br>
+    <p>Date: <%= message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></p><br>
+    <%= message.body %>
+  </div>
+<% end %>

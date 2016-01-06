@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     @mailbox ||= current_user.mailbox
   end
 
-  def converation
+  def conversation
     @conversation ||= mailbox.conversations.find(params[:id])
   end
 

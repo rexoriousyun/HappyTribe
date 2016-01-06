@@ -15,11 +15,21 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @recipts = conversation.receipts_for(current_user)
+    @receipts = conversation.receipts_for(current_user)
     conversation.mark_as_read(current_user)
   end
 
+  def reply
+    current_user.reply_to_conversation(conversation, message_params[:body])
+    flash[:notice] = "Your reply was sent!"
+    redirect_to conversation_path(conversation)
+  end
+
   private
+
+  def message_params
+    params.require(:message).permit(:body, :subject)
+  end
 
   def conversation_params
     params.require(:conversation).permit(:subject, :body, recipients:[])
