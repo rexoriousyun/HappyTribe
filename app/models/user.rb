@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :authentications
 
   def name
-    return self.first_name self.last_name
+    return self.first_name + self.last_name
   end
 
 	def has_interest?(interest)
@@ -44,4 +44,11 @@ class User < ActiveRecord::Base
     self.managed_organizations.include?(organization)
   end
 
+  def mailboxer_name
+    self.name
+  end
+
+  def mailboxer_email(object)
+    self.email
+  end
 end

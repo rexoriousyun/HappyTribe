@@ -1,0 +1,12 @@
+<h1>Your Message Inbox</h1>
+<div class="medium-12 columns">
+  <%= link_to "Compose", new_conversation_path, class: "button" %>
+</div>
+
+<div class="medium-4 columns">
+  <%= render 'mailboxes/folders' %>
+</div>
+
+<div class="medium-8 columns">
+  <%= render partial: 'messages' %>
+</div>
