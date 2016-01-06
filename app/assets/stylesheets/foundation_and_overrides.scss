@@ -1405,7 +1405,7 @@ $tabs-vertical-navigation-margin-bottom: 1.25rem;
 // Background color for the top bar
 $topbar-bg-color:  #1CBE6F;
 $topbar-bg: $topbar-bg-color;
-$topbar-link-hover-color:  #169859;
+$topbar-link-hover-color:  darken($topbar-bg, 13%);
 
 // Height and margin
 $topbar-height: rem-calc(70);
