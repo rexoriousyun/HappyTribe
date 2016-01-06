@@ -25,6 +25,16 @@ class ConversationsController < ApplicationController
     redirect_to conversation_path(conversation)
   end
 
+  def trash
+    conversation.move_to_trash(current_user)
+    redirect_to mailbox_inbox_path
+  end
+
+  def untrash
+    conversation.untrash(current_user)
+    redirect_to mailbox_inbox_path
+  end
+
   private
 
   def message_params

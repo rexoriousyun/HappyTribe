@@ -4,7 +4,7 @@
 </div>
 <div class="medium-12 columns">
   <% if conversation.is_trashed?(current_user) %>
-    <%= link_to "Untrash", untrash_conversation_path(conversation), class: "button", method: post %>
+    <%= link_to "Untrash", untrash_conversation_path(conversation), class: "button", method: :post %>
   <% else %>
     <%= link_to 'Delete', trash_conversation_path(conversation), class: "button", method: :post, data: {confirm: "Do you want to move this to trash?"} %>
   <% end %>
