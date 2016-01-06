@@ -6,7 +6,7 @@
       <%= link_to "Edit Event", edit_organization_event_path(@event.organization, @event), class: "button round" %>
 
       <%= button_to "Cancel Event", organization_event_path(@event.organization, @event), class: "button round", method: "delete", data: { confirm: "Are you sure you wish to cancel this event?"} %>
-    <% else %>
+    <% elsif @event.organization.event_coordinator %>
       <%= link_to "Message the event coordinator!", new_conversation_path(:recipients => [@event.organization.event_coordinator]), class: "button round" %>
     <% end %>
   <% end %>
