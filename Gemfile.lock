@@ -215,9 +215,9 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails (~> 5.0.0)
   kaminari
   mailboxer
-  jquery-ui-rails (~> 5.0.0)
   mini_magick
   pg
   protected_attributes
