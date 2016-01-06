@@ -10,7 +10,9 @@
 <div class="medium-8 columns">
   <% if is_conversation %>
     <%= render 'conversations/form' %>
-  <% else %>
+  <% elsif messages.any? %>
     <%= render partial: 'conversations/conversation', collection: messages %>
+  <% else %>
+    <p>No messages to display</p>
   <% end %>
 </div>
