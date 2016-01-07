@@ -17,15 +17,26 @@ Rails.application.routes.draw do
     resources :managed_organizations, only: [:index]
   end
   resources :welcomes, only: [:index]
+  resources :conversations, only: [:index, :show, :new, :create] do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
 
   get '/welcome' => 'welcomes#index'
   get '/login' => 'sessions#new'
   delete '/logout' => 'sessions#destroy'
   get '/signup' => 'users#new'
-  
+
   post "oauth/callback" => "oauths#callback"
-get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
-get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+
+  get 'mailbox/inbox' => "mailboxes#inbox", as: :mailbox_inbox
+  get "mailbox/sent" => "mailboxes#sent", as: :mailbox_sent
+  get "mailbox/trash" => "mailboxes#trash", as: :mailbox_trash
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

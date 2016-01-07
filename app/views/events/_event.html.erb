@@ -1,17 +1,18 @@
 <div class="event">
     <div class="large-4 medium-6 small-12 columns">
        <ul class="pricing-table active-tb shadow mrgn-20-top">
-         <li class="title"><%= link_to event.name, event_path(event) %></li>
+         <li class="title"><span id="event_role"><%= link_to event.role, event_path(event) %></span><br/><span id="event_name"><%= link_to event.name, event_path(event) %></span><br/><span id="org_name"></li>
          <li class="image"><%= image_tag event.event_image.url(:mobile) if event.event_image.present? %></li>
-         <li class="bullet-item">Role: <%= event.role %></li>
-         <li class="bullet-item">Organization: <%= link_to event.organization.name, organization_path(event.organization) %></li>
+         <li class="bullet-item" id="with"><%= link_to event.organization.name, organization_path(event.organization) %></li>
+         <li class="bullet-item"><%= event.start_time.strftime("%F %n %I:%M %p") %> - <%= event.end_time.strftime("%I:%M %p") %></li>
+
+
          <li class="bullet-item"><%= event.location %></li>
          <li class="bullet-item bookmark">
             <%= render partial: 'bookmarks/form', locals: { event: event } %>
-         </li>
+        </li>
          <div id="timeslot-list">
             <li class="bullet-item"><p>Choose a time to volunteer</p>
-            <p><%= event.start_time.strftime("%F") %><p>
             <%= render partial: 'timeslots/timeslot', collection: event.timeslots.order(start_time: :asc) %>
             </li>
 

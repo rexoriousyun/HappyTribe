@@ -1,16 +1,42 @@
 
 // This styles the top of the cards //
+
+html {
+  line-height: normal;
+}
+
+body {
+  letter-spacing: .5px;
+}
+
 .pricing-table .title {
-  background-color: $volunteerbutton-and-cardheader;
+  background-color: #EEEEEE;
   padding: 5%;
 }
 
+.body_margin {
+  padding: 3%;
+}
+
+.user_form_margin {
+  padding: 3%;
+}
+
+.login_form_margin {
+  padding: 3%;
+}
 
 // This styles the font for the event title //
 li.title a {
-  color: white;
-  font-size: 1.2rem;
+  color: $monsoon;
+  font-size: 1rem;
   font-weight: $font-weight-bold;
+}
+li.title a:hover {
+  color: $jet;
+  font-size: 1rem;
+  font-weight: $font-weight-bold;
+  text-decoration: underline;
 }
 
 .active-tb {
@@ -29,13 +55,42 @@ li.title a {
   text-align: center;
 }
 
+.orbit_image img {
+  height: 50%;
+  width: 100%;
+}
+
+.alert-box {
+  margin-bottom: 0;
+}
+
 li.image {
 	text-align: center;
   background-color: white;
 }
 
-.org-info {
-  border: 2px $charcoal solid;
+#location {
+  color: #00a1ee;
+}
+
+#location:hover {
+  color: #0070a6;
+  text-decoration: underline;
+}
+
+#event_role > a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $charcoal;
+  line-height: 2.5rem;
+}
+#org_name {
+  font-size: 0.5rem;
+  color: $charcoal;
+}
+
+#event_name {
+  color: $charcoal;
 }
 
 

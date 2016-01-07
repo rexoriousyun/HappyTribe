@@ -6,7 +6,6 @@
     <title><%= content_for?(:title) ? yield(:title) : "Happy Tribe" %></title>
     <%= stylesheet_link_tag "application", media: 'all' %>
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key}" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
@@ -19,6 +18,17 @@
             <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
           </ul>
           <section class="top-bar-section">
+            <ul class="left">
+              <li class="has-form">
+                  <div class="row collapse">
+                    <div class="large-8 small-9 columns">
+                        <%= search_form_for @q do |f| %>
+                        <%= f.search_field :name_or_location_or_organization_name_or_description_or_role_or_interests_name_or_skills_name_cont, placeholder: "search by keywords" %>
+                      <% end %>
+                    </div>
+                  </div>
+              </li>
+            </ul>
             <ul class="right">
 
               <% if logged_in? %>
@@ -26,33 +36,37 @@
                   <li><%= link_to "Organizations", user_managed_organizations_path(current_user) %></li>
                 <% end %>
                 <li><%= link_to "Profile", user_path(current_user) %></li>
+                <li>
+                  <%= link_to mailbox_inbox_path do %>
+                  Messages <div class='notification-unread'><%=unread_messages_count%></div>
+                  <% end %>
+                </li>
                 <li><%= link_to "Logout", logout_path, method: "delete" %></li>
               <% else %>
-                <li><%= link_to 'Login', login_path %></li>
-                <li><%= link_to 'Sign-up', signup_path %></li>
+                <li><%= link_to 'Sign up', signup_path %></li>
+                <li><%= link_to 'Log in', login_path %></li>
               <% end %>
-
-              <li class="has-form">
-                  <div class="row collapse">
-                    <div class="large-8 small-9 columns">
-                        <%= search_form_for @q do |f| %>
-                        <%= f.search_field :name_or_location_or_organization_name_or_description_or_role_or_interests_name_or_skills_name_cont, placeholder: "search events" %>
-                      <% end %>
-                    </div>
-                  </div>
-              </li>
             </ul>
           </section>
       </nav>
     </div>
 
+
   <div class="flashes">
     <% if flash[:notice].present? %>
+    <div data-alert class="alert-box info radius">
+    <a href="#" class="close">&times;</a>
       <%= flash[:notice] %>
+    </div>
     <% elsif flash[:alert].present? %>
+    <div data-alert class="alert-box info radius">
+    <a href="#" class="close">&times;</a>
       <%= flash[:alert] %>
+    </div>
     <% end %>
   </div>
+
+
     <%= yield %>
 
   <script>

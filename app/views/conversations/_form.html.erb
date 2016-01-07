@@ -1,0 +1,15 @@
+<%= form_for :conversation, url: :conversations, html: { class: "" } do |f| %>
+  <%= f.label :recipients %>
+  <%= f.select(:recipients, User.all.collect { |p| [ p.name, p.id ] }, {selected: params[:recipients]}, {multiple: true,  class: 'select' }) %>
+  <div>
+    <%= f.label :subject %>
+    <%= f.text_field :subject, placeholder: "Subject" %>
+  </div>
+  <div>
+    <%= f.label :message %>
+    <%= f.text_area :body %>
+  </div>
+
+  <%= f.submit "Send Message", class: "button" %>
+
+<% end %>
