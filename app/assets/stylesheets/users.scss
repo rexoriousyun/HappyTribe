@@ -23,12 +23,14 @@
 // signup-login
 #facebook-login{
   background-color: #3b5998;
+  display: block;
   &:active {
     background-color: #8b9dc3;
   }
 }
 #google-login{
   background-color: #FF5722;
+  display: block;
   &:active {
     background-color: #EF6C00;
   }
@@ -36,6 +38,7 @@
 #github-login{
   margin-left: 5px;
   background-color: black;
+  display: block;
   &:active {
     background-color: #323232;
   }
@@ -51,7 +54,13 @@
 .login-form-wrapper{
   margin-top: 40px;
 }
+.social-buttons{
+  display: block;
+}
 .login-or{
   margin: 10px;
   text-align: center;
+}
+.social-logins{
+  
 }
