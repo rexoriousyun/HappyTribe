@@ -1,3 +1,11 @@
 input#q_name_or_location_or_organization_name_or_description_or_role_or_interests_name_or_skills_name_cont {
   width: 155px;
 }
+
+.notification-unread {
+  background-color: white;
+  color: $navbarcolor;
+  border-radius: 50%;
+  display: inline;
+  width: 100px;
+}

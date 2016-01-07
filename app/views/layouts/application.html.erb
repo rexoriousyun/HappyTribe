@@ -6,7 +6,6 @@
     <title><%= content_for?(:title) ? yield(:title) : "Happy Tribe" %></title>
     <%= stylesheet_link_tag "application", media: 'all' %>
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key}" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
@@ -37,21 +36,16 @@
                   <li><%= link_to "Organizations", user_managed_organizations_path(current_user) %></li>
                 <% end %>
                 <li><%= link_to "Profile", user_path(current_user) %></li>
-                <li><%= link_to "Messages", mailbox_inbox_path %></li>
+                <li>
+                  <%= link_to mailbox_inbox_path do %>
+                  Messages <div class='notification-unread'><%=unread_messages_count%></div>
+                  <% end %>
+                </li>
                 <li><%= link_to "Logout", logout_path, method: "delete" %></li>
               <% else %>
                 <li><%= link_to 'Sign up', signup_path %></li>
                 <li><%= link_to 'Log in', login_path %></li>
               <% end %>
-
-              <li id="help">
-                <a href="#" data-dropdown="hover1" data-options="is_hover:true; hover_timeout:5000">About us</a>
-                <ul id="hover1" class="f-dropdown" data-dropdown-content>
-                  <li class="top_bar_about_us"><a href="#">About us</a></li>
-                  <li class="top_bar_about_us"><a href="#">How it works</a></li>
-                  <li class="top_bar_about_us"><a href="#">Social Media</a></li>
-                </ul>
-              </li>
             </ul>
           </section>
       </nav>
