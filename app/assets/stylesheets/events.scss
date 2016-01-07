@@ -14,6 +14,17 @@ body {
   padding: 5%;
 }
 
+.body_margin {
+  padding: 3%;
+}
+
+.user_form_margin {
+  padding: 3%;
+}
+
+.login_form_margin {
+  padding: 3%;
+}
 
 // This styles the font for the event title //
 li.title a {
@@ -44,13 +55,18 @@ li.title a:hover {
   text-align: center;
 }
 
+.orbit_image img {
+  height: 50%;
+  width: 100%;
+}
+
+.alert-box {
+  margin-bottom: 0;
+}
+
 li.image {
 	text-align: center;
   background-color: white;
-}
-
-.org-info {
-  border: 2px $charcoal solid;
 }
 
 #location {

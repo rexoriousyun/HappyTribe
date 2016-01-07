@@ -1,5 +1,6 @@
-<div class="event-show small-12 large-8 columns">
-  <h1>Name: <%= @event.name %></h1>
+<div class="event-show small-12 large-8 columns top_title_space">
+  <h1><%= @event.role %></h1>
+  <h3><%= @event.name %></h3>
   <% if logged_in? %>
     <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
 
@@ -19,23 +20,23 @@
     <% end %>
   </div>
   <div class="event-details">
-    <p>Role: <%= @event.role %></p>
     <p>Organization: <%= link_to @event.organization.name, organization_path(@event.organization) %></p>
-    <p>Location: <%= @event.location %></p>
-    <p>Date: <%= @event.start_time.strftime("%A, %m/%d/%y") %></p>
-    <p>Event Length: <%= @event.start_time.strftime("%l:%M%P") %> to <%= @event.end_time.strftime("%l:%M%P") %></p>
+    <p><%= @event.start_time.strftime("%A, %m/%d/%y") %></p>
+    <p><%= @event.start_time.strftime("%l:%M%p") %> - <%= @event.end_time.strftime("%l:%M%p") %></p>
+    <p><%= @event.location %></p>
   </div>
   <div id="timeslot-list-show">
-    <h3>Choose a timeslot to volunteer at!</h3>
+    <h3>Book your time now</h3>
     <%= render partial: 'timeslots/timeslot', collection: @event.timeslots.order(start_time: :asc) %>
   </div>
 
   <div data-latitude=<%= @event.latitude %> data-longitude=<%= @event.longitude %> id="event-map" ></div>
 </div>
 
-<div class="org-info small-12 large-4 columns">
+<div class="small-12 large-4 columns topspace">
+<div class="panel callout radius">
   <h1><%= @event.organization.name %></h1>
-  <h3><%= @event.organization.description %></h3>
+  <h5><%= @event.organization.description %></h5>
   <p><%= @event.organization.website_url %></p>
   <p><%= mail_to(@event.organization.email) %></p>
   <ul>
@@ -44,6 +45,7 @@
       <li><%= event.start_time.strftime("%F") %></li></br>
     <% end %>
   </ul>
+</div>
 </div>
 
 
