@@ -23,13 +23,22 @@
 // signup-login
 #facebook-login{
   background-color: #3b5998;
+  &:active {
+    background-color: #8b9dc3;
+  }
 }
 #google-login{
   background-color: #FF5722;
+  &:active {
+    background-color: #EF6C00;
+  }
 }
 #github-login{
   margin-left: 5px;
   background-color: black;
+  &:active {
+    background-color: #323232;
+  }
 } 
 .login-top{
   width: 100%;
@@ -41,4 +50,8 @@
 }
 .login-form-wrapper{
   margin-top: 40px;
+}
+.login-or{
+  margin: 10px;
+  text-align: center;
 }
