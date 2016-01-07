@@ -56,13 +56,21 @@
       </nav>
     </div>
 
+
   <div class="flashes">
     <% if flash[:notice].present? %>
+    <div data-alert class="alert-box info radius">
+    <a href="#" class="close">&times;</a>
       <%= flash[:notice] %>
+    </div>
     <% elsif flash[:alert].present? %>
+    <div data-alert class="alert-box info radius">
+    <a href="#" class="close">&times;</a>
       <%= flash[:alert] %>
+    </div>
     <% end %>
   </div>
+
 
     <%= yield %>
 
