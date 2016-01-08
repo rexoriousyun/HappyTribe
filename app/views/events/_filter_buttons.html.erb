@@ -1,0 +1,20 @@
+<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">
+  <% if params[:filter] %>
+    <%= params[:filter] %>
+  <% else %>
+    Filter Events
+  <% end %>
+</button><br>
+<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
+  <% options = ["Event Start Time (Soonest first)"] %>
+  <% if current_user.interests.any? && current_user.skills.any? %>
+    <% options << "Match my Interests" << "Match my Skills" << "Match my Interests AND Skills" %>
+  <% elsif current_user.interests.any? %>
+    <% options << "Match my Interests" %>
+  <% elsif current_user.skills.any? %>
+    <% options << "Match my Skills" %>
+  <% end %>
+  <% options.each_with_index do |option| %>
+    <li><%= link_to option, events_path(filter: option) %></li>
+  <% end %>
+</ul>
