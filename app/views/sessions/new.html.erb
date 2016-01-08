@@ -12,12 +12,10 @@
 			</div>
 			<%= form_tag sessions_path do %>
 				<p>
-					<%= label_tag :email %>
-					<%= text_field_tag :email, params[:email] %>
+					<%= text_field_tag :email, params[:email], placeholder:"Email" %>
 				</p>
 				<p>
-					<%= label_tag :password %>
-					<%= password_field_tag :password %>
+					<%= password_field_tag :password,"",placeholder: "Password" %>
 				</p>
 				<p> <%= submit_tag "Login" %> </p>
 			<% end %>
