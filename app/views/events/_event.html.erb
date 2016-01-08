@@ -13,7 +13,9 @@
         </li>
          <div id="timeslot-list">
             <li class="bullet-item"><p>Choose a time to volunteer</p>
-            <%= render partial: 'timeslots/timeslot', collection: event.timeslots.order(start_time: :asc) %>
+              <ul class="button-group">
+                <li><a href="#" ><%= render partial: 'timeslots/timeslot', collection: event.timeslots.order(start_time: :asc) %></a></li>
+                </ul>
             </li>
 
          </div>
