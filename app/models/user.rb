@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 3 }, if: :password_exists?
   validates :password, confirmation: true, if: :password_exists?
   validates :password_confirmation, presence: true, if: :password_exists?
-  validates :email, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 
 	has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications
