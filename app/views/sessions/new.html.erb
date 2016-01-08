@@ -3,9 +3,15 @@
 		<div class="login-top">
 			<h1>Login</h1>
 			<div class="social-logins">
-				<%= link_to 'Log in with Github', auth_at_provider_path(:provider => :github), class: "button social-button", id: "github-login" %>
-				<%= link_to 'Log in with Google', auth_at_provider_path(:provider => :google), class: "button social-button", id: "google-login" %>
-				<%= link_to 'Log in with Facebook', auth_at_provider_path(:provider => :facebook), class: "button social-button", id: "facebook-login" %>
+				<%= link_to auth_at_provider_path(:provider => :github), class: "button social-button", id: "github-login" do%>
+					<span><%=image_tag("github-logo.png", class:"social-logo")%></span><span>Log in with Github</span>
+				<%end%>
+				<%= link_to auth_at_provider_path(:provider => :google), class: "button social-button", id: "google-login" do%>
+					<span><%=image_tag("google-g.png", class:"social-logo")%></span><span>Log in with Google</span>
+				<%end%>
+				<%= link_to auth_at_provider_path(:provider => :facebook), class: "button social-button", id: "facebook-login" do%>
+					<span><%=image_tag("facebook-logo.png", class:"social-logo")%></span><span>Log in with Facebook</span>
+				<%end%>
 			</div>
 			<div>
 				<p class="login-or">or</p>
@@ -17,7 +23,7 @@
 				<p>
 					<%= password_field_tag :password,"",placeholder: "Password" %>
 				</p>
-				<p> <%= submit_tag "Login" %> </p>
+				<p> <%= submit_tag "Login", class:"button submit-button" %> </p>
 			<% end %>
 		</div>
 	</div>
