@@ -38,7 +38,10 @@
                 <li><%= link_to "Profile", user_path(current_user) %></li>
                 <li id="messages-notification">
                   <%= link_to mailbox_inbox_path do %>
-                  Messages <div class='notification-unread'><%=unread_messages_count%></div>
+                    Messages
+                    <% if unread_messages_count > 0 %>
+                      <div class='notification-unread'><%=unread_messages_count%></div>
+                    <% end %>
                   <% end %>
                 </li>
                 <li><%= link_to "Logout", logout_path, method: "delete" %></li>
