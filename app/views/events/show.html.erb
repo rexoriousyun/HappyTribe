@@ -27,10 +27,11 @@
     <% if logged_in? %>
     <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
 
-      <%= button_to "Edit Event", edit_organization_event_path(@event.organization, @event), class: "button round", method: "get" %>
+      <%= link_to "Edit Event", edit_organization_event_path(@event.organization, @event), class: "button round" %>
 
       <%= button_to "Cancel Event", organization_event_path(@event.organization, @event), class: "button round", method: "delete", data: { confirm: "Are you sure you wish to cancel this event?"} %>
-
+    <% elsif @event.organization.event_coordinator %>
+      <%= link_to "Message the event coordinator!", new_conversation_path(:recipients => [@event.organization.event_coordinator]), class: "button round" %>
     <% end %>
   <% end %>
 </div>
@@ -56,7 +57,7 @@
 <div class="panel callout radius">
   <h1><%= @event.organization.name %></h1>
   <h5><%= @event.organization.description %></h5>
-  <p><%= @event.organization.website_url %></p>
+  <p><%= link_to "#{@event.organization.website_url}", @event.organization.website_url %></p>
   <p><%= mail_to(@event.organization.email) %></p>
   <ul>
     <% @event.organization.events.each do |event| %>

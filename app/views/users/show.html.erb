@@ -1,4 +1,4 @@
-<div class="user-profile row">
+<div class="user-profile">
   <h1><%= @user.first_name %>'s Profile</h1>
 
   <p>
@@ -27,7 +27,7 @@
                 <%= event.role %><br/>
                 <%= event.organization.name %><br/>
                 <%= event.location %><br/>
-                <%= arrangement.timeslot.start_time %> to <%= arrangement.timeslot.end_time %>
+                <%= arrangement.timeslot.start_time.strftime("%A, %b %d, %Y at %I:%M%p") %> to <%= arrangement.timeslot.end_time.strftime("%I:%M%p") %>
               </p>
               <%= button_to "Cancel this arrangement",
               timeslot_arrangement_path(arrangement.timeslot, arrangement),
@@ -52,7 +52,7 @@
                 <%= event.role %><br/>
                 <%= event.organization.name %> <br/>
                 <%= event.location %> <br/>
-                <%= event.start_time %> <%= event.end_time %>
+                <%= event.start_time.strftime("%A, %b %d, %Y at %I:%M%p") %> <%= event.end_time.strftime("%I:%M%p") %>
                 <%= button_to "Delete this bookmark",
               event_bookmark_path(bookmark.event, bookmark),
               :method => :delete, class: 'button round' %>

@@ -61,6 +61,10 @@ gem 'cocoon'
 gem 'carrierwave'
 # use mini_magick for image resize
 gem "mini_magick"
+# Use mailboxer for messaging
+gem 'mailboxer'
+# Use kaminari for pagination
+gem 'kaminari'
 
 
 group :development, :test do
