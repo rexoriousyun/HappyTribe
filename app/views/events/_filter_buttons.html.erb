@@ -6,7 +6,7 @@
   <% end %>
 </button><br>
 <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
-  <% options = ["Event Start Time (Soonest first)"] %>
+  <% options = ["Event Date (ascending)"] %>
   <% if current_user.interests.any? && current_user.skills.any? %>
     <% options << "Match my Interests" << "Match my Skills" << "Match my Interests AND Skills" %>
   <% elsif current_user.interests.any? %>
