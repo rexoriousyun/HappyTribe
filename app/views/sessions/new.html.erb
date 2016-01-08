@@ -13,17 +13,17 @@
 					<span><%=image_tag("facebook-logo.png", class:"social-logo")%></span><span>Log in with Facebook</span>
 				<%end%>
 			</div>
-			<div>
-				<p class="login-or">or</p>
+			<div class="login-or">
+				<span class="login-or"></span>
 			</div>
 			<%= form_tag sessions_path do %>
 				<p>
-					<%= text_field_tag :email, params[:email], placeholder:"Email" %>
+					<%= text_field_tag :email, params[:email], placeholder:"Email", id: "form-input-style" %>
 				</p>
 				<p>
-					<%= password_field_tag :password,"",placeholder: "Password" %>
+					<%= password_field_tag :password,"",placeholder: "Password", id:"form-input-style" %>
 				</p>
-				<p> <%= submit_tag "Login", class:"button submit-button" %> </p>
+				<p> <%= submit_tag "Login", id:"submit-button", class:"button" %> </p>
 			<% end %>
 		</div>
 	</div>
