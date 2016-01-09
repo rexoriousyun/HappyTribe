@@ -1,4 +1,3 @@
-<div class="user_form_margin">
 <div class="user-form">
 	<h1>Sign Up for Happy Tribe</h1>
 	<%= form_for @user do |f| %>
@@ -12,7 +11,6 @@
 			 <%= f.password_field :password %></div>
 		<div><%= f.label :password_confirmation %>
 			 <%= f.password_field :password_confirmation %></div>
-		<div><%= f.submit %></div>
+		<div><%= f.submit class: "button" %></div>
 	<% end %>
-</div>
 </div>

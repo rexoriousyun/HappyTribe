@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :mailbox, :conversation
 
   def not_authenticated
-  	redirect_to login_path, alert: "Please Login :)"
+  	redirect_to login_path, notice: "Please Login :)"
   end
 
   def set_search
