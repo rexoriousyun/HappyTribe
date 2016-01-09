@@ -2,7 +2,7 @@
   <div class="event-show small-12 large-8 columns top_title_space">
     <div class="panel callout radius">
       <div class="row">
-        <div class="small-12 large-8 columns">
+        <div class="small-12 large-6 columns">
           <div class="image">
             <%= image_tag @event.event_image.url(:mobile) %> <%= form_for [@event, @bookmark] do |f| %>
               <%= f.submit value: "add to bookmarks", class: 'button round' %>
@@ -19,7 +19,7 @@
             <%= render partial: 'timeslots/timeslot', collection: @event.timeslots.order(start_time: :asc) %>
           </div>
         </div>
-        <div class="small-12 large-4 columns">
+        <div class="small-12 large-6 columns">
           <div data-latitude="<%= @event.latitude %>" data-longitude="<%= @event.longitude %>" id="event-map"> </div>
           <p><%= @event.location %></p>
         </div>
@@ -42,7 +42,6 @@
   </div>
 </div>
 
-<!--
     <% if logged_in? %>
     <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
 
@@ -53,8 +52,8 @@
       <%= link_to "Message the event coordinator!", new_conversation_path(:recipients => [@event.organization.event_coordinator]), class: "button round" %>
     <% end %>
   <% end %>
-</div> -->
-<!-- <div class="all-arrangements small-12 columns ">
+
+<div class="all-arrangements small-12 columns ">
   <% if logged_in? %>
     <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
       <h2>View all Volunteering Arrangements for this Event</h2>
@@ -75,7 +74,7 @@
       <% end %>
     <% end %>
   <% end %>
-</div> -->
+</div>
 
 
 
