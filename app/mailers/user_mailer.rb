@@ -5,4 +5,9 @@ class UserMailer < ApplicationMailer
 		@user = user
 		mail(to: @user.email, subject: 'Welcome to HappyTribe')
 	end
+
+	def registered_email(user)
+		@user = user
+		mail(to: @user.email, subject: 'Welcome to HappyTribe')
+	end
 end

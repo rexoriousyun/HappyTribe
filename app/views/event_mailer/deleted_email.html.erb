@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Your event, <%= @event.name %> has been deleted!</h1>
+    <p>
+      For more information contact <%= @event.organization.name %>.
+    </p>
+    <p>
+      To proceed to the site, just follow this link: <%= link_to("HappyTribe", "https://infinite-atoll-6714.herokuapp.com/") %>.
+    </p>
+    <p>Thank you for using HappyTribe</p>
+  </body>
+</html>
