@@ -11,6 +11,7 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(org_params)
     if @organization.save
+      OrganizationMailer.welcome_email(@organization).deliver_later
       puts "successful"
     else
       puts "unsuccessful"
