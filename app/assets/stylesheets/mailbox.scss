@@ -1,0 +1,29 @@
+ul.icon-bar.vertical.three-up {
+  margin-left: 0;
+  background-color: $navbarcolor;
+  width: 90%;
+  a {
+    color: white;
+    font-size: 12px;
+  }
+
+  li.active.item {
+    background-color: white;
+    box-shadow:inset 0px 0px 0px 2px $navbarcolor;
+    a {
+      color: $navbarcolor;
+    }
+  }
+
+  li:hover {
+    background-color: $navbarhovercolor;
+  }
+
+  li {
+    padding: 3%;
+  }
+}
+
+.mailbox-head {
+  padding-bottom: 2%;
+}
