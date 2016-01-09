@@ -86,6 +86,11 @@ li.image {
   padding-bottom: 2%;
 }
 
+// this is the progress bar color
+.progress.alert .meter {
+  background: $navbarcolor;
+}
+
 @media screen and (min-device-width: 1200px) {
   .large-4.medium-6.small-12.columns {
     padding:  1.25%;
@@ -107,6 +112,8 @@ li.image {
     padding-bottom: 1%;
   }
 }
+
+
 
 
 
