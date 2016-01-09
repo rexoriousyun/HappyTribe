@@ -8,12 +8,11 @@
 
 
          <li class="bullet-item"><%= event.location %></li>
-         <li class="bullet-item bookmark">
             <%= render partial: 'bookmarks/form', locals: { event: event } %>
         </li>
          <div id="timeslot-list">
             <li class="bullet-item"><p>Choose a time to volunteer</p>
-              <ul class="button-group">
+              <ul class="button-group radius">
                 <li><a href="#" ><%= render partial: 'timeslots/timeslot', collection: event.timeslots.order(start_time: :asc) %></a></li>
                 </ul>
             </li>

@@ -1,20 +1,58 @@
-<h1>Please choose your Interests and Skills</h1>
+<h1 class="small-12 columns">Please choose your Interests and Skills</h1>
+<p class="small-12 columns">The selection of interests and skills shown are the 6 most popular based on our users. You can customise your selection in your profile page.
+</p>
 
 <div class="choose-initial-interests-checkbox">
-	<%= form_for current_user do |f| %>
-		<h2>Choose Your Interests</h2>
-		<% @top_interests.each do |interest| %>
-			<%= check_box_tag "user[interest_ids][]", interest[:interest].id %>
-			<%= label_tag "user[interest_ids][]", interest[:interest].name %>
-		<% end %>
-		<h2>Choose Your Skills</h2>
-		<% @top_skills.each do |skill| %>
-			<%= check_box_tag "user[skill_ids][]", skill[:skill].id %>
-			<%= label_tag "user[skill_ids][]", skill[:skill].name %>
-		<% end %>
-		<%= f.submit %>
-	<% end %>
-	<%= button_to "Skip", root_path, method: :get%>
+  <%= form_for current_user do |f| %>
+    <h2 class="small-12 columns">Choose Your Interests</h2>
+    <div id="jquery-boxes"></div>
+    <div class="hidden-checkboxes">
+      <% @interests = [] %>
+      <% @top_interests.each do |interest| %>
+        <% interest = interest[:interest] %>
+        <% @interests << interest.id %>
+        <div id="data-checkbox<%= interest.id %>" data-name= "<%= interest.name %>" >
+          <%= check_box_tag "user[interest_ids][]", interest.id, false, data: { class: "checkbox small-6 columns", id: "checkbox#{interest.id}"} %>
+        </div>
+      <% end %>
+      <h2 class="small-12 columns">Choose Your Skills</h2>
+      <% @skills = [] %>
+      <% @top_skills.each do |skill| %>
+        <% skill = skill[:skill] %>
+        <% @skills << skill.id %>
+        <div id="data-checkbox<%= skill.id %>" data-name= "<%= skill.name %>" >
+          <%= check_box_tag "user[interest_ids][]", skill.id, false, data: { class: "checkbox small-6 columns", id: "checkbox#{skill.id}"} %>
+        </div>
+      <% end %>
+    </div>
+    <div class="small-12 columns welcome-buttons">
+      <%= f.submit class: "button" %> <%= button_to "Skip this step", root_path, method: :get, class: "button" %>
+    </div>
+  <% end %>
 </div>
+
+
+<script>
+  $(document).ready(function() {
+    var interests = <%= escape_javascript @interests.to_json %>;
+
+    for (i = 0; i < interests.length; i++) {
+      $('#jquery-boxes').append("<div id='fake-checkbox" + interests[i] + "' class='boxes small-6 columns'  data-checkbox-number='" + interests[i] + "'>" + $('#data-checkbox' + interests[i]).data('name') + " </div>");
+    };
+
+    var boxes = $('.boxes');
+    function checkBoxSteps() {
+      function checkBox(i) {
+        id = $(i).data('checkbox-number');
+        checkbox = $("#checkbox" + id );
+        fakeCheckbox = $('#fake-checkbox' + id )
+        checkbox.prop("checked", !checkbox.prop("checked"));
+        fakeCheckbox.toggleClass('selected-boxes');
+      };
+      checkBox(this);
+    };
+    boxes.click(checkBoxSteps);
+  });
+</script>
 
 
