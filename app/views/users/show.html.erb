@@ -48,11 +48,7 @@
             <% current_user.bookmarks.each do |bookmark| %>
               <% event = bookmark.event %>
               <li id="sorted_<%= bookmark.id %>">
-                <%= link_to "#{event.name}", event_path(event) %> <br/>
-                <%= event.role %><br/>
-                <%= event.organization.name %> <br/>
-                <%= event.location %> <br/>
-                <%= event.start_time %> <%= event.end_time %>
+                <%= link_to "#{event.name}", event_path(event) %> | <%= event.role %> | <%= event.start_time %> | <%= event.end_time %>
                 <%= button_to "Delete this bookmark",
               event_bookmark_path(bookmark.event, bookmark),
               :method => :delete, class: 'button round' %>
