@@ -1,4 +1,6 @@
-<h1>Your Message Inbox</h1>
+<div class="mailbox-head medium-12 columns">
+  <h1>Your Message Inbox</h1>
+</div>
 <div class="medium-12 columns">
   <%= link_to "Compose", new_conversation_path, class: "button" %>
 </div>
@@ -11,11 +13,11 @@
 </div>
 
 
-<div class="medium-4 columns">
+<div class="large-2 small-4 columns">
   <%= render 'mailboxes/folders' %>
 </div>
 
-<div class="medium-8 columns">
+<div class="large-10 small-8 columns panel">
   <%= render partial: 'messages' %>
 </div>
 <div>

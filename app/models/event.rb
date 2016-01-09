@@ -42,8 +42,6 @@ class Event < ActiveRecord::Base
     return (currently_filled.to_f / total_capacity) * 100
   end
 
-
-
   def self.order_by_start_time
     events_and_times = future.sort_by do |event|
       event.start_time
