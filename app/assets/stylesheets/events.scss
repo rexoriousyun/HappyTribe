@@ -93,7 +93,15 @@ li.image {
   color: $charcoal;
 }
 
+.large-4.medium-6.small-12.columns {
+    padding:  0.25%;
+}
 
+@media screen and (min-device-width: 1200px) {
+  .large-4.medium-6.small-12.columns {
+    padding:  1%;
+  }
+}
 
 
 
