@@ -1,0 +1,18 @@
+<h1>Your Message Inbox</h1>
+<div class="medium-12 columns">
+  <%= link_to "Compose", new_conversation_path, class: "button" %>
+</div>
+
+<div class="medium-4 columns">
+  <%= render 'mailboxes/folders' %>
+</div>
+
+<div class="medium-8 columns">
+  <% if is_conversation %>
+    <%= render 'conversations/form' %>
+  <% elsif messages.any? %>
+    <%= render partial: 'conversations/conversation', collection: messages %>
+  <% else %>
+    <p>No messages to display</p>
+  <% end %>
+</div>

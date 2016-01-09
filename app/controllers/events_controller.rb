@@ -24,7 +24,7 @@ class EventsController < ApplicationController
     if params[:q] == nil
       if params[:filter]
         case params[:filter]
-        when "Event Start Time (Soonest first)"
+        when "Event Date (ascending)"
           @events = Event.order_by_start_time
         when "Match my Interests"
           @events = Event.filter_for_user(current_user, 1, 0)
@@ -39,6 +39,7 @@ class EventsController < ApplicationController
     else
       @events = @q.result.includes(:interests, :skills).uniq
     end
+    render :layout => 'indexlayout'
   end
 
   def show

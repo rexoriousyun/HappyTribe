@@ -1,23 +1,10 @@
 nav.top-bar {
     box-shadow: 0px 0px 0px 1px $smoke;
     font-weight: 600;
-    padding-right: 5%;
 }
-.top_title_space{
+.top_title_space {
 	padding-top: emCalc(18);
-	padding-left: emCalc(100);
 }
 .topspace {
-	padding-top: emCalc(30);
-	padding-right: emCalc(100);
-}
-
-.top_bar_about_us{
-	width: 150px;
-	padding-right: 5%;
-	font-size: 0.2rem;
-}
-
-#hover1 li a {
-	font-size: 0.8rem;
+	padding-top: 1.15rem;
 }

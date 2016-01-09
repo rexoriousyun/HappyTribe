@@ -1,0 +1,19 @@
+ <ul class="icon-bar vertical three-up">
+  <li class="<%= active_page(:inbox) %> item">
+    <%= link_to mailbox_inbox_path do  %>
+      <span>Inbox</span>
+    <% end %>
+  </li>
+
+  <li class="<%= active_page(:sent) %> item">
+    <%= link_to mailbox_sent_path do  %>
+      <span>Sent</span>
+    <% end %>
+  </li>
+
+  <li class="<%= active_page(:trash) %> item">
+    <%= link_to mailbox_trash_path do  %>
+      <span>Trash</span>
+    <% end %>
+  </li>
+</ul>

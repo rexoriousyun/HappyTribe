@@ -6,7 +6,6 @@
     <title><%= content_for?(:title) ? yield(:title) : "Happy Tribe" %></title>
     <%= stylesheet_link_tag "application", media: 'all' %>
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key}" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
@@ -24,7 +23,7 @@
                   <div class="row collapse">
                     <div class="large-8 small-9 columns">
                         <%= search_form_for @q do |f| %>
-                        <%= f.search_field :name_or_location_or_organization_name_or_description_or_role_or_interests_name_or_skills_name_cont, placeholder: "search events" %>
+                        <%= f.search_field :name_or_location_or_organization_name_or_description_or_role_or_interests_name_or_skills_name_cont, placeholder: "search by keywords" %>
                       <% end %>
                     </div>
                   </div>
@@ -37,20 +36,19 @@
                   <li><%= link_to "Organizations", user_managed_organizations_path(current_user) %></li>
                 <% end %>
                 <li><%= link_to "Profile", user_path(current_user) %></li>
+                <li id="messages-notification">
+                  <%= link_to mailbox_inbox_path do %>
+                    Messages
+                    <% if unread_messages_count > 0 %>
+                      <div class='notification-unread'><%=unread_messages_count%></div>
+                    <% end %>
+                  <% end %>
+                </li>
                 <li><%= link_to "Logout", logout_path, method: "delete" %></li>
               <% else %>
                 <li><%= link_to 'Sign up', signup_path %></li>
                 <li><%= link_to 'Log in', login_path %></li>
               <% end %>
-
-              <li id="help">
-                <a href="#" data-dropdown="hover1" data-options="is_hover:true; hover_timeout:5000">About us</a>
-                <ul id="hover1" class="f-dropdown" data-dropdown-content>
-                  <li class="top_bar_about_us"><a href="#">About us</a></li>
-                  <li class="top_bar_about_us"><a href="#">How it works</a></li>
-                  <li class="top_bar_about_us"><a href="#">Social Media</a></li>
-                </ul>
-              </li>
             </ul>
           </section>
       </nav>
@@ -59,20 +57,21 @@
 
   <div class="flashes">
     <% if flash[:notice].present? %>
-    <div data-alert class="alert-box info radius">
+    <div data-alert class="alert-box info radius notice">
     <a href="#" class="close">&times;</a>
       <%= flash[:notice] %>
     </div>
     <% elsif flash[:alert].present? %>
-    <div data-alert class="alert-box info radius">
+    <div data-alert class="alert-box info radius alert">
     <a href="#" class="close">&times;</a>
       <%= flash[:alert] %>
     </div>
     <% end %>
   </div>
 
-
+  <div class="content-margin">
     <%= yield %>
+  </div>
 
   <script>
     $(document).foundation();

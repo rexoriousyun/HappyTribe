@@ -1,3 +1,3 @@
-<%= form_for [event, Bookmark.new] do |f| %>
-    <%= f.submit value: "add to bookmarks", class: "button round" %>
+<%= form_for [event, Bookmark.new], :html => { id: 'bookmark-button'} do |f| %>
+    <%= f.submit value: "add to bookmarks", class: "button" %>
 <% end %>

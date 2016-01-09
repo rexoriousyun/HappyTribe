@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= content_for?(:title) ? yield(:title) : "Happy Tribe" %></title>
+    <%= stylesheet_link_tag "application", media: 'all' %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="sticky">
+      <nav class="top-bar" data-topbar>
+          <ul class="title-area">
+            <li class="name"><h1><%= link_to "Happy Tribe", root_path, class: "menu" %></h1></li>
+            <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+          </ul>
+          <section class="top-bar-section">
+            <ul class="left">
+              <li class="has-form">
+                  <div class="row collapse">
+                    <div class="large-8 small-9 columns">
+                        <%= search_form_for @q do |f| %>
+                        <%= f.search_field :name_or_location_or_organization_name_or_description_or_role_or_interests_name_or_skills_name_cont, placeholder: "search by keywords" %>
+                      <% end %>
+                    </div>
+                  </div>
+              </li>
+            </ul>
+            <ul class="right">
+
+              <% if logged_in? %>
+                <% if current_user.manages_organizations? %>
+                  <li><%= link_to "Organizations", user_managed_organizations_path(current_user) %></li>
+                <% end %>
+                <li><%= link_to "Profile", user_path(current_user) %></li>
+                <li id="messages-notification">
+                  <%= link_to mailbox_inbox_path do %>
+                    Messages
+                    <% if unread_messages_count > 0 %>
+                      <div class='notification-unread'><%=unread_messages_count%></div>
+                    <% end %>
+                  <% end %>
+                </li>
+                <li><%= link_to "Logout", logout_path, method: "delete" %></li>
+              <% else %>
+                <li><%= link_to 'Sign up', signup_path %></li>
+                <li><%= link_to 'Log in', login_path %></li>
+              <% end %>
+            </ul>
+          </section>
+      </nav>
+    </div>
+
+
+  <div class="flashes">
+    <% if flash[:notice].present? %>
+    <div data-alert class="alert-box info radius notice">
+    <a href="#" class="close">&times;</a>
+      <%= flash[:notice] %>
+    </div>
+    <% elsif flash[:alert].present? %>
+    <div data-alert class="alert-box info radius alert">
+    <a href="#" class="close">&times;</a>
+      <%= flash[:alert] %>
+    </div>
+    <% end %>
+  </div>
+
+    <%= yield %>
+
+  <script>
+    $(document).foundation();
+  </script>
+  </body>
+</html>

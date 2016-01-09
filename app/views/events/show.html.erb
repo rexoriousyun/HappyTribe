@@ -1,52 +1,57 @@
-<div class="event-show small-12 large-8 columns top_title_space">
-  <h1><%= @event.role %></h1>
-  <h3><%= @event.name %></h3>
-  <% if logged_in? %>
-    <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
+<div class="row">
+  <div class="event-show small-12 large-8 columns top_title_space">
+    <div class="panel callout radius">
+      <div class="row">
+        <div class="small-12 large-6 columns">
+          <div class="image">
+            <%= image_tag @event.event_image.url(:mobile) %> <%= form_for [@event, @bookmark] do |f| %>
+              <%= f.submit value: "add to bookmarks", class: 'button round' %>
+            <% end %>
+          </div>
+          <h1><%= @event.role %></h1>
+          <h3><%= @event.name %></h3>
+          <div class="event-details">
+            <p><%= link_to @event.organization.name, organization_path(@event.organization) %></p>
+            <p><%= @event.start_time.strftime("%F %n %I:%M %p") %> - <%= @event.end_time.strftime("%I:%M %p") %></p>
+          </div>
+          <div id="timeslot-list-show">
+            <h3>Book your time now</h3>
+            <%= render partial: 'timeslots/timeslot', collection: @event.timeslots.order(start_time: :asc) %>
+          </div>
+        </div>
+        <div class="small-12 large-6 columns">
+          <div data-latitude="<%= @event.latitude %>" data-longitude="<%= @event.longitude %>" id="event-map"> </div>
+          <p><%= @event.location %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="small-12 large-4 columns topspace">
+    <div class="panel callout radius">
+    <h1><%= @event.organization.name %></h1>
+    <h5><%= @event.organization.description %></h5>
+    <p><%= link_to "#{@event.organization.website_url}", @event.organization.website_url %></p>
+    <p><%= mail_to(@event.organization.email) %></p>
+    <ul>
+      <% @event.organization.events.each do |event| %>
+        <li><%= event.role %> - <%= event.name %></li>
+        <li><%= event.start_time.strftime("%F") %></li></br>
+      <% end %>
+    </ul>
+    </div>
+  </div>
+</div>
 
-      <%= button_to "Edit Event", edit_organization_event_path(@event.organization, @event), class: "button round", method: "get" %>
+<% if logged_in? %>
+  <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
 
-      <%= button_to "Cancel Event", organization_event_path(@event.organization, @event), class: "button round", method: "delete", data: { confirm: "Are you sure you wish to cancel this event?"} %>
+    <%= link_to "Edit Event", edit_organization_event_path(@event.organization, @event), class: "button round" %>
 
-    <% end %>
+    <%= button_to "Cancel Event", organization_event_path(@event.organization, @event), class: "button round", method: "delete", data: { confirm: "Are you sure you wish to cancel this event?"} %>
+  <% elsif @event.organization.event_coordinator %>
+    <%= link_to "Message the event coordinator!", new_conversation_path(:recipients => [@event.organization.event_coordinator]), class: "button round" %>
   <% end %>
-  <div class="image">
-    <%= image_tag @event.event_image.url(:mobile) %>
-  </div>
-  <div class="bookmark">
-    <%= form_for [@event, @bookmark] do |f| %>
-        <%= f.submit value: "add to bookmarks", class: 'button round' %>
-    <% end %>
-  </div>
-  <div class="event-details">
-    <p>Organization: <%= link_to @event.organization.name, organization_path(@event.organization) %></p>
-    <p><%= @event.start_time.strftime("%A, %m/%d/%y") %></p>
-    <p><%= @event.start_time.strftime("%l:%M%p") %> - <%= @event.end_time.strftime("%l:%M%p") %></p>
-    <p><%= @event.location %></p>
-  </div>
-  <div id="timeslot-list-show">
-    <h3>Book your time now</h3>
-    <%= render partial: 'timeslots/timeslot', collection: @event.timeslots.order(start_time: :asc) %>
-  </div>
-
-  <div data-latitude=<%= @event.latitude %> data-longitude=<%= @event.longitude %> id="event-map" ></div>
-</div>
-
-<div class="small-12 large-4 columns topspace">
-<div class="panel callout radius">
-  <h1><%= @event.organization.name %></h1>
-  <h5><%= @event.organization.description %></h5>
-  <p><%= @event.organization.website_url %></p>
-  <p><%= mail_to(@event.organization.email) %></p>
-  <ul>
-    <% @event.organization.events.each do |event| %>
-      <li><%= event.role %> - <%= event.name %></li>
-      <li><%= event.start_time.strftime("%F") %></li></br>
-    <% end %>
-  </ul>
-</div>
-</div>
-
+<% end %>
 
 <div class="all-arrangements small-12 columns ">
   <% if logged_in? %>

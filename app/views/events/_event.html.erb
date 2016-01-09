@@ -1,22 +1,26 @@
 <div class="event">
-    <div class="large-4 medium-6 small-12 columns">
-       <ul class="pricing-table active-tb shadow mrgn-20-top">
-         <li class="title"><span id="event_role"><%= link_to event.role, event_path(event) %></span><br/><span id="event_name"><%= link_to event.name, event_path(event) %></span><br/><span id="org_name"></li>
-         <li class="image"><%= image_tag event.event_image.url(:mobile) if event.event_image.present? %></li>
-         <li class="bullet-item" id="with"><%= link_to event.organization.name, organization_path(event.organization) %></li>
-         <li class="bullet-item"><%= event.start_time.strftime("%F %n %I:%M %p") %> - <%= event.end_time.strftime("%I:%M %p") %></li>
+  <div class="large-4 medium-6 small-12 columns">
+    <ul class="pricing-table active-tb shadow mrgn-20-top">
+      <li class="title"><span id="event_role"><%= link_to event.role, event_path(event) %></span><br/><span id="event_name"><%= link_to event.name, event_path(event) %></span><br/><span id="org_name"></li>
+      <li class="image"><%= image_tag event.event_image.url(:mobile) if event.event_image.present? %></li>
+      <li class="bullet-item" id="with"><%= link_to event.organization.name, organization_path(event.organization) %></li>
+      <li class="bullet-item"><%= event.start_time.strftime("%F %n %I:%M %p") %> - <%= event.end_time.strftime("%I:%M %p") %></li>
 
 
-         <li class="bullet-item"><%= event.location %></li>
-         <li class="bullet-item bookmark">
-            <%= render partial: 'bookmarks/form', locals: { event: event } %>
-        </li>
-         <div id="timeslot-list">
-            <li class="bullet-item"><p>Choose a time to volunteer</p>
-            <%= render partial: 'timeslots/timeslot', collection: event.timeslots.order(start_time: :asc) %>
+      <li class="bullet-item"><%= event.location %></li>
+      <%= render partial: 'bookmarks/form', locals: { event: event } %>
+      <div id="timeslot-list">
+        <li class="bullet-item"><p>Choose a time to volunteer</p>
+          <ul class="button-group radius">
+            <li>
+              <a href="#" ><%= render partial: 'timeslots/timeslot', collection: event.timeslots.order(start_time: :asc) %></a>
             </li>
-
-         </div>
+          </ul>
+        </li>
+        <div class="progress secondary alert success radius round">
+            <span class="meter" style="width: <%= event.progress %>%"></span>
+        </div>
+      </div>
          <!-- <li class="cta-button"><a class="button text-transform" href="#">Choose</a></li> -->
        </ul>
     </div>

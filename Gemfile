@@ -15,6 +15,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+# use foundation icons
+gem 'foundation-icons-sass-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -61,6 +63,10 @@ gem 'cocoon'
 gem 'carrierwave'
 # use mini_magick for image resize
 gem "mini_magick"
+# Use mailboxer for messaging
+gem 'mailboxer'
+# Use kaminari for pagination
+gem 'kaminari'
 
 
 group :development, :test do
