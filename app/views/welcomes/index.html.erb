@@ -1,37 +1,40 @@
-<div class="welcome_margin">
-  <h1 class="small-12 columns choice">Choose Interests and Skills</h1>
-  <p class="small-12 columns choice">Choose from the 6 most popular options. You can customise your choices from a wider selection on your profile page. Your choices will help you find the most relevant events.</p>
-  <div class="small-12 columns welcome-buttons">
-    <%= link_to "Skip this step", root_path, class: "skip" %>
-  </div>
-  <div class="choose-initial-interests-checkbox">
-    <%= form_for current_user do |f| %>
-      <h2 class="small-12 columns choice">Suggested Interests</h2>
-      <div id="jquery-boxes-interests"></div>
-        <% @interests = [] %>
-        <% @top_interests.each do |interest| %>
-          <% interest = interest[:interest] %>
-          <% @interests << interest.id %>
-          <div id="interest-data-checkbox<%= interest.id %>" data-name= "<%= interest.name %>" class="hidden-checkboxes">
-            <%= check_box_tag "user[interest_ids][]", interest.id, current_user.has_interest?(interest), data: { id: interest.id } %>
-          </div>
-        <% end %>
-        <h2 class="small-12 columns choice">Suggested Skills</h2>
-        <div id="jquery-boxes-skills"></div>
-        <% @skills = [] %>
-        <% @top_skills.each do |skill| %>
-          <% skill = skill[:skill] %>
-          <% @skills << skill.id %>
-          <div id="skill-data-checkbox<%= skill.id %>" data-name= "<%= skill.name %>" class="hidden-checkboxes" >
-            <%= check_box_tag "user[skill_ids][]", skill.id, current_user.has_skill?(skill), data: { id: skill.id } %>
-          </div>
-        <% end %>
-      <div class="small-12 columns welcome-buttons welcome-update">
-        <%= f.submit value:"Save Choices", class: "button" %>
-      </div>
-    <% end %>
-  </div>
+<h1 class="small-12 columns choice">Choose Interests and Skills</h1>
+<p class="small-12 columns choice">Choose from the 6 most popular options. You can customise your choices from a wider selection on your profile page. Your choices will help you find the most relevant events.</p>
+
+<div class="small-12 columns welcome-buttons">
+  <%= link_to "Skip this step", root_path, class: "skip" %>
 </div>
+
+<div class="choose-initial-interests-checkbox">
+  <%= form_for current_user do |f| %>
+    <h2 class="small-12 columns choice">Suggested Interests</h2>
+    <!-- The jquery boxes divs are targetted by the script at the bottom -->
+    <div id="jquery-boxes-interests"></div>
+      <% @interests = [] %>
+      <% @top_interests.each do |interest| %>
+        <% interest = interest[:interest] %>
+        <% @interests << interest.id %>
+        <div id="interest-data-checkbox<%= interest.id %>" data-name= "<%= interest.name %>" class="hidden-checkboxes">
+          <%= check_box_tag "user[interest_ids][]", interest.id, current_user.has_interest?(interest), data: { id: interest.id } %>
+        </div>
+      <% end %>
+      <h2 class="small-12 columns choice">Suggested Skills</h2>
+      <div id="jquery-boxes-skills"></div>
+      <% @skills = [] %>
+      <% @top_skills.each do |skill| %>
+        <% skill = skill[:skill] %>
+        <% @skills << skill.id %>
+        <div id="skill-data-checkbox<%= skill.id %>" data-name= "<%= skill.name %>" class="hidden-checkboxes" >
+          <%= check_box_tag "user[skill_ids][]", skill.id, current_user.has_skill?(skill), data: { id: skill.id } %>
+        </div>
+      <% end %>
+    <div class="small-12 columns welcome-buttons welcome-update">
+      <%= f.submit value:"Save Choices", class: "button" %>
+    </div>
+  <% end %>
+</div>
+
+<!-- This script makes use of some of the ruby variables in this view, so currently can't be moved to a js file. Its purpose is to replace checkboxes with clickable divs, while still retaining the functionality of the Ruby check_box_tags for has_many associations -->
 
 <script>
   $(document).ready(function() {
@@ -45,6 +48,8 @@
         return "";
       }
     };
+
+    // the 2 for loops create the clickable divs for selecting interests and skills. They do this by first checking to see if a user has the interest already (checkClass line) by targetting the hidden checkbox element to see if it's been checked. If it has, they append the selected-boxes class using the isChecked function. For each interest and skill they create a div with the correct interest or skill id so that the right click events can be applied to these divs to target the hidden checkboxes.
 
     for (var i = 0; i < interests.length; i++) {
       var checkClass = isChecked("#user_interest_ids_[data-id=" + "'" + interests[i] + "'" + "]");
@@ -65,6 +70,7 @@
         + $('#skill-data-checkbox' + skills[i]).data('name') + " </div>");
     };
 
+    // Below is the function that's run on a click event on any of the boxes created above. It stores the id of the clicked element, then checks if it was a skill or interest that was clicked. It then finds the appropriate hidden checkbox and toggles it to either be checked or unchecked. Then it toggles the class of the clicked box to be selected or not.
 
     var boxes = $('.boxes');
     function checkBoxSteps() {

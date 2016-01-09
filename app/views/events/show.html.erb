@@ -42,16 +42,16 @@
   </div>
 </div>
 
-    <% if logged_in? %>
-    <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
+<% if logged_in? %>
+  <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
 
-      <%= link_to "Edit Event", edit_organization_event_path(@event.organization, @event), class: "button round" %>
+    <%= link_to "Edit Event", edit_organization_event_path(@event.organization, @event), class: "button round" %>
 
-      <%= button_to "Cancel Event", organization_event_path(@event.organization, @event), class: "button round", method: "delete", data: { confirm: "Are you sure you wish to cancel this event?"} %>
-    <% elsif @event.organization.event_coordinator %>
-      <%= link_to "Message the event coordinator!", new_conversation_path(:recipients => [@event.organization.event_coordinator]), class: "button round" %>
-    <% end %>
+    <%= button_to "Cancel Event", organization_event_path(@event.organization, @event), class: "button round", method: "delete", data: { confirm: "Are you sure you wish to cancel this event?"} %>
+  <% elsif @event.organization.event_coordinator %>
+    <%= link_to "Message the event coordinator!", new_conversation_path(:recipients => [@event.organization.event_coordinator]), class: "button round" %>
   <% end %>
+<% end %>
 
 <div class="all-arrangements small-12 columns ">
   <% if logged_in? %>
