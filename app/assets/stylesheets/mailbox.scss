@@ -53,6 +53,7 @@ ul.icon-bar.vertical.three-up {
 
   p.convo {
     margin-bottom: 0.25% !important;
+    font-size: 16px !important;
   }
 
   div.convo-box {
@@ -104,6 +105,7 @@ div.one-message > p {
 
 p.convo {
   margin-bottom: 1%;
+  font-size: 12px;
 }
 
 div.convo-box {
@@ -128,4 +130,8 @@ div.convo-box:hover {
 
 .unread {
   background-color: #fcfcdf;
+}
+
+.recipient-aligned {
+  text-align: right;
 }

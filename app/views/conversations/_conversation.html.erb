@@ -3,6 +3,7 @@
 <% else %>
   <div class="convo-box" data-url="<%= conversation_url(conversation) %>">
 <% end %>
-      <p class="convo"><%= conversation.messages.last.sender.name %> | Last message: <%= truncate conversation.messages.last.body, length: 50 %></p>
-      <small><%= conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small><br>
+    <p class="convo"><strong>Subject: <%= conversation.subject %></strong> | Last message by: <%= conversation.messages.last.sender.name %></p>
+    <p class="convo">"<%= truncate conversation.messages.last.body, length: 50 %>"</p>
+    <small><%= conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small><br>
   </div>
