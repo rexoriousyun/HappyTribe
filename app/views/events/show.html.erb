@@ -23,7 +23,7 @@
         <div class="small-12 large-5 columns">
           <div data-latitude="<%= @event.latitude %>" data-longitude="<%= @event.longitude %>" id="event-map"> </div>
           <p><%= @event.location %></p>
-          <%= social_share_button_tag(@event, :popup => "true") %>
+          <%= social_share_button_tag(@event.name, :popup => "true") %>
         </div>
       </div>
     </div>
