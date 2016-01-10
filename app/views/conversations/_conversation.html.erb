@@ -1,4 +1,8 @@
-<div class="convo-box" data-url="<%= conversation_url(conversation) %>">
-  <p class="convo"><%= conversation.messages.last.sender.name %> | Last message: <%= truncate conversation.messages.last.body, length: 50 %></p>
-    <small><%= conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small><br>
-</div>
+<% if conversation.is_unread?(current_user) %>
+  <div class="convo-box unread" data-url="<%= conversation_url(conversation) %>">
+<% else %>
+  <div class="convo-box" data-url="<%= conversation_url(conversation) %>">
+<% end %>
+      <p class="convo"><%= conversation.messages.last.sender.name %> | Last message: <%= truncate conversation.messages.last.body, length: 50 %></p>
+      <small><%= conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small><br>
+  </div>
