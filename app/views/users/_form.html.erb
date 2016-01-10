@@ -17,9 +17,9 @@
 				<span class="or-style">or</span>
 			</div>
 			<%= form_for @user do |f| %>
+				<p><%= f.text_field :email, placeholder:"Email", id: "form-input-style" %> </p>
 				<p><%= f.text_field :first_name, placeholder:"First name", id: "form-input-style"%></p>
 				<p><%= f.text_field :last_name, placeholder:"Last Name", id: "form-input-style" %></p>
-				<p><%= f.text_field :email, placeholder:"Email", id: "form-input-style" %> </p>
 				<p><%= f.password_field :password, placeholder:"Password", id: "form-input-style"%></p>
 				<p><%= f.password_field :password_confirmation, placeholder:"Password Confirmation", id: "form-input-style"%></p>
 				<p><%= f.submit "Signup", id:"submit-button", class:"button"%></p>
