@@ -1,15 +1,15 @@
-<div class="mailbox-head medium-12 columns">
+<div class="mailbox-head large-12 columns">
   <h1>Your Message Inbox</h1>
 </div>
-<div class="medium-12 columns">
-  <%= link_to "Compose", new_conversation_path, class: "button" %>
-</div>
-<div class="medium-12 columns">
-  <% if conversation.is_trashed?(current_user) %>
-    <%= link_to "Untrash", untrash_conversation_path(conversation), class: "button", method: :post %>
-  <% else %>
-    <%= link_to 'Delete', trash_conversation_path(conversation), class: "button", method: :post, data: {confirm: "Do you want to move this to trash?"} %>
-  <% end %>
+<div class="large-12 columns">
+  <ul class="right">
+    <%= link_to "New message", new_conversation_path, class: "button" %>
+    <% if conversation.is_trashed?(current_user) %>
+      <%= link_to "Untrash", untrash_conversation_path(conversation), class: "button", method: :post %>
+    <% else %>
+      <%= link_to 'Trash this conversation', trash_conversation_path(conversation), class: "button", method: :post, data: {confirm: "Do you want to move this to trash?"} %>
+    <% end %>
+  </ul>
 </div>
 
 
@@ -17,7 +17,7 @@
   <%= render 'mailboxes/folders' %>
 </div>
 
-<div class="large-10 small-8 columns panel">
+<div class="large-10 small-8 columns">
   <%= render partial: 'messages' %>
 </div>
 <div>

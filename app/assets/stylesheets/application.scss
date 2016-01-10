@@ -1,6 +1,7 @@
 /*
 *= require select2
 *= require jquery-ui/sortable
+*= require social-share-button
 */
 
 // colour variables
@@ -32,3 +33,4 @@ $font-weight-normal: 300;
 @import "welcomes";
 @import "mailbox";
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300);
+@import "social-share-button";

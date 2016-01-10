@@ -31,6 +31,8 @@ gem 'rails_12factor', group: :production
 
 gem 'jquery-ui-rails', '~> 5.0.0'
 
+gem 'social-share-button'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
