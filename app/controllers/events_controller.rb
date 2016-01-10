@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   before_action :get_interests, only: [:new, :edit]
   before_action :get_skills, only: [:new, :edit]
   before_action :is_event_coordinator?, only: [:new, :edit, :create, :update, :destroy]
+  layout  :indexlayout
 
   def new
     @event = @organization.events.build
@@ -106,5 +107,15 @@ class EventsController < ApplicationController
       redirect_to events_path, alert: "Invalid user permissions to access that page"
     end
   end
+
+  def indexlayout
+    if 'index'
+      'indexlayout'
+    else
+      'layout'
+    end
+  end
+
+
 
 end
