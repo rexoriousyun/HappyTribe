@@ -21,7 +21,13 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :authentications
 
   def name
-    return self.first_name + self.last_name
+    if self.first_name.present? && self.last_name.present?
+      "#{self.first_name} #{self.last_name} (#{self.email})"
+    elsif self.first_name.present?
+      "#{self.first_name} (#{self.email})"
+    else
+      "User #{self.id} (#{self.email})"
+    end
   end
 
 	def has_interest?(interest)
