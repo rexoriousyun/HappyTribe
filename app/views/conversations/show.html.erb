@@ -1,29 +1,33 @@
-<h1>Your Message Inbox</h1>
-<div class="medium-12 columns">
-  <%= link_to "Compose", new_conversation_path, class: "button" %>
+<div class="mailbox-head large-12 columns">
+  <h1>Conversation Subject: "<%= conversation.subject %>"</h1>
 </div>
-<div class="medium-12 columns">
-  <% if conversation.is_trashed?(current_user) %>
-    <%= link_to "Untrash", untrash_conversation_path(conversation), class: "button", method: :post %>
-  <% else %>
-    <%= link_to 'Delete', trash_conversation_path(conversation), class: "button", method: :post, data: {confirm: "Do you want to move this to trash?"} %>
-  <% end %>
+<div class="large-12 columns">
+  <ul class="right">
+    <%= link_to "New message", new_conversation_path, class: "button" %>
+    <% if conversation.is_trashed?(current_user) %>
+      <%= link_to "Untrash", untrash_conversation_path(conversation), class: "button", method: :post %>
+    <% else %>
+      <%= link_to 'Trash this conversation', trash_conversation_path(conversation), class: "button", method: :post, data: {confirm: "Do you want to move this to trash?"} %>
+    <% end %>
+  </ul>
 </div>
 
 
-<div class="medium-4 columns">
+<div class="large-2 small-3 columns">
   <%= render 'mailboxes/folders' %>
 </div>
 
-<div class="medium-8 columns">
+<div class="large-10 small-9 columns">
   <%= render partial: 'messages' %>
 </div>
 <div>
   <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
   <div>
-    <%= f.text_area :body, placeholder: "Type your reply", rows: 4 %>
+    <%= f.text_area :body, placeholder: "Type your reply", rows: 4, class: "large-10 columns right reply-box" %>
   </div>
-  <%= f.submit "Reply", class: "button" %>
+  <div class="large-12 columns">
+    <%= f.submit "Reply", class: "button right reply-button" %>
+  </div>
   <% end %>
 </div>
 

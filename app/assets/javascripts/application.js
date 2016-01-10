@@ -11,12 +11,12 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery-ui
+//= require jquery-ui/sortable
 //= require jquery_ujs
 //= require foundation
 //= require select2
 //= require cocoon
 //= require googlemaps
 //= require_tree .
-
+//= require social-share-button
 

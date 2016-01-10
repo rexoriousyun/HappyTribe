@@ -4,18 +4,19 @@ class OrganizationsController < ApplicationController
 
   # Organization actions will become relevant if we allow a user to create organizations
 
-  def new
-    @organization = Organization.new
-  end
+  # def new
+  #   @organization = Organization.new
+  # end
 
-  def create
-    @organization = Organization.new(org_params)
-    if @organization.save
-      puts "successful"
-    else
-      puts "unsuccessful"
-    end
-  end
+  # def create
+  #   @organization = Organization.new(org_params)
+  #   if @organization.save
+  #     OrganizationMailer.welcome_email(@organization).deliver_later
+  #     puts "successful"
+  #   else
+  #     puts "unsuccessful"
+  #   end
+  # end
 
   def edit
   end

@@ -1,0 +1,23 @@
+.hidden-checkboxes {
+  display: none;
+}
+
+.boxes {
+  padding: 2%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.boxes:hover {
+  font-weight: bold;
+}
+
+.selected-boxes {
+  background-color: #1cbe6f;
+  color: white;
+}
+
+.choice {
+  text-align: center;
+}

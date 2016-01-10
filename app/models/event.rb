@@ -33,6 +33,14 @@ class Event < ActiveRecord::Base
     joins(:timeslots).where("timeslots.start_time >= '#{Time.now}'").distinct
   end
 
+  def progress
+    total_capacity = self.timeslots.sum('capacity')
+    currently_filled = 0
+    self.timeslots.each do |timeslot|
+      currently_filled += timeslot.arrangements.count
+    end
+    return (currently_filled.to_f / total_capacity) * 100
+  end
 
   def self.order_by_start_time
     events_and_times = future.sort_by do |event|

@@ -10,11 +10,11 @@
   </li>
 </ul>
 
-<div class="body_margin">
+<div class="body-margin">
   <h1 class="all-volunteering">Upcoming Volunteering Events in <span id="location">Toronto</span></h1>
 
   <% if logged_in? %>
-  	<div class="filter-box">
+  	<div class="filter-button">
   			<%= render 'filter_buttons' %>
   	</div>
   <% end %>
@@ -22,7 +22,6 @@
   <div class="events-list">
   	<%= render @events %>
   </div>
-
 </div>
 
-<h3 id="browse-interest">Browse by Interests</h3>
+<!-- <h3 id="browse-interest">Browse by Interests</h3> -->

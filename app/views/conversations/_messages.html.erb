@@ -1,9 +1,15 @@
-<% @receipts.each do |receipt| %>
-  <% message = receipt.message %>
-  <div>
-    <h3><%= message.sender.name %></h3>
-    <p>Subject: <%= message.subject %></p><br>
-    <p>Date: <%= message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></p><br>
-    <%= message.body %>
-  </div>
-<% end %>
+<div class="all-receipts">
+  <% @receipts.reverse.each do |receipt| %>
+    <% message = receipt.message %>
+    <% if message.sender == current_user %>
+      <% classes = "one-message recipient-aligned" %>
+    <% else %>
+      <% classes = "one-message" %>
+    <% end %>
+    <div class="<%= classes %>" >
+      <p>Sender: <%= message.sender.name %></p>
+      <p><%= message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></p><br>
+      <p><%= message.body %></p>
+    </div>
+  <% end %>
+</div>

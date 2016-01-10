@@ -1,9 +1,16 @@
 .alert-box.info.radius.notice {
     background-color: #ffffe5 !important;
-    color: black;
+    color: $charcoal;
+    border: #ffffe5;
+    font-weight: $font-weight-bold;
 }
 
 .alert-box.info.radius.alert {
     background-color: tomato !important;
     color: black;
+    border: #ffffe5;
+}
+
+.alert-box {
+  margin-bottom: 0;
 }

@@ -1,6 +1,7 @@
 /*
 *= require select2
-*= require jquery-ui
+*= require jquery-ui/sortable
+*= require social-share-button
 */
 
 // colour variables
@@ -11,6 +12,7 @@ $volunteerbutton-and-cardheader: #1cbe6f;
 $font-weight-normal: 300;
 
 @import "foundation_and_overrides";
+@import "foundation-icons";
 @import "maps";
 @import "arrangements";
 @import "timeslots";
@@ -27,4 +29,8 @@ $font-weight-normal: 300;
 @import "orbit";
 @import "layout";
 @import "alerts";
+@import "checkboxes";
+@import "welcomes";
+@import "mailbox";
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300);
+@import "social-share-button";

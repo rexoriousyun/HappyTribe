@@ -1,0 +1,139 @@
+ul.icon-bar.vertical.three-up {
+  margin-left: 0;
+  background-color: $navbarcolor;
+  width: 90%;
+  a {
+    color: white;
+    font-size: 12px;
+  }
+
+  li.active.item {
+    background-color: white;
+    box-shadow:inset 0px 0px 0px 1px $navbarcolor;
+    a {
+      color: $navbarcolor;
+    }
+  }
+
+  li:hover {
+    background-color: $navbarhovercolor;
+  }
+
+  li {
+    padding-top: 15%;
+    padding-bottom: 15%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+.mailbox-head {
+  padding-bottom: 2%;
+}
+
+.one-message {
+  padding: 5%;
+  margin-bottom: 2%;
+  border: 1px $navbarcolor solid;
+}
+
+// All media queries for Mailbox
+
+@media screen and (min-device-width: 1200px) {
+  .one-message {
+    padding: 2% !important;
+    margin-bottom: 2% !important;
+    border: 1px $navbarcolor solid;
+  }
+
+  div.one-message > p {
+    font-size: 14px !important;
+    margin-bottom: 1% !important;
+  }
+
+  p.convo {
+    margin-bottom: 0.25% !important;
+    font-size: 16px !important;
+  }
+
+  div.convo-box {
+    border: 1px #d4d1d1 solid;
+    padding: 1% !important;
+  }
+
+  .reply-box {
+    width: 81% !important;
+    margin-right: 1% !important;
+  }
+
+  .reply-button {
+    width: 8% !important;
+    padding: 0.75% !important;
+  }
+
+  ul.icon-bar.vertical.three-up {
+    margin-left: 0;
+    background-color: $navbarcolor;
+    width: 90%;
+    a {
+      color: white;
+      font-size: 16px !important;
+    }
+
+    li.active.item {
+      background-color: white;
+      box-shadow:inset 0px 0px 0px 1px $navbarcolor;
+      a {
+        color: $navbarcolor;
+      }
+    }
+
+    li:hover {
+      background-color: $navbarhovercolor;
+    }
+
+    li {
+      padding: 6% 3% 6% 3% !important;
+    }
+  }
+}
+
+div.one-message > p {
+  font-size: 12px;
+  margin-bottom: 1%;
+}
+
+p.convo {
+  margin-bottom: 1%;
+  font-size: 12px;
+}
+
+div.convo-box {
+  border: 1px $navbarcolor solid;
+  padding: 5%;
+}
+
+div.convo-box:hover {
+  background-color: #ebebeb;
+  cursor: pointer;
+}
+
+.reply-button {
+  width: 25%;
+  padding: 1%;
+}
+
+.reply-box {
+  width: 60%;
+  margin-right: 4%;
+}
+
+.unread {
+  background-color: #fcfcdf;
+}
+
+.recipient-aligned {
+  text-align: right;
+}
+
+

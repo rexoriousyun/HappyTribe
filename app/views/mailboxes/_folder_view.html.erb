@@ -1,18 +1,24 @@
-<h1>Your Message Inbox</h1>
-<div class="medium-12 columns">
-  <%= link_to "Compose", new_conversation_path, class: "button" %>
+<div class="mailbox-head large-12 columns">
+  <h1>Your Messages</h1>
+</div>
+<div class="large-12 columns">
+  <ul class="right">
+    <%= link_to "New message", new_conversation_path, class: "button" %>
+  </ul>
 </div>
 
-<div class="medium-4 columns">
+<div class="large-2 small-3 columns">
   <%= render 'mailboxes/folders' %>
 </div>
 
-<div class="medium-8 columns">
+<div class="large-10 small-9 columns">
   <% if is_conversation %>
     <%= render 'conversations/form' %>
   <% elsif messages.any? %>
     <%= render partial: 'conversations/conversation', collection: messages %>
   <% else %>
-    <p>No messages to display</p>
+    <div class="convo-box">
+      <p>No messages to display</p>
+    </div>
   <% end %>
 </div>
