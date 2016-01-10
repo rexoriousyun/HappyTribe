@@ -27,3 +27,45 @@ ul.icon-bar.vertical.three-up {
 .mailbox-head {
   padding-bottom: 2%;
 }
+
+.one-message {
+  padding: 5%;
+  margin-bottom: 2%;
+  border: 1px #d4d1d1 solid;
+}
+
+@media screen and (min-device-width: 1200px) {
+  .one-message {
+    padding: 2%;
+    margin-bottom: 2%;
+    border: 1px #d4d1d1 solid;
+  }
+
+  div.one-message > p {
+    font-size: 16px !important;
+    margin-bottom: 1%;
+  }
+
+  p.convo {
+    margin-bottom: 0.25% !important;
+  }
+
+  div.convo-box {
+    border: 1px #d4d1d1 solid;
+    padding: 1% !important;
+  }
+}
+
+div.one-message > p {
+  font-size: 12px;
+  margin-bottom: 1%;
+}
+
+p.convo {
+  margin-bottom: 1%;
+}
+
+div.convo-box {
+  border: 1px #d4d1d1 solid;
+  padding: 5%;
+}

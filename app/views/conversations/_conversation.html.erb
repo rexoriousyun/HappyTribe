@@ -1,7 +1,5 @@
-<div>
-  <h3>User: <%= conversation.originator.name %></h3><br>
-  <p>Subject: <%= conversation.subject %></p><br>
-  <p>Date: <%= conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %><br>
-  <%= truncate conversation.messages.last.body, length: 150 %><br>
+<div class="convo-box">
+  <p class="convo"><%= conversation.messages.last.sender.name %> | Last message: <%= truncate conversation.messages.last.body, length: 50 %></p>
+    <small><%= conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small><br>
   <%= link_to "View this conversation", conversation_path(conversation), class: "button" %>
-</p>
+</div>
