@@ -25,8 +25,10 @@ class User < ActiveRecord::Base
       "#{self.first_name} #{self.last_name} (#{self.email})"
     elsif self.first_name.present?
       "#{self.first_name} (#{self.email})"
-    else
+    elsif self.email.present?
       "User #{self.id} (#{self.email})"
+    else
+      "User #{self.id}"
     end
   end
 
