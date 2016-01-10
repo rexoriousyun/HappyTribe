@@ -1,5 +1,4 @@
-<div class="convo-box">
+<div class="convo-box" data-url="<%= conversation_url(conversation) %>">
   <p class="convo"><%= conversation.messages.last.sender.name %> | Last message: <%= truncate conversation.messages.last.body, length: 50 %></p>
     <small><%= conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small><br>
-  <%= link_to "View this conversation", conversation_path(conversation), class: "button" %>
 </div>

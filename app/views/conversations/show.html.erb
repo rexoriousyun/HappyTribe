@@ -1,5 +1,5 @@
 <div class="mailbox-head large-12 columns">
-  <h1>Your Message Inbox</h1>
+  <h1>Your Messages</h1>
 </div>
 <div class="large-12 columns">
   <ul class="right">
@@ -13,19 +13,21 @@
 </div>
 
 
-<div class="large-2 small-4 columns">
+<div class="large-2 small-3 columns">
   <%= render 'mailboxes/folders' %>
 </div>
 
-<div class="large-10 small-8 columns">
+<div class="large-10 small-9 columns">
   <%= render partial: 'messages' %>
 </div>
 <div>
   <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
   <div>
-    <%= f.text_area :body, placeholder: "Type your reply", rows: 4 %>
+    <%= f.text_area :body, placeholder: "Type your reply", rows: 4, class: "large-10 columns right reply-box" %>
   </div>
-  <%= f.submit "Reply", class: "button" %>
+  <div class="large-12 columns">
+    <%= f.submit "Reply", class: "button right reply-button" %>
+  </div>
   <% end %>
 </div>
 
