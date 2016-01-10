@@ -1,18 +1,30 @@
-<div class="user_form_margin">
-<div class="user-form">
-	<h1>Sign Up for Happy Tribe</h1>
-	<%= form_for @user do |f| %>
-		<div><%= f.label :first_name, :class=>'something' %>
-			 <%= f.text_field :first_name %></div>
-		<div><%= f.label :last_name %>
-			 <%= f.text_field :last_name %></div>
-		<div><%= f.label :email %>
-			 <%= f.text_field :email %> </div>
-		<div><%= f.label :password %>
-			 <%= f.password_field :password %></div>
-		<div><%= f.label :password_confirmation %>
-			 <%= f.password_field :password_confirmation %></div>
-		<div><%= f.submit %></div>
-	<% end %>
-</div>
+
+<div class="login-form-wrapper">
+	<div class="login-form">
+		<div class="login-top">
+			<h1>Signup</h1>
+			<div class="social-logins">
+				<%= link_to auth_at_provider_path(:provider => :github), class: "button social-button", id: "github-login" do%>
+					<span><%=image_tag("github-logo.png", class:"social-logo")%></span><span>Log in with Github</span>
+				<%end%>
+				<%= link_to auth_at_provider_path(:provider => :google), class: "button social-button", id: "google-login" do%>
+					<span><%=image_tag("google-g.png", class:"social-logo")%></span><span>Log in with Google</span>
+				<%end%>
+				<%= link_to auth_at_provider_path(:provider => :facebook), class: "button social-button", id: "facebook-login" do%>
+					<span><%=image_tag("facebook-logo.png", class:"social-logo")%></span><span>Log in with Facebook</span>
+				<%end%>
+			</div>
+			<div class="login-or">
+				<span class="or-style">or</span>
+			</div>
+			<%= form_for @user do |f| %>
+				<p><%= f.text_field :first_name, placeholder:"First name", id: "form-input-style"%></p>
+				<p><%= f.text_field :last_name, placeholder:"Last Name", id: "form-input-style" %></p>
+				<p><%= f.text_field :email, placeholder:"Email", id: "form-input-style" %> </p>
+				<p><%= f.password_field :password, placeholder:"Password", id: "form-input-style"%></p>
+				<p><%= f.password_field :password_confirmation, placeholder:"Password Confirmation", id: "form-input-style"%></p>
+				<p><%= f.submit "Signup", id:"submit-button", class:"button"%></p>
+			<% end %>
+		</div>
+	</div>
 </div>
