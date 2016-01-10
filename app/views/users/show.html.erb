@@ -48,7 +48,8 @@
             <% current_user.bookmarks.each do |bookmark| %>
               <% event = bookmark.event %>
               <li id="sorted_<%= bookmark.id %>">
-                <%= link_to "#{event.name}", event_path(event) %> | <%= event.role %> | <%= event.start_time.strftime("%A, %b %d, %Y at %I:%M%p") %> <%= event.end_time.strftime("%I:%M%p") %> <br/>
+                <%= link_to "#{event.name}", event_path(event) %> | <%= event.role %></br>
+                <%= event.start_time.strftime("%A, %b %d, %Y at %I:%M%p") %> <%= event.end_time.strftime("%I:%M%p") %> <br/>
                 <%= button_to "Delete this bookmark",
               event_bookmark_path(bookmark.event, bookmark),
               :method => :delete, class: 'button round' %>
@@ -83,6 +84,4 @@
     </div>
   </div>
 </div>
-
-
-<script src="/assets/javascripts/bookmarks.js"></script>
+</div>

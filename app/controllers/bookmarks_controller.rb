@@ -22,6 +22,8 @@ class BookmarksController < ApplicationController
   end
 
   def update
+    
+
   end
 
   def destroy

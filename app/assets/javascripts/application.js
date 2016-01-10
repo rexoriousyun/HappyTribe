@@ -16,7 +16,6 @@
 //= require foundation
 //= require select2
 //= require cocoon
-//= require googlemaps
 //= require_tree .
 //= require social-share-button
 

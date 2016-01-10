@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   before_action :get_interests, only: [:new, :edit]
   before_action :get_skills, only: [:new, :edit]
   before_action :is_event_coordinator?, only: [:new, :edit, :create, :update, :destroy]
-  layout  :indexlayout
+  layout  :indexlayout, only: [:index]
 
   def new
     @event = @organization.events.build
