@@ -40,6 +40,11 @@ class EventsController < ApplicationController
       @events = @q.result.includes(:interests, :skills).uniq
     end
     render :layout => 'indexlayout'
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def show

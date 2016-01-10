@@ -15,6 +15,6 @@
     <% options << "Match my Skills" %>
   <% end %>
   <% options.each_with_index do |option| %>
-    <li><%= link_to option, events_path(filter: option) %></li>
+    <li><%= link_to option, events_path(filter: option), remote: true %></li>
   <% end %>
 </ul>
