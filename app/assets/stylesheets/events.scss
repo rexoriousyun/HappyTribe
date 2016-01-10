@@ -20,12 +20,12 @@ li.title a:hover {
 }
 
 .active-tb {
-  position: relative;
-  box-shadow: 0px 2px 10px 0px rgba(50, 50, 50, 0.5);
-  transform: scale(1);
-  border:0;
-  transition: 0.4s ease;
-  z-index:13;
+  // position: relative;
+  // box-shadow: 0px 2px 10px 0px rgba(50, 50, 50, 0.5);
+  // transform: scale(1);
+  // border:0;
+  // transition: 0.4s ease;
+  // z-index:13;
 }
 
 // The text saying upcoming volunteer events
@@ -57,10 +57,10 @@ li.image {
 }
 
 #event_role > a {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  // font-weight: 600;
   color: $charcoal;
-  line-height: 2.5rem;
+  // line-height: 2.5rem;
 }
 
 #org_name {
@@ -68,8 +68,11 @@ li.image {
   color: $charcoal;
 }
 
-#event_name {
+#event_name > a {
+  font-size: 1.5rem;
+  font-weight: 600;
   color: $charcoal;
+  line-height: 2.5rem;
 }
 
 .body-margin {
@@ -122,7 +125,12 @@ li.image {
   max-width: none;
 }
 
+#need {
+  color: $charcoal;
+}
 
-
+#org_name {
+  font-size: 1.25rem;
+}
 
 
