@@ -1,5 +1,5 @@
 <div class="all-receipts">
-  <% @receipts.each do |receipt| %>
+  <% @receipts.reverse.each do |receipt| %>
     <% message = receipt.message %>
     <div class="one-message">
       <p>Sender: <%= message.sender.name %></p>
