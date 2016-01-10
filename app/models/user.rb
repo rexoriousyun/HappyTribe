@@ -21,9 +21,9 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :authentications
 
   def name
-    if self.first_name.present? && self.last_name.present?
+    if self.first_name.present? && self.last_name.present? && self.email.present?
       "#{self.first_name} #{self.last_name} (#{self.email})"
-    elsif self.first_name.present?
+    elsif self.first_name.present? && self.email.present?
       "#{self.first_name} (#{self.email})"
     elsif self.email.present?
       "User #{self.id} (#{self.email})"
