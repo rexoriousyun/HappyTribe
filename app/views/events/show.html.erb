@@ -28,7 +28,7 @@
   </div>
   <div class="small-12 large-4 columns topspace">
     <div class="panel callout radius">
-    <h1><%= @event.organization.name %></h1>
+    <h3><%= @event.organization.name %></h3>
     <h5><%= @event.organization.description %></h5>
     <p><%= link_to "#{@event.organization.website_url}", @event.organization.website_url %></p>
     <p><%= mail_to(@event.organization.email) %></p>
