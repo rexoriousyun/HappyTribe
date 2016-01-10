@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   def name
     if self.first_name.present? && self.last_name.present? && self.email.present?
-      "#{self.first_name} #{self.last_name} (#{self.email})"
+      "#{self.first_name} #{self.last_name[0]} (#{self.email})"
     elsif self.first_name.present? && self.email.present?
       "#{self.first_name} (#{self.email})"
     elsif self.email.present?
