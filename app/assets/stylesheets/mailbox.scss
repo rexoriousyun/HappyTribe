@@ -60,6 +60,10 @@ ul.icon-bar.vertical.three-up {
     border: 1px #d4d1d1 solid;
     padding: 1% !important;
   }
+  div.convo-box2 {
+    border: 1px #d4d1d1 solid;
+    padding: 1% !important;
+  }
 
   .reply-box {
     width: 81% !important;
@@ -134,6 +138,11 @@ div.convo-box:hover {
 
 .recipient-aligned {
   text-align: right;
+}
+
+div.convo-box2 {
+  border: 1px $navbarcolor solid;
+  padding: 5%;
 }
 
 
