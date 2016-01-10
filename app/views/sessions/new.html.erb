@@ -1,17 +1,30 @@
-<div class="login-form">
-	<h1>Login to Happy Tribe</h1>
-	<%= form_tag sessions_path do %>
-		<p>
-			<%= label_tag :email %>
-			<%= text_field_tag :email, params[:email] %>
-		</p>
-		<p>
-			<%= label_tag :password %>
-			<%= password_field_tag :password %>
-		</p>
-		<p> <%= submit_tag "Login", class: "button" %> </p>
-	<% end %>
-	<%= link_to 'Login with Github', auth_at_provider_path(:provider => :github) %>
-	<%= link_to 'Login with google', auth_at_provider_path(:provider => :google) %>
-	<%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
+<div class="login-form-wrapper">
+	<div class="login-form">
+		<div class="login-top">
+			<h1>Login</h1>
+			<div class="social-logins">
+				<%= link_to auth_at_provider_path(:provider => :github), class: "button social-button", id: "github-login" do%>
+					<span><%=image_tag("github-logo.png", class:"social-logo")%></span><span>Log in with Github</span>
+				<%end%>
+				<%= link_to auth_at_provider_path(:provider => :google), class: "button social-button", id: "google-login" do%>
+					<span><%=image_tag("google-g.png", class:"social-logo")%></span><span>Log in with Google</span>
+				<%end%>
+				<%= link_to auth_at_provider_path(:provider => :facebook), class: "button social-button", id: "facebook-login" do%>
+					<span><%=image_tag("facebook-logo.png", class:"social-logo")%></span><span>Log in with Facebook</span>
+				<%end%>
+			</div>
+			<div class="login-or">
+				<span class="login-or"></span>
+			</div>
+			<%= form_tag sessions_path do %>
+				<p>
+					<%= text_field_tag :email, params[:email], placeholder:"Email", id: "form-input-style" %>
+				</p>
+				<p>
+					<%= password_field_tag :password,"",placeholder: "Password", id:"form-input-style" %>
+				</p>
+				<p> <%= submit_tag "Login", id:"submit-button", class:"button" %> </p>
+			<% end %>
+		</div>
+	</div>
 </div>

@@ -1,0 +1,13 @@
+<div class="login-form-wrapper">
+  <div class="login-form">
+    <div class="login-top">
+      <h1>Edit User Profile</h1>
+      <%= form_for @user do |f| %>
+        <p><%= f.text_field :first_name, placeholder:"First name", id: "form-input-style"%></p>
+        <p><%= f.text_field :last_name, placeholder:"Last Name", id: "form-input-style" %></p>
+        <p><%= f.password_field :password, placeholder:"Password", id: "form-input-style"%></p>
+        <p><%= f.password_field :password_confirmation, placeholder:"Password Confirmation", id: "form-input-style"%></p>
+        <p><%= f.submit "Signup", id:"submit-button", class:"button"%></p>
+      <% end %>
+    </div>
+  </div>

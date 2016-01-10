@@ -20,8 +20,88 @@
     font-weight: bold;
     box-shadow:inset 0px 0px 0px 2px;
 }
+// signup-login
+#facebook-login{
+  background-color: #3b5998;
+  display: block;
+  &:active {
+    background-color: #8b9dc3;
+  }
+}
+#google-login{
+  background-color: #FF5722;
+  display: block;
+  &:active {
+    background-color: #EF6C00;
+  }
+}
+#github-login{
+  background-color: black;
+  display: block;
+  &:active {
+    background-color: #323232;
+  }
+} 
+.login-top{
+  width: 100%;
+  max-width: 340px;
+  margin: auto;
+  padding: 20px;
+  border: 2px solid #D3D3D3;
+  border-radius: 4px;
+  h1{
+    font-size: 2.5rem;
+  }
+
+}
+.login-form-wrapper{
+  margin-top: 40px;
+}
+.social-button{
+  display: block;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  padding: 7px 10px, 7px, 16px;
+  text-align: left;
+}
+.login-or{
+  margin: 30px 0px;
+  background-color: #D3D3D3;
+  width: 100%;
+  height: 2px;
+  text-align: center;
+
+}
+.or-style{
+    top:0;
+    padding: 0 6px;
+    transform: translate(0, -40%);
+    display:inline-block;
+    position:relative;
+    vertical-align: baseline;
+    text-align: center;
+    text-transform: uppercase;
+    background: white;
+    text-colour: #D3D3D3;
+  }
+
+#submit-button{
+  font-size: 1.3rem;
+  border-radius: 8px;
+  width: 100%;
+  padding: 10px;
+}
+.social-logo{
+  height:30px;
+  margin-right: 20px;
+}
+#form-input-style{
+  height: 3rem;
+  border-radius: 4px;
+}
 
 // content box on signup page and profile
 .user_form_margin {
   padding: 3%;
 }
+
