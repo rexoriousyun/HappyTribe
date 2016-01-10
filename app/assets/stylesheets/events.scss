@@ -19,13 +19,10 @@ li.title a:hover {
   text-decoration: underline;
 }
 
+//if there needs to be shadow on the boxes, this is it
 .active-tb {
   // position: relative;
   // box-shadow: 0px 2px 10px 0px rgba(50, 50, 50, 0.5);
-  // transform: scale(1);
-  // border:0;
-  // transition: 0.4s ease;
-  // z-index:13;
 }
 
 // The text saying upcoming volunteer events
@@ -33,7 +30,7 @@ li.title a:hover {
   font-size: 1.5rem;
   font-weight: 300;
   margin: 0% 1.5% 3% 1.5%;
-  text-align: center;
+  text-align: left;
 }
 
 .orbit_image img {
@@ -58,9 +55,7 @@ li.image {
 
 #event_role > a {
   font-size: 1.25rem;
-  // font-weight: 600;
   color: $charcoal;
-  // line-height: 2.5rem;
 }
 
 #org_name {
@@ -80,7 +75,7 @@ li.image {
 }
 
 .large-4.medium-6.small-12.columns {
-    padding:  0.25%;
+  padding:  0.25%;
 }
 
 
@@ -111,7 +106,7 @@ li.image {
     font-size: 1.5rem;
     font-weight: 300;
     margin: 0% 1.5% 1.5% 1.5%;
-    text-align: center;
+    text-align: left;
   }
 
   .filter-button {
@@ -133,4 +128,6 @@ li.image {
   font-size: 1.25rem;
 }
 
-
+#index_filter_button {
+  float: right;
+}

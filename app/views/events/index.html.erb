@@ -11,13 +11,14 @@
 </ul>
 
 <div class="body-margin">
-  <h1 class="all-volunteering">Upcoming Volunteering Events in <span id="location">Toronto</span></h1>
+  <h1 class="all-volunteering">Upcoming Volunteering Events in <span id="location">Toronto</span>
 
   <% if logged_in? %>
-  	<div class="filter-button">
+  	<span class="filter-button" id="index_filter_button">
   			<%= render 'filter_buttons' %>
-  	</div>
+  	</span>
   <% end %>
+  </h1>
 
   <div class="events-list">
   	<%= render @events %>
