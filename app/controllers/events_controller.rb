@@ -39,7 +39,6 @@ class EventsController < ApplicationController
     else
       @events = @q.result.includes(:interests, :skills).uniq
     end
-    render :layout => 'indexlayout'
 
     respond_to do |format|
       format.js
