@@ -78,3 +78,45 @@ user_11_postmedia_coordinator = User.create(
   password: "blah",
   password_confirmation: "blah",
   );
+user_12_humane_coordinator = User.create(
+  first_name: "Catherine",
+  last_name: "Cats",
+  email: "cat@torontohumane.com",
+  password: "blah",
+  password_confirmation: "blah",
+  );
+user_13_sick_kids_coordinator = User.create(
+  first_name: "Shirley",
+  last_name: "Kidd",
+  email: "shirley@sickkids.com",
+  password: "blah",
+  password_confirmation: "blah",
+  );
+user_14_canada_running_coordinator = User.create(
+  first_name: "Brian",
+  last_name: "Runners",
+  email: "brian@canadarunning.com",
+  password: "blah",
+  password_confirmation: "blah",
+  );
+user_15_breast_cancer_coordinator = User.create(
+  first_name: "Julie",
+  last_name: "Jackson",
+  email: "juliejackson@breastcancer.com",
+  password: "blah",
+  password_confirmation: "blah",
+  );
+user_16_heart_and_stroke_coordinator = User.create(
+  first_name: "Harry",
+  last_name: "Smith",
+  email: "harry@heartandstroke.com",
+  password: "blah",
+  password_confirmation: "blah",
+  );
+user_17_toronto_environment_coordinator = User.create(
+  first_name: "Tom",
+  last_name: "Vires",
+  email: "tom@torontoenvironment.com",
+  password: "blah",
+  password_confirmation: "blah",
+  );
