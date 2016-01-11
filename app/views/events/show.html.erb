@@ -21,7 +21,7 @@
           <div data-latitude="<%= @event.latitude %>" data-longitude="<%= @event.longitude %>" id="event-map"> </div>
           <p class="address"><%= @event.location %></p>
           <p>
-            <%= render partial: 'bookmarks/form', locals: { event: @event } %>
+            <%= render partial: 'bookmarks/form', locals: { event: @event, bookmark: Bookmark.new } %>
           </p>
           <p class="hashtags">
             <% @event.interests.each do |interest| %>

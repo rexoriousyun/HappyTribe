@@ -1,3 +1,10 @@
-<%= form_for [event, Bookmark.new], remote: true do |f| %>
-    <%= f.submit value: "add to bookmarks", class: "button radius", id: "bookmark-button-event#{event.id}" %>
+<%= form_for [event, bookmark], remote: true do |f| %>
+    <% if bookmark.bookmarked_already?(current_user, event) %>
+      <% value_string = "Already Bookmarked!" %>
+      <% should_disable = true %>
+    <% else %>
+      <% value_string = "Add to Bookmarks" %>
+      <% should_disable = false %>
+    <% end %>
+    <%= f.submit value: value_string, class: "button radius", id: "bookmark-button-event#{event.id}", disabled: should_disable %>
 <% end %>

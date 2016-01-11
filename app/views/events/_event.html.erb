@@ -16,7 +16,7 @@
             </li>
           </ul>
           or
-          <%= render partial: 'bookmarks/form', locals: { event: event } %>
+          <%= render partial: 'bookmarks/form', locals: { event: event, bookmark: Bookmark.new } %>
         </li>
         <li>
           <small><%= event.total_volunteers %> / <%= event.capacity %> Volunteer Spots Filled</small>
