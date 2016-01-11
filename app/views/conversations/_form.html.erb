@@ -1,15 +1,17 @@
-<%= form_for :conversation, url: :conversations, html: { class: "conversation" } do |f| %>
-  <%= f.label :recipients %>
-  <%= f.select(:recipients, User.all.collect { |p| [ p.name, p.id ] }, {selected: params[:recipients]}, {multiple: true,  class: 'select', id: "recipient-select" }) %>
-  <div>
-    <%= f.label :subject %>
-    <%= f.text_field :subject, placeholder: "Subject" %>
-  </div>
-  <div>
-    <%= f.label :message %>
-    <%= f.text_area :body %>
-  </div>
+<div class="new-convo">
+  <%= form_for :conversation, url: :conversations, html: { class: "conversation" } do |f| %>
+    <%= f.label :recipients %>
+    <%= f.select(:recipients, User.all.collect { |p| [ p.name, p.id ] }, {selected: params[:recipients]}, {multiple: true,  class: 'select', id: "recipient-select" }) %>
+    <div>
+      <%= f.label :subject %>
+      <%= f.text_field :subject, placeholder: "Subject" %>
+    </div>
+    <div>
+      <%= f.label :message %>
+      <%= f.text_area :body %>
+    </div>
 
-  <%= f.submit "Send Message", class: "button radius" %>
+    <%= f.submit "Send Message", class: "button radius" %>
 
-<% end %>
+  <% end %>
+</div>
