@@ -9,7 +9,7 @@ class ArrangementsController < ApplicationController
     @arrangement = @timeslot.arrangements.build
     @arrangement.user = current_user
     if @arrangement.save
-      UserMailer.registered_email(@arrangement.user).deliver_later
+      UserMailer.registered_email(@arrangement.user).deliver_now
       redirect_to event_path(@timeslot.event), notice: "Arrangement successfully made!"
     else
       arr_errors = @arrangement.errors.full_messages if @arrangement.errors.any?
