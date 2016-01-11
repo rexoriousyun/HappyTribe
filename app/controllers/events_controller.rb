@@ -115,7 +115,4 @@ class EventsController < ApplicationController
       'layout'
     end
   end
-
-
-
 end
