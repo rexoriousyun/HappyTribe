@@ -1,9 +1,8 @@
 $(function() {
   $('#sorted-bookmarks').sortable({
-    containment: 'document',
+    containment: 'parent',
     tolerance: 'pointer',
     cursor: 'pointer',
-    revert: true,
     axis: 'y',
     update: function() {
     	var data  = $(this).sortable('serialize');
