@@ -9,7 +9,6 @@
           <h1 class="event_role_margin"><%= @event.role %></h1>
           <h3><%= @event.name %></h3>
           <div class="event-details">
-            <p><%= link_to @event.organization.name, organization_path(@event.organization) %></p>
             <p><%= @event.start_time.strftime("%F %n %I:%M %p") %> - <%= @event.end_time.strftime("%I:%M %p") %></p>
           </div>
           <p><%= @event.description %></p>
@@ -20,29 +19,32 @@
         </div>
         <div class="small-12 large-5 columns">
           <div data-latitude="<%= @event.latitude %>" data-longitude="<%= @event.longitude %>" id="event-map"> </div>
-          <p><%= @event.location %></p>
+          <p class="address"><%= @event.location %></p>
           <p><%= form_for [@event, @bookmark] do |f| %>
               <%= f.submit value: "add to bookmarks", class: 'button radius' %>
             <% end %>
           </p>
+          <p class="hashtags">
+            <% @event.interests.each do |interest| %>
+              <%="##{interest.name} "%>
+            <% end %>
+            <% @event.skills.each do |skill| %>
+              <%="##{skill.name} "%>
+            <% end %>
+          </p>
           <p><%= social_share_button_tag(@event.name, :popup => "true") %></p>
+
         </div>
       </div>
     </div>
   </div>
   <div class="small-12 large-4 columns topspace">
     <div class="panel callout radius">
-    <h3 class="event_org_name"><%= @event.organization.name %></h3>
-    <p><%= @event.organization.description %></p>
-    <p><%= link_to "#{@event.organization.website_url}", @event.organization.website_url %></p>
-    <p><%= mail_to(@event.organization.email) %></p>
-    <p><%= link_to "Message the event coordinator!", new_conversation_path(:recipients => [@event.organization.event_coordinator]), class: "button radius" %></p>
-    <ul>
-      <% @event.organization.events.each do |event| %>
-        <li><%= event.role %> - <%= event.name %></li>
-        <li><%= event.start_time.strftime("%F") %></li></br>
-      <% end %>
-    </ul>
+      <h3 class="event_org_name"><%= link_to @event.organization.name, organization_path(@event.organization) %></h3>
+      <p><%= @event.organization.description %></p>
+      <p><%= link_to "#{@event.organization.website_url}", @event.organization.website_url %></p>
+      <p><%= mail_to(@event.organization.email) %></p>
+      <p><%= link_to "Message the event coordinator!", new_conversation_path(:recipients => [@event.organization.event_coordinator]), class: "button radius" %></p>
     </div>
   </div>
 </div>

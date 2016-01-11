@@ -8,7 +8,6 @@
 
 
       <li class="bullet-item"><%= event.location %></li>
-      <%= render partial: 'bookmarks/form', locals: { event: event } %>
       <div id="timeslot-list">
         <li class="bullet-item"><p>Choose a time to volunteer</p>
           <ul class="button-group radius">
@@ -16,11 +15,15 @@
               <a href="#" ><%= render partial: 'timeslots/timeslot', collection: event.timeslots.order(start_time: :asc) %></a>
             </li>
           </ul>
+          or
+          <%= render partial: 'bookmarks/form', locals: { event: event } %>
         </li>
-        <small><%= event.total_volunteers %> / <%= event.capacity %> Volunteer Spots Filled</small>
-        <div class="progress secondary alert success radius">
-            <span class="meter" style="width: <%= event.progress %>%"></span>
-        </div>
+        <li>
+          <small><%= event.total_volunteers %> / <%= event.capacity %> Volunteer Spots Filled</small>
+          <div class="progress secondary alert success radius">
+              <span class="meter" style="width: <%= event.progress %>%"></span>
+          </div>
+        </li>
       </div>
        </ul>
     </div>
