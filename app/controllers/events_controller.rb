@@ -57,7 +57,9 @@ class EventsController < ApplicationController
 
   def update
     if @event.update_attributes(event_params)
-      EventMailer.modified_email(@event).deliver_now
+      if @event.arrangements.any?
+        EventMailer.modified_email(@event).deliver_now
+      end
       redirect_to event_path(@event), notice: "Successfully updated #{@event.name}."
     else
       flash[:alert] = "There was a problem saving your changes."
@@ -67,7 +69,9 @@ class EventsController < ApplicationController
 
   def destroy
     if @event.destroy
-      EventMailer.deleted_email(@event).deliver_now
+      if @event.arrangements.any?
+        EventMailer.deleted_email(@event).deliver_now
+      end
       redirect_to user_managed_organizations_path(current_user), notice: "Event cancelled"
     else
       flash[:alert] = "Something went wrong, please try again."
