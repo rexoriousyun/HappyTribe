@@ -3,11 +3,11 @@
 </div>
 <div class="large-12 columns">
   <ul class="right">
-    <%= link_to "New message", new_conversation_path, class: "button" %>
+    <%= link_to "New message", new_conversation_path, class: "button radius" %>
     <% if conversation.is_trashed?(current_user) %>
-      <%= link_to "Untrash", untrash_conversation_path(conversation), class: "button", method: :post %>
+      <%= link_to "Untrash", untrash_conversation_path(conversation), class: "button radius", method: :post %>
     <% else %>
-      <%= link_to 'Trash this conversation', trash_conversation_path(conversation), class: "button", method: :post, data: {confirm: "Do you want to move this to trash?"} %>
+      <%= link_to 'Trash this conversation', trash_conversation_path(conversation), class: "button radius", method: :post, data: {confirm: "Do you want to move this to trash?"} %>
     <% end %>
   </ul>
 </div>
@@ -26,7 +26,7 @@
     <%= f.text_area :body, placeholder: "Type your reply", rows: 4, class: "large-10 columns right reply-box" %>
   </div>
   <div class="large-12 columns">
-    <%= f.submit "Reply", class: "button right reply-button" %>
+    <%= f.submit "Reply", class: "button radius right reply-button" %>
   </div>
   <% end %>
 </div>

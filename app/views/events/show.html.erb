@@ -22,7 +22,7 @@
           <div data-latitude="<%= @event.latitude %>" data-longitude="<%= @event.longitude %>" id="event-map"> </div>
           <p><%= @event.location %></p>
           <p><%= form_for [@event, @bookmark] do |f| %>
-              <%= f.submit value: "add to bookmarks", class: 'button' %>
+              <%= f.submit value: "add to bookmarks", class: 'button radius' %>
             <% end %>
           </p>
           <p><%= social_share_button_tag(@event.name, :popup => "true") %></p>
@@ -32,10 +32,11 @@
   </div>
   <div class="small-12 large-4 columns topspace">
     <div class="panel callout radius">
-    <h3><%= @event.organization.name %></h3>
-    <h5><%= @event.organization.description %></h5>
+    <h3 class="event_org_name"><%= @event.organization.name %></h3>
+    <p><%= @event.organization.description %></p>
     <p><%= link_to "#{@event.organization.website_url}", @event.organization.website_url %></p>
     <p><%= mail_to(@event.organization.email) %></p>
+    <p><%= link_to "Message the event coordinator!", new_conversation_path(:recipients => [@event.organization.event_coordinator]), class: "button radius" %></p>
     <ul>
       <% @event.organization.events.each do |event| %>
         <li><%= event.role %> - <%= event.name %></li>
@@ -49,11 +50,11 @@
 <% if logged_in? %>
   <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
 
-    <%= link_to "Edit Event", edit_organization_event_path(@event.organization, @event), class: "button round" %>
+    <%= link_to "Edit Event", edit_organization_event_path(@event.organization, @event), class: "button radius" %>
 
-    <%= button_to "Cancel Event", organization_event_path(@event.organization, @event), class: "button round", method: "delete", data: { confirm: "Are you sure you wish to cancel this event?"} %>
+    <%= button_to "Cancel Event", organization_event_path(@event.organization, @event), class: "button radius", method: "delete", data: { confirm: "Are you sure you wish to cancel this event?"} %>
   <% elsif @event.organization.event_coordinator %>
-    <%= link_to "Message the event coordinator!", new_conversation_path(:recipients => [@event.organization.event_coordinator]), class: "button round" %>
+<!--     <%= link_to "Message the event coordinator!", new_conversation_path(:recipients => [@event.organization.event_coordinator]), class: "button round" %> -->
   <% end %>
 <% end %>
 
