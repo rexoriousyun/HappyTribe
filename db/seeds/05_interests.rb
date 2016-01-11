@@ -11,7 +11,7 @@ senior_care_4 = Interest.create(
   name: "Senior Care"
   );
 womens_rights_5 = Interest.create(
-  name: "Women's Issues"
+  name: "Female Empowerment"
   );
 lgbt_6 = Interest.create(
   name: "LGBT"

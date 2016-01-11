@@ -13,8 +13,8 @@ Event.find(2).skills << Skill.find(6)
 Event.find(3).interests << Interest.find(1)
 Event.find(3).skills << Skill.find(7)
 
-Event.find(4).interests << Interest.find(2)
-Event.find(4).skills << Skill.find(5)
+Event.find(4).interests << Interest.find(5)
+Event.find(4).skills << Skill.find(3)
 
 Event.find(5).interests << Interest.find(10)
 Event.find(5).skills << Skill.find(8)
