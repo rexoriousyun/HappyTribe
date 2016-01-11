@@ -13,7 +13,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   process resize_to_fit: [500, 500]
 
   version :mobile do
-    process resize_to_fill: [360,150]
+    process resize_to_fill: [417,150]
+  end
+
+  version :show do
+    process resize_to_fill: [448,150]
   end
 
   version :tiny do

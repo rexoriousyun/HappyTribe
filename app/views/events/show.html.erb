@@ -4,11 +4,9 @@
       <div class="row">
         <div class="small-12 large-7 columns">
           <div class="image">
-            <%= image_tag @event.event_image.url(:mobile) %> <%= form_for [@event, @bookmark] do |f| %>
-              <%= f.submit value: "add to bookmarks", class: 'button round' %>
-            <% end %>
+            <%= image_tag @event.event_image.url(:show) %>
           </div>
-          <h1><%= @event.role %></h1>
+          <h1 class="event_role_margin"><%= @event.role %></h1>
           <h3><%= @event.name %></h3>
           <div class="event-details">
             <p><%= link_to @event.organization.name, organization_path(@event.organization) %></p>
@@ -23,7 +21,11 @@
         <div class="small-12 large-5 columns">
           <div data-latitude="<%= @event.latitude %>" data-longitude="<%= @event.longitude %>" id="event-map"> </div>
           <p><%= @event.location %></p>
-          <%= social_share_button_tag(@event.name, :popup => "true") %>
+          <p><%= form_for [@event, @bookmark] do |f| %>
+              <%= f.submit value: "add to bookmarks", class: 'button' %>
+            <% end %>
+          </p>
+          <p><%= social_share_button_tag(@event.name, :popup => "true") %></p>
         </div>
       </div>
     </div>
