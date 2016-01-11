@@ -15,7 +15,6 @@
               <a href="#" ><%= render partial: 'timeslots/timeslot', collection: event.timeslots.order(start_time: :asc) %></a>
             </li>
           </ul>
-          or
           <%= render partial: 'bookmarks/form', locals: { event: event, bookmark: Bookmark.new } %>
         </li>
         <li>
