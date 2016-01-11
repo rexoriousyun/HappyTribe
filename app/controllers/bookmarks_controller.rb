@@ -34,15 +34,6 @@ class BookmarksController < ApplicationController
     end
   end
 
-  def sort
-    @user = current_user
-    @bookmarks = @user.bookmarks.all
-    @bookmarks.each do |bookmark|
-      bookmark.position = params['bookmark'].index(bookmark.position.to_s) + 1
-      bookmark.save
-    end
-  end
-
   private
 
   def get_event
