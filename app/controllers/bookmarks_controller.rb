@@ -7,12 +7,15 @@ class BookmarksController < ApplicationController
   def create
   	@bookmark = @event.bookmarks.build
     @bookmark.user = current_user
-    if @bookmark.save
-      redirect_to event_path(@event), notice: "bookmark successfully made!"
-    else
-      flash[:alert] = "Volunteering bookmark failed to save. Note: Can only bookmark an event once."
-      redirect_to event_path(@event)
-    end
+
+    respond_to do |format|
+      if @bookmark.save
+        format.html { redirect_to event_path(@event), notice: "bookmark successfully made!" }
+        format.js {}
+      else
+        format.html { redirect_to event_path(@event), alert: "Volunteering bookmark failed to save. Note: Can only bookmark an event once."}
+        format.js {}
+      end
   end
 
   def show
@@ -22,7 +25,7 @@ class BookmarksController < ApplicationController
   end
 
   def update
-    
+
 
   end
 
