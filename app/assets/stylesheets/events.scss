@@ -39,8 +39,9 @@ li.title a:hover {
 }
 
 
-li.image {
-	text-align: center;
+.event-image {
+	width: 100%;
+  height: auto;
   background-color: white;
 }
 
@@ -55,11 +56,6 @@ li.image {
 
 #event_role > a {
   font-size: 1.25rem;
-  color: $charcoal;
-}
-
-#org_name {
-  font-size: 0.5rem;
   color: $charcoal;
 }
 
@@ -126,6 +122,7 @@ li.image {
 
 #org_name {
   font-size: 1.25rem;
+  color: $charcoal;
 }
 
 #index_filter_button {
@@ -148,4 +145,8 @@ p.hashtags {
 p.address {
   padding-top: 2%;
   font-size: 15px;
+}
+
+.choose-a-time {
+  font-size: 1.25rem;
 }
