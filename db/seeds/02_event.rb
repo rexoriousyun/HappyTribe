@@ -19,12 +19,12 @@ bb_photographer_3 = Event.create(
   location: "1090 Don Mills Road, Toronto, ON M3C 3R6",
   description: "Come to the awesome big bike event and help us capture it!",
   );
-environment_sound_technician_4 = Event.create(
-  organization_id: 9,
-  name: "Environmental Awareness Event",
-  role: "Sound Technician",
-  location: "30 Centurian Dr, Markham, ON L3R 8T6",
-  description: "Come help us set up our audio equipment to spread awareness of environmental issues",
+ladies_learning_code_html_4 = Event.create(
+  organization_id: 6,
+  name: "HTML Workshop",
+  role: "HTML Mentor",
+  location: "483 Queen St W, Toronto, ON M5V 2A9",
+  description: "Register if you already know HTML & CSS and would like to help others learn!",
   );
 animal_trainer_5 = Event.create(
   organization_id: 4,
@@ -59,5 +59,5 @@ environment_garbage_picker_9 = Event.create(
   name: "Let's Clean Up!",
   role: "Garbage Picker",
   location: "20 Centurian Dr, Markham, ON L3R 8T6",
-  description: "Help us clean up the streets to show we care abotu the environment!",
+  description: "Help us clean up the streets to show we care about the environment!",
   );

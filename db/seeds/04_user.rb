@@ -92,10 +92,10 @@ user_13_sick_kids_coordinator = User.create(
   password: "blah",
   password_confirmation: "blah",
   );
-user_14_canada_running_coordinator = User.create(
-  first_name: "Brian",
-  last_name: "Runners",
-  email: "brian@canadarunning.com",
+user_14_ladies_learning_code_coordinator = User.create(
+  first_name: "Nat",
+  last_name: "Cooper",
+  email: "nat@cooper.com",
   password: "blah",
   password_confirmation: "blah",
   );

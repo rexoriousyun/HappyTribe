@@ -34,11 +34,11 @@ sick_kids_5 =  Organization.create(
   description: "The Hospital for Sick Children, also known as SickKids, is a major paediatric hospital located on University Avenue in Toronto, Ontario, Canada.",
   user_id: 13
   );
-canada_running_6 =  Organization.create(
-  name: "Canada Running Series",
-  email: "volunteer@canadarunningseries.com",
-  website_url: "www.canadarunningseries.com",
-  description: "The Canada Running Series, an annual road racing series showcasing the world's premiere distance runners and amateur athletics in Canada.",
+ladies_learning_code_6 =  Organization.create(
+  name: "Ladies Learning Code",
+  email: "info@ladieslearningcode.com",
+  website_url: "http://ladieslearningcode.com/",
+  description: "We are a not-for-profit organization with the mission to be the leading resource for women and youth to become passionate builders - not just consumers - of technology by learning technical skills in a hands-on, social, and collaborative way.",
   user_id: 14
   );
 breast_cancer_7 =  Organization.create(
