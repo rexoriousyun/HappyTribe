@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :events, only: [:index]
   resources :events, only: [:show] do
-    resources :bookmarks, only: [:create, :destroy, :update]
+    resources :bookmarks, only: [:create, :destroy]
   end
   resources :timeslots do
     resources :arrangements, only: [:new, :edit, :show, :create, :update, :destroy]

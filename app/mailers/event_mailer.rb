@@ -7,7 +7,7 @@ class EventMailer < ApplicationMailer
 		@event.arrangements.each do |arrangement|
 			@email_list << arrangement.user.email
 		end
-		mail(to: @email_list, subject: 'Your event has been updated')
+		mail(to: @email_list, subject: "Your event, #{@event.name} has been updated")
 	end
 
 	def deleted_email(event)
@@ -16,6 +16,6 @@ class EventMailer < ApplicationMailer
 		@event.arrangements.each do |arrangement|
 			@email_list << arrangement.user.email
 		end
-		mail(to: @email_list, subject: 'Your event has been deleted')
+		mail(to: @email_list, subject: "Your event, #{@event.name} has been deleted")
 	end	
 end

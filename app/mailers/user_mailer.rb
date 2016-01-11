@@ -8,6 +8,6 @@ class UserMailer < ApplicationMailer
 
 	def registered_email(user)
 		@user = user
-		mail(to: @user.email, subject: 'Welcome to HappyTribe')
+		mail(to: @user.email, subject: "You have joined #{@user.arrangements.last.event.name} in HappyTribe")
 	end
 end
