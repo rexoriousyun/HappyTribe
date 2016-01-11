@@ -49,7 +49,7 @@ food_server_7 = Event.create(
   );
 scott_food_bank_8 = Event.create(
   organization_id: 1,
-  name: "Scott Mission Christmas Volunteer",
+  name: "Scott Mission Volunteer",
   role: "Food Bank Helper",
   location: "502 Spadina Ave, Toronto, ON M5S 2H1",
   description: "Volunteers are an essential part of the work that happens at The Scott Mission. In 2014, 2,574 volunteers logged a total of 26,164 hours and performed a variety of tasks: helping in the food bank, serving hot meals in our dining room and many other ways. We are doing it again!",
