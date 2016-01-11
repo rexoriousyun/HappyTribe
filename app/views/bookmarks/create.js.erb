@@ -1,1 +1,5 @@
-$('#bookmark-button').attr('value').html('Bookmark Saved!');
+<% if @bookmark.errors.present? %>
+  $("#bookmark-button-event<%= @event.id %>").attr("value", "Bookmark Failed!");
+<% else %>
+  $("#bookmark-button-event<%= @event.id %>").attr("value", "Bookmark Saved!");
+<% end %>

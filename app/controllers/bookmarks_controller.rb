@@ -16,6 +16,7 @@ class BookmarksController < ApplicationController
         format.html { redirect_to event_path(@event), alert: "Volunteering bookmark failed to save. Note: Can only bookmark an event once."}
         format.js {}
       end
+    end
   end
 
   def show

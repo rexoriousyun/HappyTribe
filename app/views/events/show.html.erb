@@ -20,9 +20,8 @@
         <div class="small-12 large-5 columns">
           <div data-latitude="<%= @event.latitude %>" data-longitude="<%= @event.longitude %>" id="event-map"> </div>
           <p class="address"><%= @event.location %></p>
-          <p><%= form_for [@event, @bookmark] do |f| %>
-              <%= f.submit value: "add to bookmarks", class: 'button radius' %>
-            <% end %>
+          <p>
+            <%= render partial: 'bookmarks/form', locals: { event: @event } %>
           </p>
           <p class="hashtags">
             <% @event.interests.each do |interest| %>
