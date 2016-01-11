@@ -5,12 +5,15 @@ $(function() {
     cursor: 'pointer',
     axis: 'y',
     update: function() {
-    	var data  = $(this).sortable('serialize');
-    	$.ajax({
-    		data: data,
-    		type: 'POST',
-    		url: bookmark_update_path
-    	});
+      $.ajax({
+        url: '/bookmarks/sort',
+        type: 'post',
+        data: $('#bookmarks').sortable('serialize'),
+        dataType: 'script',
+        complete: function(request){
+          $('#bookmarks').effect('highlight');
+        }
+      });
     }
   });
 });

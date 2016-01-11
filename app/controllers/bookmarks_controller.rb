@@ -22,8 +22,6 @@ class BookmarksController < ApplicationController
   end
 
   def update
-    
-
   end
 
   def destroy
@@ -33,6 +31,15 @@ class BookmarksController < ApplicationController
     else
       redirect_to user_path(current_user)
       flash[:alert] = "Deleting this bookmark failed"
+    end
+  end
+
+  def sort
+    @user = current_user
+    @bookmarks = @user.bookmarks.all
+    @bookmarks.each do |bookmark|
+      bookmark.position = params['bookmark'].index(bookmark.position.to_s) + 1
+      bookmark.save
     end
   end
 
