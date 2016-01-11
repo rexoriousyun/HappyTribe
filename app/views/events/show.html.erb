@@ -13,7 +13,7 @@
           </div>
           <p><%= @event.description %></p>
           <div id="timeslot-list-show">
-            <h3>Book your time now</h3>
+            <h3><strong>Book your time now</strong></h3>
             <%= render partial: 'timeslots/timeslot', collection: @event.timeslots.order(start_time: :asc) %>
           </div>
         </div>
