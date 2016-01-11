@@ -22,9 +22,10 @@
             <ul class="left">
               <li class="has-form">
                   <div class="row collapse">
-                    <div class="large-8 small-9 columns">
+                    <div class="large-12 small-9 columns">
                         <%= search_form_for @q do |f| %>
                         <%= f.search_field :name_or_location_or_organization_name_or_description_or_role_or_interests_name_or_skills_name_cont, placeholder: "search by keywords" %>
+                        <%= f.submit "Search", id:"search-submit", class:"button"%>
                       <% end %>
                     </div>
                   </div>
