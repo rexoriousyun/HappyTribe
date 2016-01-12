@@ -46,3 +46,8 @@ li.event-image {
     }
 }
 
+.flashes {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
