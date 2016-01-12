@@ -36,7 +36,7 @@ li.event-image {
 
 #search-submit{
   display:inline;
-  background-color:#108943;
+  background-color: #169859;
   border-radius:4px;
 }
 
@@ -44,4 +44,10 @@ li.event-image {
     ul.example-orbit.orbit-slides-container {
       height: 445px !important;
     }
+}
+
+.flashes {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }

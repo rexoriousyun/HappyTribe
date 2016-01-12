@@ -10,7 +10,7 @@ class ArrangementsController < ApplicationController
     @arrangement.user = current_user
     if @arrangement.save
       UserMailer.registered_email(@arrangement.user).deliver_now
-      redirect_to event_path(@timeslot.event), notice: "Arrangement successfully made!"
+      redirect_to user_path(current_user), notice: "Arrangement successfully made!"
     else
       arr_errors = @arrangement.errors.full_messages if @arrangement.errors.any?
       flat_errors = arr_errors.join

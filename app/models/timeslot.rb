@@ -13,4 +13,5 @@ class Timeslot < ActiveRecord::Base
   def ends_at
   	self.end_time.localtime.strftime("%l:%M%P")
   end
+
 end
