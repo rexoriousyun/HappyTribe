@@ -67,17 +67,17 @@ class EventsController < ApplicationController
     end
   end
 
-  def destroy
-    if @event.destroy
-      if @event.arrangements.any?
-        EventMailer.deleted_email(@event).deliver_now
-      end
-      redirect_to user_managed_organizations_path(current_user), notice: "Event cancelled"
-    else
-      flash[:alert] = "Something went wrong, please try again."
-      render :show
-    end
-  end
+  # def destroy
+  #   if @event.destroy
+  #     if @event.arrangements.any?
+  #       EventMailer.deleted_email(@event).deliver_now
+  #     end
+  #     redirect_to user_managed_organizations_path(current_user), notice: "Event cancelled"
+  #   else
+  #     flash[:alert] = "Something went wrong, please try again."
+  #     render :show
+  #   end
+  # end
 
   private
 
