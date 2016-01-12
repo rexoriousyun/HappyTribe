@@ -82,7 +82,7 @@ li.title a:hover {
 
 // this is the progress bar color
 .progress.alert .meter {
-  background: $navbarcolor;
+  background: #CCCCCC;
 }
 
 .progress {
@@ -150,4 +150,6 @@ p.address {
 
 .choose-a-time {
   font-size: 1.25rem;
+  font-weight: 500;
+  color: $charcoal;
 }
