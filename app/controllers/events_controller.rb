@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   before_action :get_interests, only: [:new, :edit]
   before_action :get_skills, only: [:new, :edit]
   before_action :is_event_coordinator?, only: [:new, :edit, :create, :update, :destroy]
-  layout  :indexlayout, only: [:index]
+  layout :indexlayout, only: [:index]
 
   def new
     @event = @organization.events.build
@@ -67,17 +67,17 @@ class EventsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   if @event.destroy
-  #     if @event.arrangements.any?
-  #       EventMailer.deleted_email(@event).deliver_now
-  #     end
-  #     redirect_to user_managed_organizations_path(current_user), notice: "Event cancelled"
-  #   else
-  #     flash[:alert] = "Something went wrong, please try again."
-  #     render :show
-  #   end
-  # end
+  def destroy
+    if @event.destroy
+      if @event.arrangements.any?
+        EventMailer.deleted_email(@event).deliver_now
+      end
+      redirect_to user_managed_organizations_path(current_user), notice: "Event cancelled"
+    else
+      flash[:alert] = "Something went wrong, please try again."
+      render :show
+    end
+  end
 
   private
 
@@ -112,11 +112,11 @@ class EventsController < ApplicationController
     end
   end
 
-  def indexlayout
-    if 'index'
-      'indexlayout'
-    else
-      'layout'
-    end
-  end
+  # def indexlayout
+  #   if 'index'
+  #     'indexlayout'
+  #   else
+  #     'layout'
+  #   end
+  # end
 end
