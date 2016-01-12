@@ -1,14 +1,15 @@
 <%= form_for [event, bookmark], remote: true do |f| %>
     <% if logged_in? %>
       <% if bookmark.bookmarked_already?(current_user, event) %>
-        <% value_string = "Already Bookmarked!" %>
+        <% value_string = "★" %>
         <% should_disable = true %>
       <% else %>
-        <% value_string = "Add to Bookmarks" %>
+        <% value_string = "☆" %>
         <% should_disable = false %>
       <% end %>
     <% else %>
-      <% value_string = "Login to Bookmark" %>
+      <% value_string = "☆" %>
+      <% should_disable = true %>
     <% end %>
-    <%= f.submit value: value_string, class: "button radius", id: "bookmark-button-event#{event.id}", disabled: should_disable %>
+    <%= f.submit value: value_string, class: "button radius button-stars", id: "bookmark-button-event#{event.id}", disabled: should_disable %>
 <% end %>

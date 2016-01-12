@@ -1,7 +1,8 @@
 <div class="event">
   <div class="large-4 medium-6 small-12 columns">
     <ul class="pricing-table active-tb shadow mrgn-20-top">
-      <li class="title"><span id="event_name"><%= link_to event.name, event_path(event) %></span><br/><span id="event_role"><%= link_to event.role, event_path(event) %></span>
+      <li class="title"><span id="event_name"><%= link_to event.name, event_path(event) %></span><br/><span id="event_role"><%= link_to event.role, event_path(event) %>
+      <%= render partial: 'bookmarks/form', locals: { event: event, bookmark: Bookmark.new } %></span>
       <li class="event-image"><%= image_tag event.event_image.url(:mobile) if event.event_image.present? %></li>
       <li class="bullet-item" id="org_name"><%= link_to event.organization.name, organization_path(event.organization) %></li>
       <li class="bullet-item"><%= event.start_time.strftime("%b %d, %Y | %I:%M %p") %> - <%= event.end_time.strftime("%I:%M %p") %></li>
@@ -15,7 +16,6 @@
               <a href="#" ><%= render partial: 'timeslots/timeslot', collection: event.timeslots.order(start_time: :asc) %></a>
             </li>
           </ul>
-          <%= render partial: 'bookmarks/form', locals: { event: event, bookmark: Bookmark.new } %>
         </li>
         <li>
           <small><%= event.total_volunteers %> / <%= event.capacity %> Volunteer Spots Filled</small>

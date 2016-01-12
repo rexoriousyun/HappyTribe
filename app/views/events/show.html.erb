@@ -6,7 +6,9 @@
           <div class="event-image">
             <%= image_tag @event.event_image.url(:show) %>
           </div>
-          <h1 class="event_role_margin"><%= @event.role %></h1>
+          <h1 class="event_role_margin"><%= @event.role %>
+            <%= render partial: 'bookmarks/form', locals: { event: @event, bookmark: Bookmark.new } %>
+          </h1>
           <h3><%= @event.name %></h3>
           <div class="event-details">
             <p><%= @event.start_time.strftime("%F %n %I:%M %p") %> - <%= @event.end_time.strftime("%I:%M %p") %></p>
@@ -20,9 +22,6 @@
         <div class="small-12 large-5 columns">
           <div data-latitude="<%= @event.latitude %>" data-longitude="<%= @event.longitude %>" id="event-map"> </div>
           <p class="address"><%= @event.location %></p>
-          <p>
-            <%= render partial: 'bookmarks/form', locals: { event: @event, bookmark: Bookmark.new } %>
-          </p>
           <p class="hashtags">
             <% @event.interests.each do |interest| %>
               <%="##{interest.name} "%>
