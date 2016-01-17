@@ -59,7 +59,7 @@
   <div class="panel callout radius">
     <% if logged_in? %>
       <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
-        <h2>View all Volunteering Arrangements for this Event</h2>
+        <h2><strong>View all Volunteering Arrangements for this Event</strong></h2>
         <% @event.timeslots.each do |timeslot| %>
           <ul>
             <li><h3>Volunteers for <%= timeslot.starts_at %>-<%= timeslot.ends_at %></h3></li>
