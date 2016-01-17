@@ -55,27 +55,29 @@
   </div>
 </div>
 
-<div class="all-arrangements small-12 columns ">
-  <% if logged_in? %>
-    <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
-      <h2>View all Volunteering Arrangements for this Event</h2>
-      <% @event.timeslots.each do |timeslot| %>
-        <ul>
-          <li><h3>Volunteers for <%= timeslot.starts_at %>-<%= timeslot.ends_at %></h3></li>
+<div class="all-arrangements small-12 large-12 columns">
+  <div class="panel callout radius">
+    <% if logged_in? %>
+      <% if current_user.is_authorized?(@event.organization) || current_user.admin %>
+        <h2>View all Volunteering Arrangements for this Event</h2>
+        <% @event.timeslots.each do |timeslot| %>
           <ul>
-            <% if timeslot.arrangements.any? %>
-              <% timeslot.arrangements.each do |arrangement| %>
-                <li><%= "#{arrangement.user.first_name} #{arrangement.user.last_name} - Contact at:" %>
-                <%= mail_to(arrangement.user.email) %></li>
+            <li><h3>Volunteers for <%= timeslot.starts_at %>-<%= timeslot.ends_at %></h3></li>
+            <ul>
+              <% if timeslot.arrangements.any? %>
+                <% timeslot.arrangements.each do |arrangement| %>
+                  <li><%= "#{arrangement.user.first_name} #{arrangement.user.last_name} - Contact at:" %>
+                  <%= mail_to(arrangement.user.email) %></li>
+                <% end %>
+              <% else %>
+                <li>No volunteers for this timeslot</li>
               <% end %>
-            <% else %>
-              <li>No volunteers for this timeslot</li>
-            <% end %>
+            </ul>
           </ul>
-        </ul>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 
 
