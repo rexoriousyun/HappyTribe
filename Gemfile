@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_12factor', group: :production
+gem 'puma', group: :production
 
 gem 'jquery-ui-rails', '~> 5.0.0'
 
