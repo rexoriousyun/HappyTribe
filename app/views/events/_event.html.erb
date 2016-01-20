@@ -7,7 +7,6 @@
       <li class="bullet-item" id="org_name"><%= link_to event.organization.name, organization_path(event.organization) %></li>
       <li class="bullet-item"><%= event.start_time.strftime("%b %d, %Y | %I:%M %p") %> - <%= event.end_time.strftime("%I:%M %p") %></li>
 
-
       <li class="bullet-item"><%= event.location %></li>
       <div id="timeslot-list">
         <li class="bullet-item"><p class="choose-a-time">Choose a time to volunteer</p>
