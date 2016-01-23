@@ -11,6 +11,7 @@ $volunteerbutton-and-cardheader: #1cbe6f;
 //font-weight
 $font-weight-normal: 300;
 
+@import "footer";
 @import "foundation_and_overrides";
 @import "foundation-icons";
 @import "maps";
@@ -34,3 +35,4 @@ $font-weight-normal: 300;
 @import "mailbox";
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300);
 @import "social-share-button";
+
