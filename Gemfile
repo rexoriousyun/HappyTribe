@@ -63,9 +63,11 @@ gem 'protected_attributes'
 # use coccoon gem
 gem 'cocoon'
 # use carrierwave for file uploads
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 # use mini_magick for image resize
 gem "mini_magick"
+# use fog for AWS
+gem "fog-aws"
 # Use mailboxer for messaging
 gem 'mailboxer'
 # Use kaminari for pagination
